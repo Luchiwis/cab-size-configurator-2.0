@@ -1,0 +1,47 @@
+.sect input[type=radio]{
+    position: absolute;
+    left: -9999px;
+}
+.sect img,label{
+    margin: 10px;
+    border-radius: 10px;
+}
+
+input[type=radio]:checked+label>img {
+    border: 1px solid #fff;
+    box-shadow: 0 0 3px 10px #090;
+}
+input[type=radio]:checked+label>span {
+    border: 1px solid #fff;
+    box-shadow: 0 0 3px 10px #090;
+}
+
+/* Stuff after this is only to make things more pretty */
+input[type=radio]+label>img {
+    border: 1px dashed #444;
+    width: 200px;
+    height: 200px;
+    transition: 500ms all;
+}
+input[type=radio]+label>span {
+    border: 1px dashed #444;
+    width: 100%;
+    height: 15vh;
+    transition: 500ms all;
+}
+
+
+.sect{
+    border-radius: 10px !important;
+    padding: 5px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+
+}
+
+#sect-model input[type=radio]{
+    -ms-transform: scale(1.2); /* IE 9 */
+  -webkit-transform: scale(1.2); /* Chrome, Safari, Opera */
+  transform: scale(1.2);
+  margin-left: 5px;
+}

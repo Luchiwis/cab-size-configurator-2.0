@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cab size configurator</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/radio.css">
+    <style>
+        body {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        main {
+            margin: auto 0;
+        }
+
+        footer {
+            margin-top: auto;
+        }
+    </style>
+</head>
+
+<body data-bs-theme="dark">
+    <header class="text-center">
+        <div class="border">
+            <!--  -->
+        </div>
+    </header>
+    <main>
+        <section class="text-center">
+            <div class="my-5 w-50 mx-auto">
+                <h1 class="display-4">Select the inner cab size</h1>
+                <form action="model.html">
+
+                    <div id="sect-inner-size">
+                        <h4>
+                            Inner cab size
+                        </h4>
+                        <label for="inner-width" class="form-label w-100">
+                            <div class="row">
+                                <div class="col-2 text-left" id="min-inner-width-label">min</div>
+                                <div class="col">Width: <span id="inner-width-value-label"></span></div>
+                                <div class="col-2" id="max-inner-width-label">max</div>
+                            </div>
+                        </label>
+                        <input type="range" class="form-range" min="0" max="5" step="0.5" name="inner-width"
+                            id="inner-width">
+                        <label for="inner-depth" class="form-label w-100">
+                            <div class="row">
+                                <div class="col-2 text-left" id="min-inner-depth-label">min</div>
+                                <div class="col">Depth: <span id="inner-depth-value-label"></span></div>
+                                <div class="col-2" id="max-inner-depth-label">max</div>
+                            </div>
+                        </label>
+                        <input type="range" class="form-range" min="0" max="5" step="0.5" name="inner-depth"
+                            id="inner-depth">
+                        <label for="inner-height" class="form-label">Height</label>
+                        <select class="form-select form-select-sm text-center my-3 w-50 mx-auto"
+                            aria-label=".form-select-sm example" name="inner-height">
+                            <option value="" selected>Select Height</option>
+                            <option value="84">84"</option>
+                            <option value="96">96"</option>
+                        </select>
+                    </div>
+
+                    <input type="submit" value="Select model" class="btn btn-primary">
+                </form>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div class="container">
+            <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+                <p class="col-md-4 mb-0 text-muted">© 2023 FEDERAL ELEVATOR.</p>
+
+                <a href="/"
+                    class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
+                    <img src="img/logo_federal-elevator_rev.png" height="50px" alt="">
+                </a>
+
+                <ul class="nav col-md-4 justify-content-end">
+                    <li class="nav-item"><a href="https://federalelevator.com/dealer-login/"
+                            class="nav-link px-2 text-muted">Dealer Login</a></li>
+                    <li class="nav-item"><a href="https://federalelevator.com/privacy-policy/"
+                            class="nav-link px-2 text-muted">Privacy
+                            Policy</a></li>
+                    <li class="nav-item"><a href="https://federalelevator.com/aoda/"
+                            class="nav-link px-2 text-muted">AODA</a></li>
+                    <li class="nav-item"><a
+                            href="https://federalelevator.com/commercial-residential-elevator-manufacturer/"
+                            class="nav-link px-2 text-muted">About</a></li>
+                </ul>
+
+            </footer>
+        </div>
+    </footer>
+
+    <!-- script stuff -->
+    <script src="js/bootstrap.js"></script>
+    <script src="js/rangeUpdater.js"></script>
+    <script>
+        //append queryString
+
+        window.onload = () => {
+            const urlParams = new URLSearchParams(window.location.search);
+
+            //get landing params
+            const landing = urlParams.get('landing');
+            const landingInput = document.createElement('input');
+            landingInput.setAttribute('type', 'hidden');
+            landingInput.setAttribute('name', 'landing');
+            landingInput.setAttribute('value', landing);
+            document.querySelector('form').prepend(landingInput);
+
+            //get door params
+            const door = urlParams.get('door');
+            const doorInput = document.createElement('input');
+            doorInput.setAttribute('type', 'hidden');
+            doorInput.setAttribute('name', 'door');
+            doorInput.setAttribute('value', door);
+            document.querySelector('form').prepend(doorInput);
+
+            //get type params
+            const type = urlParams.get('type');
+            const typeInput = document.createElement('input');
+            typeInput.setAttribute('type', 'hidden');
+            typeInput.setAttribute('name', 'type');
+            typeInput.setAttribute('value', type);
+            document.querySelector('form').prepend(typeInput);
+
+            
+
+
+        }
+    </script>
+</body>
+
+</html>

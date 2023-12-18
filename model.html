@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cab size configurator</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/radio.css">
+    <style>
+        body {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        main {
+            margin: auto 0;
+        }
+
+        footer {
+            margin-top: auto;
+        }
+    </style>
+</head>
+
+<body data-bs-theme="dark">
+    <header class="text-center">
+        <div class="border">
+            <!--  -->
+        </div>
+    </header>
+    <main>
+        <section class="text-center">
+            <div class="my-5">
+                <h1 class="display-4">Select the model</h1>
+                <form action="result.html">
+                    <div class="sect">
+                        <h4>Models avaliable based on your configurations</h4>
+
+                        <input type="radio" name="model" value="panorama" id="panorama" required>
+                        <label for="panorama"><span class="btn btn-secondary">
+                                <h1>Panorama</h1>
+                            </span></label>
+
+                        <input type="radio" name="model" value="legacy" id="legacy" required>
+                        <label for="legacy"><span class="btn btn-secondary">
+                                <h1>Legacy</h1>
+                            </span></label>
+
+                        <input type="radio" name="model" value="renaissance" id="renaissance" required>
+                        <label for="renaissance"><span class="btn btn-secondary">
+                                <h1>Renaissance</h1>
+                            </span></label>
+                    </div>
+                    <input type="submit" value="See characteristics" class="btn btn-primary">
+                </form>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div class="container">
+            <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+                <p class="col-md-4 mb-0 text-muted">© 2023 FEDERAL ELEVATOR.</p>
+
+                <a href="/"
+                    class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
+                    <img src="img/logo_federal-elevator_rev.png" height="50px" alt="">
+                </a>
+
+                <ul class="nav col-md-4 justify-content-end">
+                    <li class="nav-item"><a href="https://federalelevator.com/dealer-login/"
+                            class="nav-link px-2 text-muted">Dealer Login</a></li>
+                    <li class="nav-item"><a href="https://federalelevator.com/privacy-policy/"
+                            class="nav-link px-2 text-muted">Privacy
+                            Policy</a></li>
+                    <li class="nav-item"><a href="https://federalelevator.com/aoda/"
+                            class="nav-link px-2 text-muted">AODA</a></li>
+                    <li class="nav-item"><a
+                            href="https://federalelevator.com/commercial-residential-elevator-manufacturer/"
+                            class="nav-link px-2 text-muted">About</a></li>
+                </ul>
+
+            </footer>
+        </div>
+    </footer>
+
+    <!-- script stuff -->
+    <script src="js/bootstrap.js"></script>
+    <script src="js/rangeUpdater.js"></script>
+    <script>
+        //append queryString
+
+        window.onload = () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            //get inner-height
+            const innerHeight = urlParams.get('inner-height');
+            const innerHeightInput = document.createElement('input');
+            innerHeightInput.setAttribute('type', 'hidden');
+            innerHeightInput.setAttribute('name', 'inner-height');
+            innerHeightInput.setAttribute('value', innerHeight);
+            document.querySelector('form').prepend(innerHeightInput);
+
+            //get inner-depth
+            const innerDepth = urlParams.get('inner-depth');
+            const innerDepthInput = document.createElement('input');
+            innerDepthInput.setAttribute('type', 'hidden');
+            innerDepthInput.setAttribute('name', 'inner-depth');
+            innerDepthInput.setAttribute('value', innerDepth);
+            document.querySelector('form').prepend(innerDepthInput);
+
+            //get inner-width
+            const innerWidth = urlParams.get('inner-width');
+            const innerWidthInput = document.createElement('input');
+            innerWidthInput.setAttribute('type', 'hidden');
+            innerWidthInput.setAttribute('name', 'inner-width');
+            innerWidthInput.setAttribute('value', innerWidth);
+            document.querySelector('form').prepend(innerWidthInput);
+
+            //get landing params
+            const landing = urlParams.get('landing');
+            const landingInput = document.createElement('input');
+            landingInput.setAttribute('type', 'hidden');
+            landingInput.setAttribute('name', 'landing');
+            landingInput.setAttribute('value', landing);
+            document.querySelector('form').prepend(landingInput);
+
+            //get door params
+            const door = urlParams.get('door');
+            const doorInput = document.createElement('input');
+            doorInput.setAttribute('type', 'hidden');
+            doorInput.setAttribute('name', 'door');
+            doorInput.setAttribute('value', door);
+            document.querySelector('form').prepend(doorInput);
+
+            //get type params
+            const type = urlParams.get('type');
+            const typeInput = document.createElement('input');
+            typeInput.setAttribute('type', 'hidden');
+            typeInput.setAttribute('name', 'type');
+            typeInput.setAttribute('value', type);
+            document.querySelector('form').prepend(typeInput);
+
+
+
+
+        }
+    </script>
+</body>
+
+</html>

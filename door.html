@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cab size configurator</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/radio.css">
+    <style>
+        body {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        main {
+            margin: auto 0;
+        }
+
+        footer {
+            margin-top: auto;
+        }
+    </style>
+</head>
+
+<body data-bs-theme="dark">
+    <header class="text-center">
+        <div class="border">
+            <!--  -->
+        </div>
+    </header>
+    <main>
+        <section class="text-center">
+            <div class="my-5">
+                <h1 class="display-4">Select the type of door</h1>
+                <form action="innercab.html">
+                    <div class="sect" id="sect-door">
+                        <h4>Door type</h4>
+
+                        <input type="radio" name="door" value="accordion" id="accordion" required>
+                        <label for="accordion"><span class="btn btn-secondary">
+                                <h1>Accordion</h1>
+                            </span></label>
+
+                        <input type="radio" name="door" value="bifold" id="bifold" required>
+                        <label for="bifold"><span class="btn btn-secondary">
+                                <h1>Bifold</h1>
+                            </span></label>
+
+                        <input type="radio" name="door" value="slide2" id="slide2" required>
+                        <label for="slide2"><span class="btn btn-secondary">
+                                <h1>2 speed slide</h1>
+                            </span></label>
+
+                        <input type="radio" name="door" value="slide3" id="slide3" required>
+                        <label for="slide3"><span class="btn btn-secondary">
+                                <h1>3 speed slide</h1>
+                            </span></label>
+                        <hr class="w-50 m-auto my-3">
+
+
+                        <div class="col-xs-2 text-xs-center bg-secondary m-auto pb-3"
+                            style="width: 20%; border-radius: 10px;" data-toggle="buttons">
+                            <label class="form-check-label" for="landing">Landing Door</label>
+                            <br>
+                            <input class="form-check-input" type="checkbox" id="landing" name="landing" value="on">
+                        </div>
+
+
+
+
+
+                    </div>
+                    <input type="submit" value="Select size" class="btn btn-primary">
+                </form>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div class="container">
+            <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+                <p class="col-md-4 mb-0 text-muted">© 2023 FEDERAL ELEVATOR.</p>
+
+                <a href="/"
+                    class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
+                    <img src="img/logo_federal-elevator_rev.png" height="50px" alt="">
+                </a>
+
+                <ul class="nav col-md-4 justify-content-end">
+                    <li class="nav-item"><a href="https://federalelevator.com/dealer-login/"
+                            class="nav-link px-2 text-muted">Dealer Login</a></li>
+                    <li class="nav-item"><a href="https://federalelevator.com/privacy-policy/"
+                            class="nav-link px-2 text-muted">Privacy
+                            Policy</a></li>
+                    <li class="nav-item"><a href="https://federalelevator.com/aoda/"
+                            class="nav-link px-2 text-muted">AODA</a></li>
+                    <li class="nav-item"><a
+                            href="https://federalelevator.com/commercial-residential-elevator-manufacturer/"
+                            class="nav-link px-2 text-muted">About</a></li>
+                </ul>
+
+            </footer>
+        </div>
+    </footer>
+
+    <!-- script stuff -->
+    <script src="js/bootstrap.js"></script>
+    <script>
+        //append queryString
+
+        window.onload = () => {
+            //get url params
+            const urlParams = new URLSearchParams(window.location.search);
+            const type = urlParams.get('type');
+            const typeInput = document.createElement('input');
+            typeInput.setAttribute('type', 'hidden');
+            typeInput.setAttribute('name', 'type');
+            typeInput.setAttribute('value', type);
+            document.querySelector('form').prepend(typeInput);
+        }
+    </script>
+</body>
+
+</html>
