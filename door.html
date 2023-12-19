@@ -27,12 +27,12 @@
 
 <body data-bs-theme="dark">
     <header class="text-center">
-        <div class="border">
-            <div class="border-bottom">
-                <h1 class="display-4 mt-2"><a href="/" class="nav-link px-2">Cab Size Configurator</a></h1>
-                <p class="lead text-muted">Configure your cab size based on your preferences</p>
-            </div>
+
+        <div class="border-bottom">
+            <h1 class="display-4 mt-2"><a href="/" class="nav-link px-2">Cab Size Configurator</a></h1>
+            <p class="lead text-muted">Configure your cab size based on your preferences</p>
         </div>
+
     </header>
     <main>
         <section class="text-center">
@@ -44,30 +44,30 @@
 
                         <input type="radio" name="door" value="accordion" id="accordion" required>
                         <label for="accordion">
-                            <div class="btn btn-secondary">
+                            <span class="btn btn-secondary">
                                 <h1>Accordion</h1>
-                            </div>
+                            </span>
                         </label>
 
                         <input type="radio" name="door" value="bifold" id="bifold" required>
                         <label for="bifold">
-                            <div class="btn btn-secondary">
+                            <span class="btn btn-secondary">
                                 <h1>Bifold</h1>
-                            </div>
+                            </span>
                         </label>
 
                         <input type="radio" name="door" value="slide2" id="slide2" required>
                         <label for="slide2">
-                            <div class="btn btn-secondary">
+                            <span class="btn btn-secondary">
                                 <h1>2 speed slide</h1>
-                            </div>
+                            </span>
                         </label>
 
                         <input type="radio" name="door" value="slide3" id="slide3" required>
                         <label for="slide3">
-                            <div class="btn btn-secondary">
+                            <span class="btn btn-secondary">
                                 <h1>3 speed slide</h1>
-                            </div>
+                            </span>
                         </label>
 
                         <hr class="w-50 m-auto my-3">
@@ -77,7 +77,8 @@
                             data-toggle="buttons">
                             <label class="form-check-label" for="landing">Federal provides the landing door</label>
                             <br>
-                            <input class="form-check-input" type="checkbox" id="landing" name="landing" value="on">
+                            <input class="form-check-input" type="checkbox" id="landing" name="landing" value="on"
+                            style="width: 20px; height: 20px;">
                         </div>
                     </div>
                     <input type="submit" value="Select size" class="btn btn-primary">

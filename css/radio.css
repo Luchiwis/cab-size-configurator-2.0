@@ -11,7 +11,7 @@ input[type=radio]:checked+label>img {
     border: 1px solid #fff;
     box-shadow: 0 0 3px 10px #090;
 }
-input[type=radio]:checked+label>div {
+input[type=radio]:checked+label>span {
     border: 1px solid #fff;
     box-shadow: 0 0 3px 10px #090;
 }
@@ -23,7 +23,7 @@ input[type=radio]+label>img {
     height: 200px;
     transition: 500ms all;
 }
-input[type=radio]+label>div {
+input[type=radio]+label>span {
     border: 1px dashed #444;
     width: 100%;
     transition: 500ms all;
