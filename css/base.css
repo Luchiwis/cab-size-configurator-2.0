@@ -2,7 +2,7 @@
 
 body{
     font-family: 'Lato', sans-serif;
-    background-image: url('img/Side-Line-Work-instance_white.png');
+    background-image: url('../img/Side-Line-Work-instance_white.png');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -14,4 +14,26 @@ header{
 }
 footer{
     background-color: var(--bs-body-bg);
+}
+
+/* disabled */
+input:disabled + label>span{
+    background-color: #8e2f2f;
+    opacity: 0.7;
+}
+input:disabled + label>span:hover{
+    background-color: #b52121;
+}
+div:has(>input#landing:disabled){
+    background-color: #8e2f2f !important;
+    opacity: 0.7;
+}
+
+/* restriction section */
+#restrictions{
+    color: #ffffff;
+    background-color: #8c8e2f85;
+    width: 50%;
+    margin: auto;
+    border-radius: 10px;
 }
