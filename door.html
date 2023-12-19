@@ -43,30 +43,39 @@
                         <h4>Door type</h4>
 
                         <input type="radio" name="door" value="accordion" id="accordion" required>
-                        <label for="accordion"><span class="btn btn-secondary">
+                        <label for="accordion">
+                            <div class="btn btn-secondary">
                                 <h1>Accordion</h1>
-                            </span></label>
+                            </div>
+                        </label>
 
                         <input type="radio" name="door" value="bifold" id="bifold" required>
-                        <label for="bifold"><span class="btn btn-secondary">
+                        <label for="bifold">
+                            <div class="btn btn-secondary">
                                 <h1>Bifold</h1>
-                            </span></label>
+                            </div>
+                        </label>
 
                         <input type="radio" name="door" value="slide2" id="slide2" required>
-                        <label for="slide2"><span class="btn btn-secondary">
+                        <label for="slide2">
+                            <div class="btn btn-secondary">
                                 <h1>2 speed slide</h1>
-                            </span></label>
+                            </div>
+                        </label>
 
                         <input type="radio" name="door" value="slide3" id="slide3" required>
-                        <label for="slide3"><span class="btn btn-secondary">
+                        <label for="slide3">
+                            <div class="btn btn-secondary">
                                 <h1>3 speed slide</h1>
-                            </span></label>
+                            </div>
+                        </label>
+
                         <hr class="w-50 m-auto my-3">
 
 
-                        <div class="col-xs-2 text-xs-center bg-secondary m-auto pb-3"
-                            style="width: 10%; border-radius: 20px;" data-toggle="buttons">
-                            <label class="form-check-label" for="landing">Landing Door</label>
+                        <div class="col-xs-2 text-xs-center m-auto pb-3 border w-50 d-none" id="landingSection"
+                            data-toggle="buttons">
+                            <label class="form-check-label" for="landing">Federal provides the landing door</label>
                             <br>
                             <input class="form-check-input" type="checkbox" id="landing" name="landing" value="on">
                         </div>
@@ -78,7 +87,7 @@
         <section class="text-center d-none" id="restrictions">
             <div class="container">
                 <h4>Restrictions:</h4>
-                <p id="door-advise"></p>
+                <p id="advise"></p>
             </div>
         </section>
     </main>
@@ -87,7 +96,7 @@
             <div class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
                 <p class="col-md-4 mb-0 text-muted">© 2023 FEDERAL ELEVATOR.</p>
 
-                <a href="/"
+                <a href="https://federalelevator.com/"
                     class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
                     <img src="img/logo_federal-elevator_rev.png" height="50px" alt="">
                 </a>
@@ -124,6 +133,28 @@
             typeInput.setAttribute('value', type);
             document.querySelector('form').prepend(typeInput);
         }
+    </script>
+    <script>
+        //restrict landing door to 2 speed slide and 3 speed slide
+        const landing = document.querySelector('#landingSection');
+
+        //check if user clicked a door
+        const doors = document.querySelectorAll('input[name="door"]');
+        //add event listener to each door
+        doors.forEach(door => {
+            door.addEventListener('click', () => {
+                //if user clicked 2 speed slide or 3 speed slide
+                if (door.value == 'slide2' || door.value == 'slide3') {
+                    //show landing door option
+                    landing.classList.remove('d-none');
+                } else {
+                    //hide landing door option
+                    landing.classList.add('d-none');
+                }
+            });
+        });
+
+
     </script>
     <script src="js/restrictions.js"></script>
 </body>

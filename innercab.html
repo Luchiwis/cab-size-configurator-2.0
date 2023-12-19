@@ -39,7 +39,6 @@
             <div class="my-5 w-50 mx-auto">
                 <h1 class="display-4">Select the inner cab size</h1>
                 <form action="model.html">
-
                     <div id="sect-inner-size">
                         <h4>
                             Inner cab size
@@ -75,13 +74,19 @@
                 </form>
             </div>
         </section>
+        <section class="text-center d-none" id="restrictions">
+            <div class="container">
+                <h4>Restrictions:</h4>
+                <p id="advise"></p>
+            </div>
+        </section>
     </main>
     <footer>
         <div class="container">
             <div class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
                 <p class="col-md-4 mb-0 text-muted">© 2023 FEDERAL ELEVATOR.</p>
 
-                <a href="/"
+                <a href="https://federalelevator.com/"
                     class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
                     <img src="img/logo_federal-elevator_rev.png" height="50px" alt="">
                 </a>
@@ -136,7 +141,7 @@
             typeInput.setAttribute('value', type);
             document.querySelector('form').prepend(typeInput);
 
-            
+
 
 
         }

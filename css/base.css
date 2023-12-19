@@ -1,12 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
 
 body{
+    background-color: rgb(48, 48, 48);
     font-family: 'Lato', sans-serif;
     background-image: url('../img/Side-Line-Work-instance_white.png');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    background-attachment: fixed;;
+    background-attachment: fixed;
+    backdrop-filter: blur(5px);
 }
 
 header{
