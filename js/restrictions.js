@@ -100,13 +100,13 @@ function modelRestrictions() {
 
 window.onload = function () {
 
-    if (window.location.pathname == '/door.html') {
+    if (window.location.pathname.endsWith('/door.html')) {
         doorRestrictions();
     }
-    else if (window.location.pathname == '/innercab.html') {
+    else if (window.location.pathname.endsWith('/innercab.html')) {
         innercabRestrictions();
     }
-    else if (window.location.pathname == '/model.html') {
+    else if (window.location.pathname.endsWith('/model.html')) {
         modelRestrictions();
     }
 }
