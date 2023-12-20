@@ -33,10 +33,20 @@
             <p class="lead text-muted">Configure your cab size based on your preferences</p>
         </div>
 
+        <div id="unit-system">
+            <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                <input type="radio" class="btn-check" name="units" id="unit-radio-mm" autocomplete="off" onclick="switchUnits('mm')" checked>
+                <label class="btn btn-outline-primary" for="unit-radio-mm">metric</label>
+              
+                <input type="radio" class="btn-check" name="units" id="unit-radio-in" autocomplete="off" onclick="switchUnits('in')">
+                <label class="btn btn-outline-primary" for="unit-radio-in">imperial</label>
+              </div>
+        </div>
+
     </header>
     <main>
         <section class="text-center">
-            <div class="my-5 w-50 mx-auto">
+            <div class="my-5 col-md-6 col-sm-10 mx-auto">
                 <h1 class="display-4">Select the inner cab size</h1>
                 <form action="model.html">
                     <div id="sect-inner-size">
@@ -77,12 +87,12 @@
                 </form>
             </div>
         </section>
-        <section class="text-center py-2" id="planning-table">
+        <section class="text-center mx-auto col-md-7 col-sm-10 py-2" id="planning-table">
             <div class="container">
-                <table class="table w-50 m-auto">
+                <table class="table mx-auto">
                     <thead>
                         <tr>
-                            <th scope="col" class="col-3">Type</th>
+                            <th scope="col" class="col-3"></th>
                             <th scope="col">Width</th>
                             <th scope="col">Depth</th>
                         </tr>
