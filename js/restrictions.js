@@ -96,8 +96,6 @@ function modelRestrictions() {
     //find avaliable models based on innerWidth and innerDepth
 }
 
-// when page is loaded
-
 
 if (window.location.pathname.endsWith('/door.html')) {
     doorRestrictions();
