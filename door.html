@@ -56,14 +56,14 @@
                             </span>
                         </label>
 
-                        <input type="radio" name="door" value="slide2" id="slide2" required>
+                        <input type="radio" name="door" value="2speed" id="slide2" required>
                         <label for="slide2">
                             <span class="btn btn-secondary">
                                 <h1>2 speed slide</h1>
                             </span>
                         </label>
 
-                        <input type="radio" name="door" value="slide3" id="slide3" required>
+                        <input type="radio" name="door" value="3speed" id="slide3" required>
                         <label for="slide3">
                             <span class="btn btn-secondary">
                                 <h1>3 speed slide</h1>
@@ -85,7 +85,7 @@
                 </form>
             </div>
         </section>
-        <section class="text-center d-none" id="restrictions">
+        <section class="text-center d-none py-2" id="restrictions">
             <div class="container">
                 <h4>Restrictions:</h4>
                 <p id="advise"></p>
@@ -145,7 +145,7 @@
         doors.forEach(door => {
             door.addEventListener('click', () => {
                 //if user clicked 2 speed slide or 3 speed slide
-                if (door.value == 'slide2' || door.value == 'slide3') {
+                if (door.value == '2speed' || door.value == '3speed') {
                     //show landing door option
                     landing.classList.remove('d-none');
                 } else {

@@ -8,7 +8,8 @@ def convert_csv_to_json(csv_file_path, json_file_path):
 
         for row in csv_reader:
             elevator = {
-                "type": row["type"].lower(),
+                "model": row["model"].lower(),
+                "type": row["type"].upper(),
                 "door": row["door"],
                 "landing": row["landing"].lower(),
                 "minHoistwayWidth": int(row["minHoistwayWidth"]),

@@ -43,30 +43,33 @@
                         <h4>
                             Inner cab size
                         </h4>
+
                         <label for="inner-width" class="form-label w-100">
                             <div class="row">
-                                <div class="col-2 text-left" id="min-inner-width-label">min</div>
-                                <div class="col">Width: <span id="inner-width-value-label"></span></div>
-                                <div class="col-2" id="max-inner-width-label">max</div>
+                                <div class="col-2 text-left converter converter-mm" id="min-inner-width-label">min</div>
+                                <div class="col">Width: <span class="converter converter-mm" id="inner-width-value-label" ></span></div>
+                                <div class="col-2 converter converter-mm" id="max-inner-width-label">max</div>
                             </div>
                         </label>
-                        <input type="range" class="form-range" min="0" max="5" step="0.5" name="inner-width"
+                        <input type="range" class="form-range" min="0" max="1" step="1" name="inner-width"
                             id="inner-width">
+                        
                         <label for="inner-depth" class="form-label w-100">
                             <div class="row">
-                                <div class="col-2 text-left" id="min-inner-depth-label">min</div>
-                                <div class="col">Depth: <span id="inner-depth-value-label"></span></div>
-                                <div class="col-2" id="max-inner-depth-label">max</div>
+                                <div class="col-2 text-left converter converter-mm" id="min-inner-depth-label">min</div>
+                                <div class="col">Depth: <span class="converter converter-mm" id="inner-depth-value-label"></span></div>
+                                <div class="col-2 converter converter-mm" id="max-inner-depth-label">max</div>
                             </div>
                         </label>
-                        <input type="range" class="form-range" min="0" max="5" step="0.5" name="inner-depth"
+                        <input type="range" class="form-range" min="0" max="1" step="1" name="inner-depth"
                             id="inner-depth">
+                        
                         <label for="inner-height" class="form-label">Height</label>
                         <select class="form-select form-select-sm text-center my-3 w-50 mx-auto"
-                            aria-label=".form-select-sm example" name="inner-height">
+                            aria-label=".form-select-sm example" name="inner-height" required>
                             <option value="" selected>Select Height</option>
-                            <option value="84">84"</option>
-                            <option value="96">96"</option>
+                            <option value="2133.6" class="converter converter-mm">2133.6</option>
+                            <option value="2438.4" class="converter converter-mm">2438.4</option>
                         </select>
                     </div>
 
@@ -74,7 +77,7 @@
                 </form>
             </div>
         </section>
-        <section class="text-center d-none" id="restrictions">
+        <section class="text-center d-none py-2" id="restrictions">
             <div class="container">
                 <h4>Restrictions:</h4>
                 <p id="advise"></p>
@@ -110,6 +113,7 @@
 
     <!-- script stuff -->
     <script src="js/bootstrap.js"></script>
+    <script src="js/metricConversion.js"></script>
     <script src="js/rangeUpdater.js"></script>
     <script>
         //append queryString
@@ -146,6 +150,7 @@
 
         }
     </script>
+    <script src="js/guide.js"></script>
     <script src="js/restrictions.js"></script>
 
 </body>
