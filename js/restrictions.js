@@ -38,24 +38,24 @@ function innercabRestrictions() {
     ranges = getRanges(objects);
 
     if (type == 'A') {
-        widthWallThickness = 38 * 2; //1.5 inches * 2
-        depthWallThickness = 38;
+        widthWallThickness = MM_WALL_THICKNESS * 2;
+        depthWallThickness = MM_WALL_THICKNESS;
     }
     else if (type == 'B') {
-        widthWallThickness = 38 * 2; //1.5 inches * 2
+        widthWallThickness = MM_WALL_THICKNESS * 2;
         depthWallThickness = 0;
     }
     else if (type == 'C') {
-        widthWallThickness = 38; //1.5 inches
-        depthWallThickness = 38;
+        widthWallThickness = MM_WALL_THICKNESS;
+        depthWallThickness = MM_WALL_THICKNESS;
     }
     else if (type == 'D') {
-        widthWallThickness = 38; //1.5 inches
-        depthWallThickness = 38;
+        widthWallThickness = MM_WALL_THICKNESS;
+        depthWallThickness = MM_WALL_THICKNESS;
     }
     else if (type == 'E') {
-        widthWallThickness = 38;
-        depthWallThickness = 38*2;
+        widthWallThickness = MM_WALL_THICKNESS;
+        depthWallThickness = MM_WALL_THICKNESS*2;
     }
 
     rangeInnerWidth.min = ranges.minOverallWidth - widthWallThickness;

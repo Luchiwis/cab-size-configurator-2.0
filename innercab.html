@@ -47,7 +47,7 @@
                         <label for="inner-width" class="form-label w-100">
                             <div class="row">
                                 <div class="col-2 text-left converter converter-mm" id="min-inner-width-label">min</div>
-                                <div class="col">Width: <span class="converter converter-mm" id="inner-width-value-label" ></span></div>
+                                <div class="col">Width: <span class="converter converter-mm" id="inner-width-value-label"></span></div>
                                 <div class="col-2 converter converter-mm" id="max-inner-width-label">max</div>
                             </div>
                         </label>
@@ -77,10 +77,28 @@
                 </form>
             </div>
         </section>
-        <section class="text-center d-none py-2" id="restrictions">
+        <section class="text-center py-2" id="planning-table">
             <div class="container">
-                <h4>Restrictions:</h4>
-                <p id="advise"></p>
+                <table class="table w-50 m-auto">
+                    <thead>
+                        <tr>
+                            <th scope="col" class="col-3">Type</th>
+                            <th scope="col">Width</th>
+                            <th scope="col">Depth</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Inner Cab Size</td>
+                            <td id="inner-width-table-label"></td>
+                            <td id="inner-depth-table-label"></td>
+                        </tr>
+                        <tr>
+                            <td>Overall Cab Size</td>
+                            <td id="overall-width-table-label"></td>
+                            <td id="overall-depth-table-label"></td>
+                        </tr>
+                </table>
             </div>
         </section>
     </main>
