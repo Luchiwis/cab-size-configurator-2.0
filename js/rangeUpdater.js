@@ -78,10 +78,14 @@ function updateRangeInfo() {
 
 }
 
-const observer = new MutationObserver(updateRangeInfo);
+window.onload = function () {
+    const observer = new MutationObserver(updateRangeInfo);
 
-rangeInnerWidth.addEventListener('input', updateRangeInfo);
-rangeInnerDepth.addEventListener('input', updateRangeInfo);
+    rangeInnerWidth.addEventListener('input', updateRangeInfo);
+    rangeInnerDepth.addEventListener('input', updateRangeInfo);
 
-observer.observe(rangeInnerWidth, { attributes: true });
-observer.observe(rangeInnerDepth, { attributes: true });
+    observer.observe(rangeInnerWidth, { attributes: true });
+    observer.observe(rangeInnerDepth, { attributes: true });
+    updateRangeInfo();
+}
+
