@@ -55,7 +55,7 @@ function innercabRestrictions() {
     }
     else if (type == 'E') {
         widthWallThickness = MM_WALL_THICKNESS;
-        depthWallThickness = MM_WALL_THICKNESS*2;
+        depthWallThickness = MM_WALL_THICKNESS * 2;
     }
 
     rangeInnerWidth.min = ranges.minOverallWidth - widthWallThickness;
@@ -96,13 +96,17 @@ function modelRestrictions() {
     //find avaliable models based on innerWidth and innerDepth
 }
 
+// when page is loaded
 
-if (window.location.pathname == '/door.html') {
-    doorRestrictions();
-}
-else if (window.location.pathname == '/innercab.html') {
-    innercabRestrictions();
-}
-else if (window.location.pathname == '/model.html') {
-    modelRestrictions();
+window.onload = function () {
+
+    if (window.location.pathname == '/door.html') {
+        doorRestrictions();
+    }
+    else if (window.location.pathname == '/innercab.html') {
+        innercabRestrictions();
+    }
+    else if (window.location.pathname == '/model.html') {
+        modelRestrictions();
+    }
 }
