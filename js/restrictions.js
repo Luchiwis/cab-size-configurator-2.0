@@ -31,16 +31,14 @@ function doorRestrictions() {
 }
 
 function cabRestrictions() {
-    //get url params
-    // const urlParams = new URLSearchParams(window.location.search);
-    // const type = urlParams.get('type');
-    // const door = urlParams.get('door');
     const type = elevatorData['type'];
     const door = elevatorData['door'];
     const model = elevatorData['model'];
-    const landing = urlParams.get('landing');
+    const landing = elevatorData['landing'];
     const cabWidth = document.getElementById('cab-width');
     const cabDepth = document.getElementById('cab-depth');
+    const cabHeight = document.getElementById('cab-height');
+    const cabHeightOptions = cabHeight.querySelectorAll('option:not([disabled])');
     const widthRangeLabel = document.getElementById('width-range-label');
     const depthRangeLabel = document.getElementById('depth-range-label');
 
@@ -54,21 +52,30 @@ function cabRestrictions() {
     ranges = getRanges(objects);
 
     if (UNITS == 'in') {
+        //min and max number inputs
         minCabWidth = millimetersToInches(ranges.minOverallWidth).toFixed(2);
         maxCabWidth = millimetersToInches(ranges.maxOverallWidth).toFixed(2);
         minCabDepth = millimetersToInches(ranges.minOverallDepth).toFixed(2);
         maxCabDepth = millimetersToInches(ranges.maxOverallDepth).toFixed(2);
 
+        //min and max labels
         widthRangeLabel.innerHTML = minCabWidth + '" - ' + maxCabWidth + '"';
         depthRangeLabel.innerHTML = minCabDepth + '" - ' + maxCabDepth + '"';
     } else {
+        //min and max number inputs
         minCabWidth = ranges.minOverallWidth;
         maxCabWidth = ranges.maxOverallWidth;
         minCabDepth = ranges.minOverallDepth;
         maxCabDepth = ranges.maxOverallDepth;
 
+        //min and max labels
         widthRangeLabel.innerHTML = minCabWidth + 'mm - ' + maxCabWidth + 'mm';
         depthRangeLabel.innerHTML = minCabDepth + 'mm - ' + maxCabDepth + 'mm';
+
+        //heigth options
+        cabHeightOptions.forEach(option => {
+            option.innerHTML = inchesToMillimeters(option.value).toFixed(1) + 'mm';
+        });
     }
 
     cabWidth.min = minCabWidth;
