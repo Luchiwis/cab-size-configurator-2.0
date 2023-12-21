@@ -150,8 +150,8 @@ function updateTable(){
         overallDepthTableLabel.innerHTML = overallDepth + 'mm';
 
         //hoistway
-        hoistwayWidthTableLabel.innerHTML = 'TODO' + 'mm';
-        hoistwayDepthTableLabel.innerHTML = 'TODO' + 'mm';
+        hoistwayWidthTableLabel.innerHTML = hoistwayWidth + 'mm';
+        hoistwayDepthTableLabel.innerHTML = hoistwayDepth + 'mm';
     }
 
 }

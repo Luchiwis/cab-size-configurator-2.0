@@ -33,83 +33,84 @@
             <p class="lead text-muted">Configure your cab size based on your preferences</p>
         </div>
 
-        <div id="unit-system">
-            <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
-                <input type="radio" class="btn-check" name="units" id="unit-radio-mm" autocomplete="off"
-                    onclick="switchUnits('mm')">
-                <label class="btn btn-outline-primary" for="unit-radio-mm">metric</label>
-
-                <input type="radio" class="btn-check" name="units" id="unit-radio-in" autocomplete="off"
-                    onclick="switchUnits('in')" checked>
-                <label class="btn btn-outline-primary" for="unit-radio-in">imperial</label>
-            </div>
-        </div>
-
     </header>
     <main>
         <section class="text-center">
             <div class="my-5 col-md-8 col-sm-10 mx-auto">
                 <h1 class="display-4">Select the cab size</h1>
                 <form action="result.html">
-                    <div id="sect-cab-size">
-                        <h4>
-                            Overall cab size
-                        </h4>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <label for="cab-width" class="form-label">Width <br>(<span id="width-range-label"></span>)</label>
-                                <input type="number" id="cab-width" name="cab-width" step="0.01"
-                                    class="form-control text-center" required>
-                            </div>
-                            <div class="col-md-6">
-                                <label for="cab-depth" class="form-label">Depth <br>(<span id="depth-range-label"></span>)</label>
-                                <input type="number" id="cab-depth" name="cab-depth" step="0.01"
-                                    class="form-control text-center" required>
-                            </div>
-                        </div>
 
-                        <label for="cab-height" class="form-label">Height</label>
-                        <select class="form-select form-select-sm text-center my-3 w-50 mx-auto"
-                            aria-label=".form-select-sm example" name="cab-height" id="cab-height" required>
-                            <option value="" selected>Select Height</option>
-                            <option value="2133.6">84"</option>
-                            <option value="2438.4">96"</option>
-                        </select>
+                    <div id="unit-system">
+                        <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                            <input type="radio" class="btn-check" name="unit" value="mm" id="unit-radio-mm"
+                                autocomplete="off" onclick="switchUnits('mm')">
+                            <label class="btn btn-outline-primary" for="unit-radio-mm">metric</label>
+
+                            <input type="radio" class="btn-check" name="unit" value="in" id="unit-radio-in"
+                                autocomplete="off" onclick="switchUnits('in')" checked>
+                            <label class="btn btn-outline-primary" for="unit-radio-in">imperial</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label for="cab-width" class="form-label">Width <br>(<span
+                                    id="width-range-label"></span>)</label>
+                            <input type="number" id="cab-width" name="cab-width" step="0.01"
+                                class="form-control text-center" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="cab-depth" class="form-label">Depth <br>(<span
+                                    id="depth-range-label"></span>)</label>
+                            <input type="number" id="cab-depth" name="cab-depth" step="0.01"
+                                class="form-control text-center" required>
+                        </div>
                     </div>
 
-                    <input type="submit" value="Select model" class="btn btn-primary">
+                    <label for="cab-height" class="form-label">Height</label>
+                    <select class="form-select form-select-sm text-center my-3 w-50 mx-auto"
+                        aria-label=".form-select-sm example" name="cab-height" id="cab-height" required>
+                        <option value="" selected>Select Height</option>
+                        <option value="2133.6">84"</option>
+                        <option value="2438.4">96"</option>
+                    </select>
+
+
+                    <div class="text-center my-3" id="planning-table">
+
+                        <table class="table mx-auto">
+                            <thead>
+                                <tr>
+                                    <th scope="col" class="col-3"></th>
+                                    <th scope="col">Width</th>
+                                    <th scope="col">Depth</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Inner Cab</td>
+                                    <td id="inner-width-table-label">-</td>
+                                    <td id="inner-depth-table-label">-</td>
+                                </tr>
+                                <tr>
+                                    <td>Hoistway</td>
+                                    <td id="hoistway-width-table-label">-</td>
+                                    <td id="hoistway-depth-table-label">-</td>
+                                </tr>
+                                <tr>
+                                    <td>Overall</td>
+                                    <td id="overall-width-table-label">-</td>
+                                    <td id="overall-depth-table-label">-</td>
+                                </tr>
+                        </table>
+
+                    </div>
+
+                    <input type="submit" value="Select model" class="btn btn-primary" onclick="customSubmit();">
                 </form>
+
             </div>
         </section>
-        <section class="text-center mx-auto col-md-7 col-sm-10 py-2" id="planning-table">
-            <div class="container">
-                <table class="table mx-auto">
-                    <thead>
-                        <tr>
-                            <th scope="col" class="col-3"></th>
-                            <th scope="col">Width</th>
-                            <th scope="col">Depth</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Inner Cab</td>
-                            <td id="inner-width-table-label">-</td>
-                            <td id="inner-depth-table-label">-</td>
-                        </tr>
-                        <tr>
-                            <td>Hoistway</td>
-                            <td id="hoistway-width-table-label">-</td>
-                            <td id="hoistway-depth-table-label">-</td>
-                        </tr>
-                        <tr>
-                            <td>Overall</td>
-                            <td id="overall-width-table-label">-</td>
-                            <td id="overall-depth-table-label">-</td>
-                        </tr>
-                </table>
-            </div>
-        </section>
+
         <section class="text-center d-none py-2" id="restrictions">
             <div class="container">
                 <h4>Restrictions:</h4>
@@ -152,6 +153,19 @@
     <script src="js/tableSizeUpdater.js"></script>
     <script src="js/errorMessages.js"></script>
     <script src="js/restrictions.js"></script>
+
+    <script>
+        function customSubmit() {
+            //enable inputs that are disabled just before submitting
+            let disabledInputs = document.querySelectorAll('form input:disabled');
+            disabledInputs.forEach(input => {
+                input.removeAttribute('disabled');
+            });
+
+            //submit form
+            document.querySelector('form').submit();
+        }
+    </script>
 </body>
 
 </html>
