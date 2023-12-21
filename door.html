@@ -121,20 +121,7 @@
 
     <!-- script stuff -->
     <script src="js/bootstrap.js"></script>
-    <script>
-        //append queryString
-
-        window.onload = () => {
-            //get url params
-            const urlParams = new URLSearchParams(window.location.search);
-            const type = urlParams.get('type');
-            const typeInput = document.createElement('input');
-            typeInput.setAttribute('type', 'hidden');
-            typeInput.setAttribute('name', 'type');
-            typeInput.setAttribute('value', type);
-            document.querySelector('form').prepend(typeInput);
-        }
-    </script>
+    <script src="js/prependQueryString.js"></script>
     <script>
         //restrict landing door to 2 speed slide and 3 speed slide
         const landing = document.querySelector('#landingSection');

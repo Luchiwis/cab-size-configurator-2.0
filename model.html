@@ -38,7 +38,7 @@
         <section class="text-center">
             <div class="my-5">
                 <h1 class="display-4">Select the model</h1>
-                <form action="result.html">
+                <form action="type.html">
                     <div class="sect">
                         <h4>Models available based on your configurations</h4>
 
@@ -103,65 +103,8 @@
 
     <!-- script stuff -->
     <script src="js/bootstrap.js"></script>
+    <script src="js/prependQueryString.js"></script>
     <script src="js/rangeUpdater.js"></script>
-    <script>
-        //append queryString
-
-        window.onload = () => {
-            const urlParams = new URLSearchParams(window.location.search);
-            //get inner-height
-            const innerHeight = urlParams.get('inner-height');
-            const innerHeightInput = document.createElement('input');
-            innerHeightInput.setAttribute('type', 'hidden');
-            innerHeightInput.setAttribute('name', 'inner-height');
-            innerHeightInput.setAttribute('value', innerHeight);
-            document.querySelector('form').prepend(innerHeightInput);
-
-            //get inner-depth
-            const innerDepth = urlParams.get('inner-depth');
-            const innerDepthInput = document.createElement('input');
-            innerDepthInput.setAttribute('type', 'hidden');
-            innerDepthInput.setAttribute('name', 'inner-depth');
-            innerDepthInput.setAttribute('value', innerDepth);
-            document.querySelector('form').prepend(innerDepthInput);
-
-            //get inner-width
-            const innerWidth = urlParams.get('inner-width');
-            const innerWidthInput = document.createElement('input');
-            innerWidthInput.setAttribute('type', 'hidden');
-            innerWidthInput.setAttribute('name', 'inner-width');
-            innerWidthInput.setAttribute('value', innerWidth);
-            document.querySelector('form').prepend(innerWidthInput);
-
-            //get landing params
-            const landing = urlParams.get('landing');
-            const landingInput = document.createElement('input');
-            landingInput.setAttribute('type', 'hidden');
-            landingInput.setAttribute('name', 'landing');
-            landingInput.setAttribute('value', landing);
-            document.querySelector('form').prepend(landingInput);
-
-            //get door params
-            const door = urlParams.get('door');
-            const doorInput = document.createElement('input');
-            doorInput.setAttribute('type', 'hidden');
-            doorInput.setAttribute('name', 'door');
-            doorInput.setAttribute('value', door);
-            document.querySelector('form').prepend(doorInput);
-
-            //get type params
-            const type = urlParams.get('type');
-            const typeInput = document.createElement('input');
-            typeInput.setAttribute('type', 'hidden');
-            typeInput.setAttribute('name', 'type');
-            typeInput.setAttribute('value', type);
-            document.querySelector('form').prepend(typeInput);
-
-
-
-
-        }
-    </script>
     <script src="js/restrictions.js"></script>
 
 </body>
