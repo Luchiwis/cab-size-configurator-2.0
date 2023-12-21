@@ -71,10 +71,10 @@ function cabRestrictions() {
         depthRangeLabel.innerHTML = minCabDepth + 'mm - ' + maxCabDepth + 'mm';
     }
 
-    cabWidth.min = ranges.minOverallWidth;
-    cabWidth.max = ranges.maxOverallWidth;
-    cabDepth.min = ranges.minOverallDepth;
-    cabDepth.max = ranges.maxOverallDepth;
+    cabWidth.min = minCabWidth;
+    cabWidth.max = maxCabWidth;
+    cabDepth.min = minCabDepth;
+    cabDepth.max = maxCabDepth;
 
     //if there's no range complete with the only available value and disable the input
     if (ranges.minOverallWidth == ranges.maxOverallWidth) {
