@@ -1,4 +1,3 @@
-
 function doorRestrictions() {
     //get url params
     const urlParams = new URLSearchParams(window.location.search);
@@ -17,17 +16,18 @@ function doorRestrictions() {
     }
 }
 
-
-
 function innercabRestrictions() {
     //get url params
-    const urlParams = new URLSearchParams(window.location.search);
-    const type = urlParams.get('type');
-    const door = urlParams.get('door');
+    // const urlParams = new URLSearchParams(window.location.search);
+    // const type = urlParams.get('type');
+    // const door = urlParams.get('door');
+    const type = elevatorData['type'];
+    const door = elevatorData['door'];
     const landing = urlParams.get('landing');
-
-    const restrictions = document.getElementById('restrictions');
-    const advise = document.getElementById('advise');
+    const innerWidth = document.getElementById('inner-width');
+    const innerDepth = document.getElementById('inner-depth');
+    const widthRangeLabel = document.getElementById('width-range-label');
+    const depthRangeLabel = document.getElementById('depth-range-label');
 
     filter = {
         type: type,
@@ -36,66 +36,31 @@ function innercabRestrictions() {
     }
     objects = filterObjects(guide, filter);
     ranges = getRanges(objects);
+    setWallThicknesses(type);
 
-    if (type == 'A') {
-        widthWallThickness = MM_WALL_THICKNESS * 2;
-        depthWallThickness = MM_WALL_THICKNESS;
-    }
-    else if (type == 'B') {
-        widthWallThickness = MM_WALL_THICKNESS * 2;
-        depthWallThickness = 0;
-    }
-    else if (type == 'C') {
-        widthWallThickness = MM_WALL_THICKNESS;
-        depthWallThickness = MM_WALL_THICKNESS;
-    }
-    else if (type == 'D') {
-        widthWallThickness = MM_WALL_THICKNESS;
-        depthWallThickness = MM_WALL_THICKNESS;
-    }
-    else if (type == 'E') {
-        widthWallThickness = MM_WALL_THICKNESS;
-        depthWallThickness = MM_WALL_THICKNESS * 2;
-    }
+    if (UNITS == 'in') {
+        innerWidth.min = millimetersToInches(ranges.minOverallWidth - MM_WIDTH_WALL_THICKNESS).toFixed(2);
+        innerWidth.max = millimetersToInches(ranges.maxOverallWidth - MM_WIDTH_WALL_THICKNESS).toFixed(2);
+        innerDepth.min = millimetersToInches(ranges.minOverallDepth - MM_DEPTH_WALL_THICKNESS).toFixed(2);
+        innerDepth.max = millimetersToInches(ranges.maxOverallDepth - MM_DEPTH_WALL_THICKNESS).toFixed(2);
 
-    rangeInnerWidth.min = ranges.minOverallWidth - widthWallThickness;
-    rangeInnerWidth.max = ranges.maxOverallWidth - widthWallThickness;
-    rangeInnerDepth.min = ranges.minOverallDepth - depthWallThickness;
-    rangeInnerDepth.max = ranges.maxOverallDepth - depthWallThickness;
-    rangeInnerWidth.value = ranges.minOverallWidth - widthWallThickness;
-    rangeInnerDepth.value = ranges.minOverallDepth - depthWallThickness;
+        widthRangeLabel.innerHTML = innerWidth.min + '" - ' + innerWidth.max + '"';
+        depthRangeLabel.innerHTML = innerDepth.min + '" - ' + innerDepth.max + '"';
+    }
+    else {
+        innerWidth.min = ranges.minOverallWidth - MM_WIDTH_WALL_THICKNESS;
+        innerWidth.max = ranges.maxOverallWidth - MM_WIDTH_WALL_THICKNESS;
+        innerDepth.min = ranges.minOverallDepth - MM_DEPTH_WALL_THICKNESS;
+        innerDepth.max = ranges.maxOverallDepth - MM_DEPTH_WALL_THICKNESS;
+
+        widthRangeLabel.innerHTML = innerWidth.min + 'mm - ' + innerWidth.max + 'mm';
+        depthRangeLabel.innerHTML = innerDepth.min + 'mm - ' + innerDepth.max + 'mm';
+    }
+    innerWidth.value = "";
+    innerDepth.value = "";
+
+    
 }
-
-function modelRestrictions() {
-    //get url params
-    const urlParams = new URLSearchParams(window.location.search);
-    const type = urlParams.get('type');
-    const door = urlParams.get('door');
-    const landing = urlParams.get('landing');
-    const innerWidth = urlParams.get('innerWidth');
-    const innerDepth = urlParams.get('innerDepth');
-
-    const restrictions = document.getElementById('restrictions');
-    const advise = document.getElementById('advise');
-
-    //if type is C or D and door is bifold: disable legacy model
-    //if door is 2speed or 3speed: disable legacy model
-
-
-    if (['C', 'D'].includes(type) && door == 'bifold') {
-        document.getElementById('legacy').disabled = true;
-        advise.innerHTML += 'Legacy model is not available for types C and D with bifold doors, consult an engineer for this properties.'
-        restrictions.classList.remove('d-none');
-    }
-    if (['2speed', '3speed'].includes(door)) {
-        document.getElementById('legacy').disabled = true;
-        advise.innerHTML += 'Legacy model is not available for 2 and 3 speed doors, consult an engineer for this properties.'
-        restrictions.classList.remove('d-none');
-    }
-
-    //find avaliable models based on innerWidth and innerDepth
-}
-
 
 if (window.location.pathname.endsWith('/door.html')) {
     doorRestrictions();

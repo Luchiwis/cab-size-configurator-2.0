@@ -1,5 +1,7 @@
 // Function to add query string parameters to the form in the order they appear in the URL
+elevatorData = {
 
+}
 // Get the form element
 var form = document.querySelector('form');
 
@@ -15,6 +17,8 @@ params.reverse();
 for (const param of params) {
     paramName = param[0];
     paramValue = param[1];
+
+    elevatorData[paramName] = paramValue;
 
     const newInput = document.createElement('input');
     newInput.setAttribute('type', 'hidden');
