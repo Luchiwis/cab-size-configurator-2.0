@@ -7,7 +7,7 @@ const overallDepthTableLabel = document.getElementById('overall-depth-table-labe
 const hoistwayWidthTableLabel = document.getElementById('hoistway-width-table-label');
 const hoistwayDepthTableLabel = document.getElementById('hoistway-depth-table-label');
 
-function setWallThicknesses(type) {
+function getInnerCabDimensions(type, overallWidth, overallDepth) {
     if (type == 'A') {
         widthWallThickness = MM_WALL_THICKNESS * 2;
         depthWallThickness = MM_WALL_THICKNESS;
@@ -29,9 +29,13 @@ function setWallThicknesses(type) {
         depthWallThickness = MM_WALL_THICKNESS * 2;
     }
 
-    //change global variables
-    MM_WIDTH_WALL_THICKNESS = widthWallThickness;
-    MM_DEPTH_WALL_THICKNESS = depthWallThickness;
+    innerWidth = overallWidth - widthWallThickness;
+    innerDepth = overallDepth - depthWallThickness;
+
+    return {
+        innerWidth: innerWidth,
+        innerHeight: innerDepth,
+    }
 }
 
 function getHoistwayDimensions(type, model, overallWidth, overallDepth) {
@@ -82,30 +86,36 @@ function getHoistwayDimensions(type, model, overallWidth, overallDepth) {
 }
 
 function updateTable(){
-    innerCabWidthValue = parseFloat(document.getElementById('inner-width').value);
-    innerCabDepthValue = parseFloat(document.getElementById('inner-depth').value);
+    cabWidthValue = parseFloat(document.getElementById('cab-width').value);
+    cabDepthValue = parseFloat(document.getElementById('cab-depth').value);
 
     const type = elevatorData['type'];
     const model = elevatorData['model'];
 
     //starting calculations
 
+
+    // overall
     if (UNITS == 'in') {
-        innerCabWidthValue = inchesToMillimeters(innerCabWidthValue);
-        innerCabDepthValue = inchesToMillimeters(innerCabDepthValue);
+        cabWidthValue = inchesToMillimeters(cabWidthValue);
+        cabDepthValue = inchesToMillimeters(cabDepthValue);
     }
 
-    overallWidth = innerCabWidthValue + MM_WIDTH_WALL_THICKNESS;
-    overallDepth = innerCabDepthValue + MM_DEPTH_WALL_THICKNESS;
+
+    overallWidth = cabWidthValue;
+    overallDepth = cabDepthValue;
 
     hoistwayDimensions = getHoistwayDimensions(type, model, overallWidth, overallDepth);
     hoistwayWidth = hoistwayDimensions.hoistwayWidth;
     hoistwayDepth = hoistwayDimensions.hoistwayDepth;
 
+    innerCabDimensions = getInnerCabDimensions(type, overallWidth, overallDepth);
+    innerWidth = innerCabDimensions.innerWidth;
+    innerDepth = innerCabDimensions.innerHeight;
 
 
     //display results
-    if (!innerCabWidthValue || !innerCabDepthValue) {
+    if (!cabWidthValue || !cabDepthValue) {
         innerWidthTableLabel.innerHTML = '-';
         innerDepthTableLabel.innerHTML = '-';
         overallWidthTableLabel.innerHTML = '-';
@@ -118,8 +128,8 @@ function updateTable(){
     if (UNITS == 'in') {
 
         //inner
-        innerWidthTableLabel.innerHTML = Math.round(millimetersToInches(innerCabWidthValue)) + '"';
-        innerDepthTableLabel.innerHTML = Math.round(millimetersToInches(innerCabDepthValue)) + '"';
+        innerWidthTableLabel.innerHTML = millimetersToInches(innerWidth).toFixed(2) + '"';
+        innerDepthTableLabel.innerHTML = millimetersToInches(innerDepth).toFixed(2) + '"';
 
         //overall
         overallWidthTableLabel.innerHTML = millimetersToInches(overallWidth).toFixed(2) + '"';
@@ -132,8 +142,8 @@ function updateTable(){
     else {
 
         //inner
-        innerWidthTableLabel.innerHTML = innerCabWidthValue + 'mm';
-        innerDepthTableLabel.innerHTML = innerCabDepthValue + 'mm';
+        innerWidthTableLabel.innerHTML = innerWidth + 'mm';
+        innerDepthTableLabel.innerHTML = innerDepth + 'mm';
 
         //overall
         overallWidthTableLabel.innerHTML = overallWidth + 'mm';

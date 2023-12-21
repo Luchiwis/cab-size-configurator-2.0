@@ -49,31 +49,31 @@
     <main>
         <section class="text-center">
             <div class="my-5 col-md-8 col-sm-10 mx-auto">
-                <h1 class="display-4">Select the interior cab size</h1>
+                <h1 class="display-4">Select the cab size</h1>
                 <form action="model.html">
-                    <div id="sect-inner-size">
+                    <div id="sect-cab-size">
                         <h4>
-                            Interior cab size
+                            Overall cab size
                         </h4>
                         <div class="row">
                             <div class="col-md-6">
-                                <label for="inner-width" class="form-label">Width <br>(<span id="width-range-label"></span>)</label>
-                                <input type="number" id="inner-width" name="inner-width" step="0.01"
+                                <label for="cab-width" class="form-label">Width <br>(<span id="width-range-label"></span>)</label>
+                                <input type="number" id="cab-width" name="cab-width" step="0.01"
                                     class="form-control text-center" required>
                             </div>
                             <div class="col-md-6">
-                                <label for="inner-depth" class="form-label">Depth <br>(<span id="depth-range-label"></span>)</label>
-                                <input type="number" id="inner-depth" name="inner-depth" step="0.01"
+                                <label for="cab-depth" class="form-label">Depth <br>(<span id="depth-range-label"></span>)</label>
+                                <input type="number" id="cab-depth" name="cab-depth" step="0.01"
                                     class="form-control text-center" required>
                             </div>
                         </div>
 
-                        <label for="inner-height" class="form-label">Height</label>
+                        <label for="cab-height" class="form-label">Height</label>
                         <select class="form-select form-select-sm text-center my-3 w-50 mx-auto"
-                            aria-label=".form-select-sm example" name="inner-height" id="inner-height" required>
+                            aria-label=".form-select-sm example" name="cab-height" id="cab-height" required>
                             <option value="" selected>Select Height</option>
-                            <option value="2133.6">2133.6</option>
-                            <option value="2438.4">2438.4</option>
+                            <option value="2133.6">84"</option>
+                            <option value="2438.4">96"</option>
                         </select>
                     </div>
 
@@ -98,16 +98,22 @@
                             <td id="inner-depth-table-label">-</td>
                         </tr>
                         <tr>
-                            <td>Overall</td>
-                            <td id="overall-width-table-label">-</td>
-                            <td id="overall-depth-table-label">-</td>
-                        </tr>
-                        <tr>
                             <td>Hoistway</td>
                             <td id="hoistway-width-table-label">-</td>
                             <td id="hoistway-depth-table-label">-</td>
                         </tr>
+                        <tr>
+                            <td>Overall</td>
+                            <td id="overall-width-table-label">-</td>
+                            <td id="overall-depth-table-label">-</td>
+                        </tr>
                 </table>
+            </div>
+        </section>
+        <section class="text-center d-none py-2" id="restrictions">
+            <div class="container">
+                <h4>Restrictions:</h4>
+                <ul id="advise"></ul>
             </div>
         </section>
     </main>
@@ -141,10 +147,10 @@
     <!-- script stuff -->
     <script src="js/bootstrap.js"></script>
     <script src="js/metricConversion.js"></script>
-    <script src="js/rangeUpdater.js"></script>
     <script src="js/prependQueryString.js"></script>
     <script src="js/guide.js"></script>
     <script src="js/tableSizeUpdater.js"></script>
+    <script src="js/errorMessages.js"></script>
     <script src="js/restrictions.js"></script>
 </body>
 

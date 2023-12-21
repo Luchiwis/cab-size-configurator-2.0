@@ -1,7 +1,9 @@
 function doorRestrictions() {
     //get url params
-    const urlParams = new URLSearchParams(window.location.search);
-    const type = urlParams.get('type');
+    // const urlParams = new URLSearchParams(window.location.search);
+    // const type = urlParams.get('type');
+    const type = elevatorData['type'];
+    const model = elevatorData['model'];
     const restrictions = document.getElementById('restrictions');
     const advise = document.getElementById('advise');
 
@@ -11,62 +13,86 @@ function doorRestrictions() {
         document.getElementById('slide3').disabled = true;
         document.getElementById('landing').disabled = true;
 
-        advise.innerHTML = '2 and 3 speed sliding doors are not available for types C and D, consult an engineer for this properties.'
-        restrictions.classList.remove('d-none');
+        errorBox.showError('2 and 3 speed sliding doors are not available for types C and D, consult factory for this properties.');
+    }
+    if (model == 'legacy') {
+        document.getElementById('slide2').disabled = true;
+        document.getElementById('slide3').disabled = true;
+        document.getElementById('landing').disabled = true;
+
+        errorBox.showError('2 and 3 speed sliding doors are not available for legacy models, consult factory for this properties.');
     }
 }
 
-function innercabRestrictions() {
+function cabRestrictions() {
     //get url params
     // const urlParams = new URLSearchParams(window.location.search);
     // const type = urlParams.get('type');
     // const door = urlParams.get('door');
     const type = elevatorData['type'];
     const door = elevatorData['door'];
+    const model = elevatorData['model'];
     const landing = urlParams.get('landing');
-    const innerWidth = document.getElementById('inner-width');
-    const innerDepth = document.getElementById('inner-depth');
+    const cabWidth = document.getElementById('cab-width');
+    const cabDepth = document.getElementById('cab-depth');
     const widthRangeLabel = document.getElementById('width-range-label');
     const depthRangeLabel = document.getElementById('depth-range-label');
 
     filter = {
+        model: model,
         type: type,
         door: door,
         landing: Boolean(landing),
     }
     objects = filterObjects(guide, filter);
     ranges = getRanges(objects);
-    setWallThicknesses(type);
 
     if (UNITS == 'in') {
-        innerWidth.min = millimetersToInches(ranges.minOverallWidth - MM_WIDTH_WALL_THICKNESS).toFixed(2);
-        innerWidth.max = millimetersToInches(ranges.maxOverallWidth - MM_WIDTH_WALL_THICKNESS).toFixed(2);
-        innerDepth.min = millimetersToInches(ranges.minOverallDepth - MM_DEPTH_WALL_THICKNESS).toFixed(2);
-        innerDepth.max = millimetersToInches(ranges.maxOverallDepth - MM_DEPTH_WALL_THICKNESS).toFixed(2);
+        minCabWidth = millimetersToInches(ranges.minOverallWidth).toFixed(2);
+        maxCabWidth = millimetersToInches(ranges.maxOverallWidth).toFixed(2);
+        minCabDepth = millimetersToInches(ranges.minOverallDepth).toFixed(2);
+        maxCabDepth = millimetersToInches(ranges.maxOverallDepth).toFixed(2);
 
-        widthRangeLabel.innerHTML = innerWidth.min + '" - ' + innerWidth.max + '"';
-        depthRangeLabel.innerHTML = innerDepth.min + '" - ' + innerDepth.max + '"';
+        widthRangeLabel.innerHTML = minCabWidth + '" - ' + maxCabWidth + '"';
+        depthRangeLabel.innerHTML = minCabDepth + '" - ' + maxCabDepth + '"';
+    } else {
+        minCabWidth = ranges.minOverallWidth;
+        maxCabWidth = ranges.maxOverallWidth;
+        minCabDepth = ranges.minOverallDepth;
+        maxCabDepth = ranges.maxOverallDepth;
+        
+        widthRangeLabel.innerHTML = minCabWidth + 'mm - ' + maxCabWidth + 'mm';
+        depthRangeLabel.innerHTML = minCabDepth + 'mm - ' + maxCabDepth + 'mm';
     }
-    else {
-        innerWidth.min = ranges.minOverallWidth - MM_WIDTH_WALL_THICKNESS;
-        innerWidth.max = ranges.maxOverallWidth - MM_WIDTH_WALL_THICKNESS;
-        innerDepth.min = ranges.minOverallDepth - MM_DEPTH_WALL_THICKNESS;
-        innerDepth.max = ranges.maxOverallDepth - MM_DEPTH_WALL_THICKNESS;
 
-        widthRangeLabel.innerHTML = innerWidth.min + 'mm - ' + innerWidth.max + 'mm';
-        depthRangeLabel.innerHTML = innerDepth.min + 'mm - ' + innerDepth.max + 'mm';
+    cabWidth.min = ranges.minOverallWidth;
+    cabWidth.max = ranges.maxOverallWidth;
+    cabDepth.min = ranges.minOverallDepth;
+    cabDepth.max = ranges.maxOverallDepth;
+
+    //if there's no range complete with the only available value and disable the input
+    if (ranges.minOverallWidth == ranges.maxOverallWidth) {
+        cabWidth.value = minCabWidth;
+        cabWidth.disabled = true;
+    } else {
+        cabWidth.value = "";
     }
-    innerWidth.value = "";
-    innerDepth.value = "";
 
-    
+    if (ranges.minOverallDepth == ranges.maxOverallDepth) {
+        cabDepth.value = minCabDepth;
+        cabDepth.disabled = true;
+    } else {
+        cabDepth.value = "";
+    }
+
+
 }
 
 if (window.location.pathname.endsWith('/door.html')) {
     doorRestrictions();
 }
-else if (window.location.pathname.endsWith('/innercab.html')) {
-    innercabRestrictions();
+else if (window.location.pathname.endsWith('/cab.html')) {
+    cabRestrictions();
 }
 else if (window.location.pathname.endsWith('/model.html')) {
     modelRestrictions();

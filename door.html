@@ -38,7 +38,7 @@
         <section class="text-center">
             <div class="my-5">
                 <h1 class="display-4">Select the type of door</h1>
-                <form action="innercab.html">
+                <form action="cab.html">
                     <div class="sect" id="sect-door">
                         <h4>Door type</h4>
 
@@ -88,7 +88,7 @@
         <section class="text-center d-none py-2" id="restrictions">
             <div class="container">
                 <h4>Restrictions:</h4>
-                <p id="advise"></p>
+                <ul id="advise"></ul>
             </div>
         </section>
     </main>
@@ -123,7 +123,9 @@
     <script src="js/bootstrap.js"></script>
     <script src="js/prependQueryString.js"></script>
     <script src="js/guide.js"></script>
+    <script src="js/errorMessages.js"></script>
     <script src="js/restrictions.js"></script>
+
     <script>
         //restrict landing door to 2 speed slide and 3 speed slide
         const landing = document.querySelector('#landingSection');
