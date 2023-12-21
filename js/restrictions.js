@@ -22,6 +22,12 @@ function doorRestrictions() {
 
         errorBox.showError('2 and 3 speed sliding doors are not available for legacy models, consult factory for this properties.');
     }
+    if (['C', 'D'].includes(type) && model == 'legacy') {
+        console.log('both');
+        document.getElementById('bifold').disabled = true;
+
+        errorBox.showError('Bi-fold doors are not available for types C and D in lecagy model, consult factory for this properties.');
+    }
 }
 
 function cabRestrictions() {
@@ -60,7 +66,7 @@ function cabRestrictions() {
         maxCabWidth = ranges.maxOverallWidth;
         minCabDepth = ranges.minOverallDepth;
         maxCabDepth = ranges.maxOverallDepth;
-        
+
         widthRangeLabel.innerHTML = minCabWidth + 'mm - ' + maxCabWidth + 'mm';
         depthRangeLabel.innerHTML = minCabDepth + 'mm - ' + maxCabDepth + 'mm';
     }
