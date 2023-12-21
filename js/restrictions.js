@@ -61,6 +61,12 @@ function cabRestrictions() {
         //min and max labels
         widthRangeLabel.innerHTML = minCabWidth + '" - ' + maxCabWidth + '"';
         depthRangeLabel.innerHTML = minCabDepth + '" - ' + maxCabDepth + '"';
+
+        //heigth options
+        cabHeightOptions.forEach(option => {
+            option.innerHTML = option.value + '"';
+        });
+
     } else {
         //min and max number inputs
         minCabWidth = ranges.minOverallWidth;

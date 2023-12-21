@@ -158,11 +158,39 @@
 
     <script>
         function customSubmit() {
+            //check required inputs
+            let valid = true;
+            let requiredInputs = document.querySelectorAll('form input:required');
+            requiredInputs.forEach(input => {
+                if (input.value == '') {
+                    input.classList.add('is-invalid');
+                    valid = false;
+                }else{
+                    input.classList.remove('is-invalid');
+                }
+            });
+            //check if valid minimum size and maximum size number inputs
+            let numberInputs = document.querySelectorAll('form input[type="number"]');
+            numberInputs.forEach(input => {
+                if (input.value < input.min || input.value > input.max) {
+                    input.classList.add('is-invalid');
+                    valid = false;
+                }else{
+                    input.classList.remove('is-invalid');
+                }
+            });
+
+            if (!valid) {
+                return;
+            }
+
             //enable inputs that are disabled just before submitting
             let disabledInputs = document.querySelectorAll('form input:disabled');
             disabledInputs.forEach(input => {
                 input.removeAttribute('disabled');
             });
+
+            
 
             //submit form
             document.querySelector('form').submit();
