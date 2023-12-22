@@ -43,11 +43,11 @@
                     <div id="unit-system">
                         <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
                             <input type="radio" class="btn-check" name="unit" value="mm" id="unit-radio-mm"
-                                autocomplete="off" onclick="switchUnits('mm')">
+                                autocomplete="off" onclick="switchUnits('mm');cabRestrictions();updateTable();">
                             <label class="btn btn-outline-primary" for="unit-radio-mm">metric</label>
 
                             <input type="radio" class="btn-check" name="unit" value="in" id="unit-radio-in"
-                                autocomplete="off" onclick="switchUnits('in')" checked>
+                                autocomplete="off" onclick="switchUnits('in');cabRestrictions();updateTable();" checked>
                             <label class="btn btn-outline-primary" for="unit-radio-in">imperial</label>
                         </div>
                     </div>
@@ -70,8 +70,8 @@
                     <select class="form-select form-select-sm text-center my-3 w-50 mx-auto"
                         aria-label=".form-select-sm example" name="cab-height" id="cab-height" required>
                         <option value="" selected disabled>Select Height</option>
-                        <option value="84">84"</option>
-                        <option value="96">96"</option>
+                        <option value="2133.6">84"</option>
+                        <option value="2438.4">96"</option>
                     </select>
 
 
@@ -106,7 +106,7 @@
 
                     </div>
 
-                    <input type="submit" value="Select model" class="btn btn-primary" onclick="customSubmit();">
+                    <input type="submit" value="See results" class="btn btn-primary" onclick="customSubmit();">
                 </form>
 
             </div>
@@ -160,7 +160,7 @@
         function customSubmit() {
             //check required inputs
             let valid = true;
-            let requiredInputs = document.querySelectorAll('form input:required');
+            let requiredInputs = document.querySelectorAll('form input:required, form select:required');
             requiredInputs.forEach(input => {
                 if (input.value == '') {
                     input.classList.add('is-invalid');
@@ -184,13 +184,15 @@
                 return;
             }
 
-            //enable inputs that are disabled just before submitting
-            let disabledInputs = document.querySelectorAll('form input:disabled');
-            disabledInputs.forEach(input => {
-                input.removeAttribute('disabled');
+            document.querySelectorAll('#cab-width, #cab-depth').forEach(input => {
+                input.disabled = true;
             });
-
-            
+            addHiddenInput('overall-width', elevatorData.overallWidth);
+            addHiddenInput('overall-depth', elevatorData.overallDepth);
+            addHiddenInput('inner-width', elevatorData.innerWidth);
+            addHiddenInput('inner-depth', elevatorData.innerDepth);
+            addHiddenInput('hoistway-width', elevatorData.hoistwayWidth);
+            addHiddenInput('hoistway-depth', elevatorData.hoistwayDepth);
 
             //submit form
             document.querySelector('form').submit();

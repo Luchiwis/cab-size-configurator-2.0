@@ -2,6 +2,9 @@
 elevatorData = {
 
 }
+
+
+
 // Get the form element
 var form = document.querySelector('form');
 
@@ -13,6 +16,14 @@ params = urlParams.entries();
 params = Array.from(params)
 params.reverse();
 
+function addHiddenInput(name, value, pend='prepend') {
+    const newInput = document.createElement('input');
+    newInput.setAttribute('type', 'hidden');
+    newInput.setAttribute('name', name);
+    newInput.setAttribute('value', value);
+    form.prepend(newInput);
+}
+
 //log all params
 for (const param of params) {
     paramName = param[0];
@@ -20,9 +31,5 @@ for (const param of params) {
 
     elevatorData[paramName] = paramValue;
 
-    const newInput = document.createElement('input');
-    newInput.setAttribute('type', 'hidden');
-    newInput.setAttribute('name', paramName);
-    newInput.setAttribute('value', paramValue);
-    document.querySelector('form').prepend(newInput);
+    addHiddenInput(paramName, paramValue);
 }

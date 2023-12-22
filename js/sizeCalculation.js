@@ -57,7 +57,7 @@ function getHoistwayDimensions(type, model, overallWidth, overallDepth) {
     else if (type == 'C') {
         hoistwayWidth = distanceToBackOfControlWall + overallWidth + runningClearance;
         hoistwayDepth = runningClearance + overallDepth + otherClearance;
-    } 
+    }
     else if (type == 'D') {
         hoistwayWidth = distanceToBackOfControlWall + overallWidth + runningClearance;
         hoistwayDepth = runningClearance + overallDepth + otherClearance;
@@ -73,5 +73,27 @@ function getHoistwayDimensions(type, model, overallWidth, overallDepth) {
         distanceToBackOfControlWall: distanceToBackOfControlWall,
         hoistwayWidth: hoistwayWidth,
         hoistwayDepth: hoistwayDepth,
+    }
+}
+
+function getOverhead(door, cabHeight) {
+    if (door == 'bifold' || door == 'accordion') {
+        if (cabHeight == 2133.6) { //84"
+            return 2438.4; //96"
+        } else if (cabHeight == 2438.4) { //96"
+            return 2743.2; //108"
+        }
+
+    } else {
+        return 2743.2; //108"
+    }
+}
+
+function getPitDepth(door){
+    if (door == '2speed' || door == '3speed'){
+        return 304.8; //12"
+    }
+    else {
+        return 203.2; //8"
     }
 }

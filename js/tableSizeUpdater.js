@@ -7,7 +7,7 @@ const overallDepthTableLabel = document.getElementById('overall-depth-table-labe
 const hoistwayWidthTableLabel = document.getElementById('hoistway-width-table-label');
 const hoistwayDepthTableLabel = document.getElementById('hoistway-depth-table-label');
 
-function updateTable(){
+function updateTable() {
     cabWidthValue = parseFloat(document.getElementById('cab-width').value);
     cabDepthValue = parseFloat(document.getElementById('cab-depth').value);
 
@@ -23,7 +23,6 @@ function updateTable(){
         cabDepthValue = inchesToMillimeters(cabDepthValue);
     }
 
-
     overallWidth = cabWidthValue;
     overallDepth = cabDepthValue;
 
@@ -35,6 +34,13 @@ function updateTable(){
     innerWidth = innerCabDimensions.innerWidth;
     innerDepth = innerCabDimensions.innerHeight;
 
+    //save values to elevatorData
+    elevatorData['innerWidth'] = innerWidth;
+    elevatorData['innerDepth'] = innerDepth;
+    elevatorData['overallWidth'] = overallWidth;
+    elevatorData['overallDepth'] = overallDepth;
+    elevatorData['hoistwayWidth'] = hoistwayWidth;
+    elevatorData['hoistwayDepth'] = hoistwayDepth;
 
     //display results
     if (!cabWidthValue || !cabDepthValue) {
@@ -46,35 +52,46 @@ function updateTable(){
         hoistwayDepthTableLabel.innerHTML = '-';
         return
     }
-    
+
     if (UNITS == 'in') {
 
         //inner
-        innerWidthTableLabel.innerHTML = millimetersToInches(innerWidth).toFixed(2) + '"';
-        innerDepthTableLabel.innerHTML = millimetersToInches(innerDepth).toFixed(2) + '"';
+        innerWidth = millimetersToInches(innerWidth).toFixed(2) + '"';
+        innerDepth = millimetersToInches(innerDepth).toFixed(2) + '"';
 
         //overall
-        overallWidthTableLabel.innerHTML = millimetersToInches(overallWidth).toFixed(2) + '"';
-        overallDepthTableLabel.innerHTML = millimetersToInches(overallDepth).toFixed(2) + '"';
+        overallWidth = millimetersToInches(overallWidth).toFixed(2) + '"';
+        overallDepth = millimetersToInches(overallDepth).toFixed(2) + '"';
 
         //hoistway
-        hoistwayWidthTableLabel.innerHTML = millimetersToInches(hoistwayWidth).toFixed(2) + '"';
-        hoistwayDepthTableLabel.innerHTML = millimetersToInches(hoistwayDepth).toFixed(2) + '"';
+        hoistwayWidth = millimetersToInches(hoistwayWidth).toFixed(2) + '"';
+        hoistwayDepth = millimetersToInches(hoistwayDepth).toFixed(2) + '"';
     }
     else {
 
         //inner
-        innerWidthTableLabel.innerHTML = innerWidth + 'mm';
-        innerDepthTableLabel.innerHTML = innerDepth + 'mm';
+        innerWidth = innerWidth + 'mm';
+        innerDepth = innerDepth + 'mm';
 
         //overall
-        overallWidthTableLabel.innerHTML = overallWidth + 'mm';
-        overallDepthTableLabel.innerHTML = overallDepth + 'mm';
+        overallWidth = overallWidth + 'mm';
+        overallDepth = overallDepth + 'mm';
 
         //hoistway
-        hoistwayWidthTableLabel.innerHTML = hoistwayWidth + 'mm';
-        hoistwayDepthTableLabel.innerHTML = hoistwayDepth + 'mm';
+        hoistwayWidth = hoistwayWidth + 'mm';
+        hoistwayDepth = hoistwayDepth + 'mm';
     }
+
+    //inner
+    innerWidthTableLabel.innerHTML = innerWidth
+    innerDepthTableLabel.innerHTML = innerDepth
+    //overall
+    overallWidthTableLabel.innerHTML = overallWidth
+    overallDepthTableLabel.innerHTML = overallDepth
+    //hoistway
+    hoistwayWidthTableLabel.innerHTML = hoistwayWidth
+    hoistwayDepthTableLabel.innerHTML = hoistwayDepth
+
 
 }
 

@@ -64,7 +64,7 @@ function cabRestrictions() {
 
         //heigth options
         cabHeightOptions.forEach(option => {
-            option.innerHTML = option.value + '"';
+            option.innerHTML = millimetersToInches(option.value).toFixed() + '"';
         });
 
     } else {
@@ -80,7 +80,7 @@ function cabRestrictions() {
 
         //heigth options
         cabHeightOptions.forEach(option => {
-            option.innerHTML = inchesToMillimeters(option.value).toFixed(1) + 'mm';
+            option.innerHTML = option.value + 'mm';
         });
     }
 

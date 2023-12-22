@@ -11,6 +11,4 @@ function millimetersToInches(millimeters) {
 
 function switchUnits(units) {
     UNITS = units;
-    cabRestrictions();
-    updateTable();
 }
