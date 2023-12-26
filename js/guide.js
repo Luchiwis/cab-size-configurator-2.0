@@ -728,6 +728,11 @@ guide = [
         "maxOverallDepth": 1092
     }
 ]
+function filterHoistwayInRange(guide, hoistwayWidth, hoistwayDepth) {
+    return guide.filter(obj => {
+        return obj.minHoistwayWidth <= hoistwayWidth && obj.maxHoistwayWidth >= hoistwayWidth && obj.minHoistwayDepth <= hoistwayDepth && obj.maxHoistwayDepth >= hoistwayDepth;
+    });
+}
 
 
 function filterObjects(guide, filters) {

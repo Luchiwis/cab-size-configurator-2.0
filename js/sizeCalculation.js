@@ -97,3 +97,52 @@ function getPitDepth(door){
         return 203.2; //8"
     }
 }
+
+function getOverallDimensions(model,type, hoistwayWidth, hoistwayDepth){
+    if (model == 'panorama' || model == 'renaissance') {
+        runningClearance = inchesToMillimeters(1.25);
+        otherClearance = inchesToMillimeters(2.5);
+        if (type == 'A' || type == 'B') {
+            distanceToBackOfControlWall = inchesToMillimeters(10);
+        }
+        else if (type == 'C' || type == 'D' || type == 'E') {
+            distanceToBackOfControlWall = inchesToMillimeters(10.75);
+        }
+    }
+    else if (model == 'legacy') {
+        runningClearance = inchesToMillimeters(1.25);
+        otherClearance = inchesToMillimeters(2.25);
+        distanceToBackOfControlWall = inchesToMillimeters(10.75);
+    }
+
+    if (type == 'A') {
+        overallWidth = hoistwayWidth - distanceToBackOfControlWall - otherClearance;
+        overallDepth = hoistwayDepth - runningClearance - otherClearance;
+    }
+    else if (type == 'B') {
+        overallWidth = hoistwayWidth - distanceToBackOfControlWall - otherClearance;
+        overallDepth = hoistwayDepth - runningClearance - runningClearance;
+    }
+    else if (type == 'C') {
+        overallWidth = hoistwayWidth - distanceToBackOfControlWall - runningClearance;
+        overallDepth = hoistwayDepth - runningClearance - otherClearance;
+    }
+    else if (type == 'D') {
+        overallWidth = hoistwayWidth - distanceToBackOfControlWall - runningClearance;
+        overallDepth = hoistwayDepth - runningClearance - otherClearance;
+    }
+    else if (type == 'E') {
+        overallWidth = hoistwayWidth - distanceToBackOfControlWall - runningClearance;
+        overallDepth = hoistwayDepth - otherClearance - otherClearance;
+    }
+    else {
+        console.log('error');
+        console.log(type);
+        console.log(model);
+    }
+
+    return {
+        overallWidth: overallWidth,
+        overallDepth: overallDepth,
+    }
+}
