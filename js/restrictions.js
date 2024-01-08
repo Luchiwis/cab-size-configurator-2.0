@@ -13,20 +13,20 @@ function doorRestrictions() {
         document.getElementById('slide3').disabled = true;
         document.getElementById('landing').disabled = true;
 
-        errorBox.showError('2 and 3 speed sliding doors are not available for types C and D, consult factory for this properties.');
+        errorBox.showError('2 and 3 speed sliding doors are not available for types C and D, consult factory for these properties.');
     }
     if (model == 'legacy') {
         document.getElementById('slide2').disabled = true;
         document.getElementById('slide3').disabled = true;
         document.getElementById('landing').disabled = true;
 
-        errorBox.showError('2 and 3 speed sliding doors are not available for legacy models, consult factory for this properties.');
+        errorBox.showError('2 and 3 speed sliding doors are not available for legacy models, consult factory for these properties.');
     }
     if (['C', 'D'].includes(type) && model == 'legacy') {
         console.log('both');
         document.getElementById('bifold').disabled = true;
 
-        errorBox.showError('Bi-fold doors are not available for types C and D in lecagy model, consult factory for this properties.');
+        errorBox.showError('Bi-fold doors are not available for types C and D in lecagy model, consult factory for these properties.');
     }
 }
 

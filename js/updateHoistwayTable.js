@@ -1,5 +1,8 @@
 const widthInput = document.getElementById('width');
 const depthInput = document.getElementById('depth');
+const modelInput = document.getElementById('model');
+const typeInput = document.getElementById('type');
+const doorInput = document.getElementById('door');
 
 const widthLabel = document.getElementById('width-label');
 const depthLabel = document.getElementById('depth-label');
@@ -20,13 +23,21 @@ function addElevatorRow(model, type, door, landing, maxWidth, maxDepth) {
     tableBody.appendChild(row);
 }
 
-function updateTable(hoistwayWidth, hoistwayDepth) {
+function updateTable() {
+    hoistwayWidth = widthInput.value
+    hoistwayDepth = depthInput.value
+    model = modelInput.value 
+    type = typeInput.value
+    door = doorInput.value
+
+    console.log(model, type, door)
+
     if (UNITS == 'in') {
         hoistwayWidth = inchesToMillimeters(hoistwayWidth);
         hoistwayDepth = inchesToMillimeters(hoistwayDepth);
     }
     //filter the elevators that can fit in the hoistway from guide array
-    filteredGuide = filterHoistwayInRange(guide, hoistwayWidth, hoistwayDepth);
+    filteredGuide = filterHoistwayInRange(guide, hoistwayWidth, hoistwayDepth, model, type, door);
     //clear the table
     tableBody.innerHTML = '';
     //add the filtered elevators to the table
@@ -51,19 +62,31 @@ function changeUnitsInputs() {
     widthInput.value = '';
     depthInput.value = '';
     if (UNITS == 'in') {
-        widthLabel.innerHTML = '(49.5"-50.5")';
-        depthLabel.innerHTML = '(50.25"-55")';
+        widthLabel.innerHTML = 'min:49.5"';
+        depthLabel.innerHTML = 'min:50.25"';
     } else if (UNITS == 'mm') {
-        widthLabel.innerHTML = '(1257mm-1283mm)';
-        depthLabel.innerHTML = '(1276mm-1397mm)';
+        widthLabel.innerHTML = 'min:1257mm';
+        depthLabel.innerHTML = 'min:1276mm';
     }
     updateTable(parseFloat(widthInput.value), parseFloat(depthInput.value));
 }
 
 //event listeners
 widthInput.addEventListener('input', (e) => {
-    updateTable(e.target.value, depthInput.value);
+    updateTable();
 });
 depthInput.addEventListener('input', (e) => {
-    updateTable(widthInput.value, e.target.value);
+    updateTable();
 });
+modelInput.addEventListener('change', (e) => {
+    updateTable();
+}
+);
+typeInput.addEventListener('change', (e) => {
+    updateTable();
+}
+);
+doorInput.addEventListener('change', (e) => {
+    updateTable();
+}
+);
