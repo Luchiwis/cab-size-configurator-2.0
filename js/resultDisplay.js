@@ -32,6 +32,7 @@ const hoistwayDepthTableLabel = document.getElementById('hoistway-depth-table-la
 
 
 function displayResults(){
+
     let landing;
     model = models[elevatorData['model']];
     type = elevatorData['type'].toUpperCase();
@@ -56,7 +57,7 @@ function displayResults(){
         innerWidth = inchesToMillimeters(innerWidth).toFixed(2) + 'mm';
         innerDepth = inchesToMillimeters(innerDepth).toFixed(2) + 'mm';
         pit = inchesToMillimeters(pit).toFixed(0) + 'mm';
-    }else if (UNITS == 'in'){
+    }else{
         overhead = overhead.toFixed() + '"';
         height = height.toFixed() + '"';
         overallWidth = overallWidth.toFixed() + '"';
@@ -84,3 +85,7 @@ function displayResults(){
 
 
 displayResults();
+if (elevatorData['unit'] == 'mm'){
+    UNITS = 'mm';
+    document.querySelector('#unit-radio-mm').click();
+}

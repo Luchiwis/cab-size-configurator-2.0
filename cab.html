@@ -106,7 +106,7 @@
 
                     </div>
 
-                    <input type="submit" value="See results" class="btn btn-primary" onclick="customSubmit();">
+                    <input type="button" value="See results" class="btn btn-primary" onclick="customSubmit();">
                 </form>
 
             </div>
@@ -165,17 +165,18 @@
                 if (input.value == '') {
                     input.classList.add('is-invalid');
                     valid = false;
-                }else{
+                } else {
                     input.classList.remove('is-invalid');
                 }
+
             });
             //check if valid minimum size and maximum size number inputs
             let numberInputs = document.querySelectorAll('form input[type="number"]');
             numberInputs.forEach(input => {
-                if (input.value < input.min || input.value > input.max) {
+                if (Number(input.value) < Number(input.min) || Number(input.value) > Number(input.max)) {
                     input.classList.add('is-invalid');
                     valid = false;
-                }else{
+                } else {
                     input.classList.remove('is-invalid');
                 }
             });
@@ -184,7 +185,7 @@
                 errorBox.showError("some of the sizes are not valid for the standard cab sizes. Please consult factory for custom cab sizes.")
                 return;
             }
-            
+
 
             document.querySelectorAll('#cab-width, #cab-depth').forEach(input => {
                 input.disabled = true;
