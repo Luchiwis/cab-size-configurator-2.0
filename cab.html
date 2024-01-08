@@ -181,8 +181,10 @@
             });
 
             if (!valid) {
+                errorBox.showError("some of the sizes are not valid for the standard cab sizes. Please consult factory for custom cab sizes.")
                 return;
             }
+            
 
             document.querySelectorAll('#cab-width, #cab-depth').forEach(input => {
                 input.disabled = true;
