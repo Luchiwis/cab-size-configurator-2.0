@@ -1,3 +1,15 @@
+const doors = {
+    'accordion': 'Accordion',
+    'bifold': 'Bi-Fold',
+    '3speed': '3 Speed sliding',
+    '2speed': '2 Speed sliding',
+}
+const models = {
+    'legacy': 'Legacy',
+    'panorama': 'Panorama',
+    'renaissance': 'Renaissance',
+}
+
 const widthInput = document.getElementById('width');
 const depthInput = document.getElementById('depth');
 const modelInput = document.getElementById('model');
@@ -11,6 +23,13 @@ const tableBody = document.querySelector('tbody');
 
 
 function addElevatorRow(model, type, door, landing, maxWidth, maxDepth) {
+    resultUrl = `cab.html?&model=${model}&type=${type}&door=${door}`
+    if (landing ) {resultUrl += '&landing=on'}
+    model = models[model];
+    type = type.toUpperCase();
+    door = doors[door];
+    (Boolean(landing)) ? landing = 'Yes' : landing = 'No';
+    
     const row = document.createElement('tr');
     row.innerHTML = `
         <td>${model}</td>
@@ -20,6 +39,7 @@ function addElevatorRow(model, type, door, landing, maxWidth, maxDepth) {
         <td>${maxWidth}</td>
         <td>${maxDepth}</td>
     `;
+    row.setAttribute('onclick', `window.location='${resultUrl}';`)
     tableBody.appendChild(row);
 }
 

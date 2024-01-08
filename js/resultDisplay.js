@@ -1,3 +1,19 @@
+const doors = {
+    'accordion': 'Accordion',
+    'bifold': 'Bi-Fold',
+    '3speed': '3 Speed sliding',
+    '2speed': '2 Speed sliding',
+}
+const landing = {
+    true: 'Yes',
+    false: 'No',
+}
+const models = {
+    'legacy': 'Legacy',
+    'panorama': 'Panorama',
+    'renaissance': 'Renaissance',
+}
+
 const modelLabel = document.getElementById("model");
 const typeLabel = document.getElementById("type");
 const doorLabel = document.getElementById("door");
@@ -16,10 +32,11 @@ const hoistwayDepthTableLabel = document.getElementById('hoistway-depth-table-la
 
 
 function displayResults(){
-    model = elevatorData['model'];
-    type = elevatorData['type'];
-    door = elevatorData['door'];
-    if (Boolean(elevatorData['landing'])){ landing = 'Yes'; } else { landing = 'No'; };
+    let landing;
+    model = models[elevatorData['model']];
+    type = elevatorData['type'].toUpperCase();
+    door = doors[elevatorData['door']];
+    (Boolean(elevatorData['landing'])) ? landing = 'Yes' : landing = 'No';
     height = parseFloat(elevatorData['cab-height']);
     overhead = getOverhead(door, height);
     overallWidth = parseFloat(elevatorData['overall-width']);
@@ -40,15 +57,15 @@ function displayResults(){
         innerDepth = inchesToMillimeters(innerDepth).toFixed(2) + 'mm';
         pit = inchesToMillimeters(pit).toFixed(0) + 'mm';
     }else if (UNITS == 'in'){
-        overhead = overhead.toFixed() + 'in';
-        height = height.toFixed() + 'in';
-        overallWidth = overallWidth.toFixed() + 'in';
-        overallDepth = overallDepth.toFixed() + 'in';
-        hoistwayWidth = hoistwayWidth.toFixed() + 'in';
-        hoistwayDepth = hoistwayDepth.toFixed() + 'in';
-        innerWidth = innerWidth.toFixed() + 'in';
-        innerDepth = innerDepth.toFixed() + 'in';
-        pit = pit.toFixed() + 'in';
+        overhead = overhead.toFixed() + '"';
+        height = height.toFixed() + '"';
+        overallWidth = overallWidth.toFixed() + '"';
+        overallDepth = overallDepth.toFixed() + '"';
+        hoistwayWidth = hoistwayWidth.toFixed() + '"';
+        hoistwayDepth = hoistwayDepth.toFixed() + '"';
+        innerWidth = innerWidth.toFixed() + '"';
+        innerDepth = innerDepth.toFixed() + '"';
+        pit = pit.toFixed() + '"';
     }
     modelLabel.innerHTML = model;
     typeLabel.innerHTML = type;
