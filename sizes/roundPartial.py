@@ -35,4 +35,5 @@ with open("data.json", "r") as f:
             # elevators[i][f] = inchesToMm(elevator[f])
 
 
-    print(elevators)
+with open('inchesGuide.json', 'w') as f:
+    json.dump(elevators, f, indent=6)

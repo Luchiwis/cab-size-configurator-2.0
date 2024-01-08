@@ -51,20 +51,20 @@ function cabRestrictions() {
     objects = filterObjects(guide, filter);
     ranges = getRanges(objects);
 
-    if (UNITS == 'in') {
+    if (UNITS == 'mm') {
         //min and max number inputs
-        minCabWidth = millimetersToInches(ranges.minOverallWidth).toFixed(2);
-        maxCabWidth = millimetersToInches(ranges.maxOverallWidth).toFixed(2);
-        minCabDepth = millimetersToInches(ranges.minOverallDepth).toFixed(2);
-        maxCabDepth = millimetersToInches(ranges.maxOverallDepth).toFixed(2);
+        minCabWidth = inchesToMillimeters(ranges.minOverallWidth).toFixed(2);
+        maxCabWidth = inchesToMillimeters(ranges.maxOverallWidth).toFixed(2);
+        minCabDepth = inchesToMillimeters(ranges.minOverallDepth).toFixed(2);
+        maxCabDepth = inchesToMillimeters(ranges.maxOverallDepth).toFixed(2);
 
         //min and max labels
-        widthRangeLabel.innerHTML = minCabWidth + '" - ' + maxCabWidth + '"';
-        depthRangeLabel.innerHTML = minCabDepth + '" - ' + maxCabDepth + '"';
+        widthRangeLabel.innerHTML = minCabWidth + 'mm - ' + maxCabWidth + 'mm';
+        depthRangeLabel.innerHTML = minCabDepth + 'mm - ' + maxCabDepth + 'mm';
 
         //heigth options
         cabHeightOptions.forEach(option => {
-            option.innerHTML = millimetersToInches(option.value).toFixed() + '"';
+            option.innerHTML = inchesToMillimeters(option.value).toFixed() + 'mm';
         });
 
     } else {
@@ -75,12 +75,12 @@ function cabRestrictions() {
         maxCabDepth = ranges.maxOverallDepth;
 
         //min and max labels
-        widthRangeLabel.innerHTML = minCabWidth + 'mm - ' + maxCabWidth + 'mm';
-        depthRangeLabel.innerHTML = minCabDepth + 'mm - ' + maxCabDepth + 'mm';
+        widthRangeLabel.innerHTML = minCabWidth + '" - ' + maxCabWidth + '"';
+        depthRangeLabel.innerHTML = minCabDepth + '" - ' + maxCabDepth + '"';
 
         //heigth options
         cabHeightOptions.forEach(option => {
-            option.innerHTML = option.value + 'mm';
+            option.innerHTML = option.value + '"';
         });
     }
 

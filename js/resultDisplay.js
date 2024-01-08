@@ -29,26 +29,26 @@ function displayResults(){
     innerWidth = parseFloat(elevatorData['inner-width']);
     innerDepth = parseFloat(elevatorData['inner-depth']);
     pit = getPitDepth(door);
-    if (UNITS == 'in'){
-        overhead = millimetersToInches(overhead).toFixed(0) + '"';
-        height = millimetersToInches(height).toFixed(0) + '"';
-        overallWidth = millimetersToInches(overallWidth).toFixed(2) + '"';
-        overallDepth = millimetersToInches(overallDepth).toFixed(2) + '"';
-        hoistwayWidth = millimetersToInches(hoistwayWidth).toFixed(2) + '"';
-        hoistwayDepth = millimetersToInches(hoistwayDepth).toFixed(2) + '"';
-        innerWidth = millimetersToInches(innerWidth).toFixed(2) + '"';
-        innerDepth = millimetersToInches(innerDepth).toFixed(2) + '"';
-        pit = millimetersToInches(pit).toFixed(0) + '"';
-    }else if (UNITS == 'mm'){
-        overhead = overhead.toFixed() + 'mm';
-        height = height.toFixed() + 'mm';
-        overallWidth = overallWidth.toFixed() + 'mm';
-        overallDepth = overallDepth.toFixed() + 'mm';
-        hoistwayWidth = hoistwayWidth.toFixed() + 'mm';
-        hoistwayDepth = hoistwayDepth.toFixed() + 'mm';
-        innerWidth = innerWidth.toFixed() + 'mm';
-        innerDepth = innerDepth.toFixed() + 'mm';
-        pit = pit.toFixed() + 'mm';
+    if (UNITS == 'mm'){
+        overhead = inchesToMillimeters(overhead).toFixed(0) + 'mm';
+        height = inchesToMillimeters(height).toFixed(0) + 'mm';
+        overallWidth = inchesToMillimeters(overallWidth).toFixed(2) + 'mm';
+        overallDepth = inchesToMillimeters(overallDepth).toFixed(2) + 'mm';
+        hoistwayWidth = inchesToMillimeters(hoistwayWidth).toFixed(2) + 'mm';
+        hoistwayDepth = inchesToMillimeters(hoistwayDepth).toFixed(2) + 'mm';
+        innerWidth = inchesToMillimeters(innerWidth).toFixed(2) + 'mm';
+        innerDepth = inchesToMillimeters(innerDepth).toFixed(2) + 'mm';
+        pit = inchesToMillimeters(pit).toFixed(0) + 'mm';
+    }else if (UNITS == 'in'){
+        overhead = overhead.toFixed() + 'in';
+        height = height.toFixed() + 'in';
+        overallWidth = overallWidth.toFixed() + 'in';
+        overallDepth = overallDepth.toFixed() + 'in';
+        hoistwayWidth = hoistwayWidth.toFixed() + 'in';
+        hoistwayDepth = hoistwayDepth.toFixed() + 'in';
+        innerWidth = innerWidth.toFixed() + 'in';
+        innerDepth = innerDepth.toFixed() + 'in';
+        pit = pit.toFixed() + 'in';
     }
     modelLabel.innerHTML = model;
     typeLabel.innerHTML = type;

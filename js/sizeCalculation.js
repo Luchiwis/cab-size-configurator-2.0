@@ -1,23 +1,25 @@
+const WALL_THICKNESS = 1.5; //inches
+
 function getInnerCabDimensions(type, overallWidth, overallDepth) {
     if (type == 'A') {
-        widthWallThickness = MM_WALL_THICKNESS * 2;
-        depthWallThickness = MM_WALL_THICKNESS;
+        widthWallThickness = WALL_THICKNESS * 2;
+        depthWallThickness = WALL_THICKNESS;
     }
     else if (type == 'B') {
-        widthWallThickness = MM_WALL_THICKNESS * 2;
+        widthWallThickness = WALL_THICKNESS * 2;
         depthWallThickness = 0;
     }
     else if (type == 'C') {
-        widthWallThickness = MM_WALL_THICKNESS;
-        depthWallThickness = MM_WALL_THICKNESS;
+        widthWallThickness = WALL_THICKNESS;
+        depthWallThickness = WALL_THICKNESS;
     }
     else if (type == 'D') {
-        widthWallThickness = MM_WALL_THICKNESS;
-        depthWallThickness = MM_WALL_THICKNESS;
+        widthWallThickness = WALL_THICKNESS;
+        depthWallThickness = WALL_THICKNESS;
     }
     else if (type == 'E') {
-        widthWallThickness = MM_WALL_THICKNESS;
-        depthWallThickness = MM_WALL_THICKNESS * 2;
+        widthWallThickness = WALL_THICKNESS;
+        depthWallThickness = WALL_THICKNESS * 2;
     }
 
     innerWidth = overallWidth - widthWallThickness;
@@ -31,19 +33,19 @@ function getInnerCabDimensions(type, overallWidth, overallDepth) {
 
 function getHoistwayDimensions(type, model, overallWidth, overallDepth) {
     if (model == 'panorama' || model == 'renaissance') {
-        runningClearance = inchesToMillimeters(1.25);
-        otherClearance = inchesToMillimeters(2.5);
+        runningClearance = 1.25;
+        otherClearance = 2.5;
         if (type == 'A' || type == 'B') {
-            distanceToBackOfControlWall = inchesToMillimeters(10);
+            distanceToBackOfControlWall = 10;
         }
         else if (type == 'C' || type == 'D' || type == 'E') {
-            distanceToBackOfControlWall = inchesToMillimeters(10.75);
+            distanceToBackOfControlWall = 10.75;
         }
     }
     else if (model == 'legacy') {
-        runningClearance = inchesToMillimeters(1.25);
-        otherClearance = inchesToMillimeters(2.25);
-        distanceToBackOfControlWall = inchesToMillimeters(10.75);
+        runningClearance = 1.25;
+        otherClearance = 2.25;
+        distanceToBackOfControlWall = 10.75;
     }
 
     if (type == 'A') {
@@ -78,41 +80,41 @@ function getHoistwayDimensions(type, model, overallWidth, overallDepth) {
 
 function getOverhead(door, cabHeight) {
     if (door == 'bifold' || door == 'accordion') {
-        if (cabHeight == 2133.6) { //84"
-            return 2438.4; //96"
-        } else if (cabHeight == 2438.4) { //96"
-            return 2743.2; //108"
+        if (cabHeight == 48) { //84"
+            return 96; //96"
+        } else if (cabHeight == 96) { //96"
+            return 108; //108"
         }
 
     } else {
-        return 2743.2; //108"
+        return 108; //108"
     }
 }
 
 function getPitDepth(door){
     if (door == '2speed' || door == '3speed'){
-        return 304.8; //12"
+        return 12; //12"
     }
     else {
-        return 203.2; //8"
+        return 8; //8"
     }
 }
 
 function getOverallDimensions(model,type, hoistwayWidth, hoistwayDepth){
     if (model == 'panorama' || model == 'renaissance') {
-        runningClearance = inchesToMillimeters(1.25);
-        otherClearance = inchesToMillimeters(2.5);
+        runningClearance = 1.25;
+        otherClearance = 2.5;
         if (type == 'A' || type == 'B') {
-            distanceToBackOfControlWall = inchesToMillimeters(10);
+            distanceToBackOfControlWall = 10;
         }
         else if (type == 'C' || type == 'D' || type == 'E') {
-            distanceToBackOfControlWall = inchesToMillimeters(10.75);
+            distanceToBackOfControlWall = 10.75;
         }
     }
     else if (model == 'legacy') {
-        runningClearance = inchesToMillimeters(1.25);
-        otherClearance = inchesToMillimeters(2.25);
-        distanceToBackOfControlWall = inchesToMillimeters(10.75);
+        runningClearance = 1.25;
+        otherClearance = 2.25;
+        distanceToBackOfControlWall = 10.75;
     }
 
     if (type == 'A') {

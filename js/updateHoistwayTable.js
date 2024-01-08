@@ -32,27 +32,27 @@ function updateTable() {
 
     console.log(model, type, door)
 
-    if (UNITS == 'in') {
-        hoistwayWidth = inchesToMillimeters(hoistwayWidth);
-        hoistwayDepth = inchesToMillimeters(hoistwayDepth);
+    if (UNITS == 'mm') {
+        hoistwayWidth = millimetersToInches(hoistwayWidth);
+        hoistwayDepth = millimetersToInches(hoistwayDepth);
     }
     //filter the elevators that can fit in the hoistway from guide array
     filteredGuide = filterHoistwayInRange(guide, hoistwayWidth, hoistwayDepth, model, type, door);
     //clear the table
     tableBody.innerHTML = '';
     //add the filtered elevators to the table
-    if (UNITS == 'in') {
+    if (UNITS == 'mm') {
         filteredGuide.forEach(elevator => {
             cab = getOverallDimensions(elevator.model, elevator.type, hoistwayWidth, hoistwayDepth);
-            overallWidth = millimetersToInches(cab.overallWidth).toFixed(2)+ '"';
-            overallDepth = millimetersToInches(cab.overallDepth).toFixed(2)+ '"';
+            overallWidth = inchesToMillimeters(cab.overallWidth).toFixed(2)+ 'mm';
+            overallDepth = inchesToMillimeters(cab.overallDepth).toFixed(2)+ 'mm';
             addElevatorRow(elevator.model, elevator.type, elevator.door, elevator.landing, overallWidth, overallDepth);
         });
-    } else if (UNITS == 'mm') {
+    } else if (UNITS == 'in') {
         filteredGuide.forEach(elevator => {
             cab = getOverallDimensions(elevator.model, elevator.type, hoistwayWidth, hoistwayDepth);
-            overallWidth = cab.overallWidth + 'mm';
-            overallDepth = cab.overallDepth + 'mm';
+            overallWidth = cab.overallWidth + '"';
+            overallDepth = cab.overallDepth + '"';
             addElevatorRow(elevator.model, elevator.type, elevator.door, elevator.landing, overallWidth, overallDepth);
         });
     }

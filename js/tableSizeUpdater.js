@@ -1,5 +1,3 @@
-const MM_WALL_THICKNESS = 38.1;
-
 const innerWidthTableLabel = document.getElementById('inner-width-table-label');
 const innerDepthTableLabel = document.getElementById('inner-depth-table-label');
 const overallWidthTableLabel = document.getElementById('overall-width-table-label');
@@ -16,11 +14,10 @@ function updateTable() {
 
     //starting calculations
 
-
     // overall
-    if (UNITS == 'in') {
-        cabWidthValue = inchesToMillimeters(cabWidthValue);
-        cabDepthValue = inchesToMillimeters(cabDepthValue);
+    if (UNITS == 'mm') {
+        cabWidthValue = millimetersToInches(cabWidthValue);
+        cabDepthValue = millimetersToInches(cabDepthValue);
     }
 
     overallWidth = cabWidthValue;
@@ -53,33 +50,32 @@ function updateTable() {
         return
     }
 
-    if (UNITS == 'in') {
+    if (UNITS == 'mm') {
 
         //inner
-        innerWidth = millimetersToInches(innerWidth).toFixed(2) + '"';
-        innerDepth = millimetersToInches(innerDepth).toFixed(2) + '"';
+        innerWidth = inchesToMillimeters(innerWidth).toFixed(2) + 'mm';
+        innerDepth = inchesToMillimeters(innerDepth).toFixed(2) + 'mm';
 
         //overall
-        overallWidth = millimetersToInches(overallWidth).toFixed(2) + '"';
-        overallDepth = millimetersToInches(overallDepth).toFixed(2) + '"';
+        overallWidth = inchesToMillimeters(overallWidth).toFixed(2) + 'mm';
+        overallDepth = inchesToMillimeters(overallDepth).toFixed(2) + 'mm';
 
         //hoistway
-        hoistwayWidth = millimetersToInches(hoistwayWidth).toFixed(2) + '"';
-        hoistwayDepth = millimetersToInches(hoistwayDepth).toFixed(2) + '"';
+        hoistwayWidth = inchesToMillimeters(hoistwayWidth).toFixed(2) + 'mm';
+        hoistwayDepth = inchesToMillimeters(hoistwayDepth).toFixed(2) + 'mm';
     }
     else {
-
         //inner
-        innerWidth = innerWidth + 'mm';
-        innerDepth = innerDepth + 'mm';
+        innerWidth = innerWidth + '"';
+        innerDepth = innerDepth + '"';
 
         //overall
-        overallWidth = overallWidth + 'mm';
-        overallDepth = overallDepth + 'mm';
+        overallWidth = overallWidth + '"';
+        overallDepth = overallDepth + '"';
 
         //hoistway
-        hoistwayWidth = hoistwayWidth + 'mm';
-        hoistwayDepth = hoistwayDepth + 'mm';
+        hoistwayWidth = hoistwayWidth + '"';
+        hoistwayDepth = hoistwayDepth + '"';
     }
 
     //inner
