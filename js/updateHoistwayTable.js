@@ -85,8 +85,8 @@ function changeUnitsInputs() {
         widthLabel.innerHTML = 'min:49.5"';
         depthLabel.innerHTML = 'min:50.25"';
     } else if (UNITS == 'mm') {
-        widthLabel.innerHTML = 'min:1257mm';
-        depthLabel.innerHTML = 'min:1276mm';
+        widthLabel.innerHTML = 'min:1270mm';
+        depthLabel.innerHTML = 'min:1283mm';
     }
     updateTable(parseFloat(widthInput.value), parseFloat(depthInput.value));
 }
