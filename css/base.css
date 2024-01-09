@@ -64,10 +64,9 @@ input[type=number] {
 }
 
 .table-hoistway tbody tr:hover{
-    box-shadow: white 0 0 5px;
+    border: 2px solid black
 }
 
 h1.display-4:hover{
-    text-shadow: white 0 0 10px;
-    transition: 1s ease-in;
+    /* text-shadow: black 0 0 10px; */
 }
