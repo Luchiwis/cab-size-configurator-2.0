@@ -733,13 +733,13 @@ function filterHoistwayInRange(guide, hoistwayWidth, hoistwayDepth, model = null
     if (!hoistwayWidth || !hoistwayDepth) return [];
     if (hoistwayWidth) {
         filter = filter.filter(obj => {
-            return obj.minHoistwayWidth <= hoistwayWidth;
+            return obj.minHoistwayWidth <= hoistwayWidth;// && obj.maxHoistwayWidth >= hoistwayWidth;
         }
         );
     }
     if (hoistwayDepth) {
         filter = filter.filter(obj => {
-            return obj.minHoistwayDepth <= hoistwayDepth;
+            return obj.minHoistwayDepth <= hoistwayDepth;// && obj.maxHoistwayDepth >= hoistwayDepth;
         }
         );
     }

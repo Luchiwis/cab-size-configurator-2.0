@@ -1,14 +1,23 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
 
+[data-bs-theme="dark"] body{
+    background-color: rgb(16, 16, 16);
+}
 body{
-    background-color: rgb(15, 15, 15);
     font-family: 'Lato', sans-serif;
+    background-color: rgb(231, 231, 231);
     background-image: url('../img/Side-Line-Work-instance_white.png');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
-    backdrop-filter: blur(5px);
+}
+footer img{
+    /* filter: invert(1); */
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: #000 0 0 10px;
+    background-color: #000;
 }
 
 header{

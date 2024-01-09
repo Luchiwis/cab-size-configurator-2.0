@@ -82,11 +82,11 @@ function changeUnitsInputs() {
     widthInput.value = '';
     depthInput.value = '';
     if (UNITS == 'in') {
-        widthLabel.innerHTML = 'min:49.5"';
-        depthLabel.innerHTML = 'min:50.25"';
+        widthLabel.innerHTML = 'min:49.5" | max:76.5"';
+        depthLabel.innerHTML = 'min:50.25" | max:92.5"';
     } else if (UNITS == 'mm') {
-        widthLabel.innerHTML = 'min:1270mm';
-        depthLabel.innerHTML = 'min:1283mm';
+        widthLabel.innerHTML = 'min:1270mm | max:1943mm';
+        depthLabel.innerHTML = 'min:1283mm | max:2350mm';
     }
     updateTable(parseFloat(widthInput.value), parseFloat(depthInput.value));
 }
