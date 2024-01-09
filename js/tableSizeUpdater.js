@@ -4,10 +4,15 @@ const overallWidthTableLabel = document.getElementById('overall-width-table-labe
 const overallDepthTableLabel = document.getElementById('overall-depth-table-label');
 const hoistwayWidthTableLabel = document.getElementById('hoistway-width-table-label');
 const hoistwayDepthTableLabel = document.getElementById('hoistway-depth-table-label');
+const table = document.getElementById('table');
 
 function updateTable() {
-    cabWidthValue = parseFloat(document.getElementById('cab-width').value);
-    cabDepthValue = parseFloat(document.getElementById('cab-depth').value);
+
+    cabWidth = document.getElementById('cab-width');
+    cabDepth = document.getElementById('cab-depth');
+
+    cabWidthValue = parseFloat(cabWidth.value);
+    cabDepthValue = parseFloat(cabDepth.value);
 
     const type = elevatorData['type'];
     const model = elevatorData['model'];
@@ -40,12 +45,24 @@ function updateTable() {
     elevatorData['hoistwayDepth'] = hoistwayDepth;
 
     //display results
-    if (!cabWidthValue || !cabDepthValue) {
+    if ((!cabWidthValue || !cabDepthValue)) {
         innerWidthTableLabel.innerHTML = '-';
         innerDepthTableLabel.innerHTML = '-';
         overallWidthTableLabel.innerHTML = '-';
         overallDepthTableLabel.innerHTML = '-';
         hoistwayWidthTableLabel.innerHTML = '-';
+        hoistwayDepthTableLabel.innerHTML = '-';
+        return
+    }
+    if (cabWidthValue>Number(cabWidth.max) || cabWidthValue<Number(cabWidth.min)) {
+        innerWidthTableLabel.innerHTML = '-';
+        overallWidthTableLabel.innerHTML = '-';
+        hoistwayWidthTableLabel.innerHTML = '-';
+        return
+    }
+    if (cabDepthValue>Number(cabDepth.max) || cabDepthValue<Number(cabDepth.min)) {
+        innerDepthTableLabel.innerHTML = '-';
+        overallDepthTableLabel.innerHTML = '-';
         hoistwayDepthTableLabel.innerHTML = '-';
         return
     }
