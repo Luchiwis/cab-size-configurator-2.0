@@ -9,22 +9,22 @@
 
 input[type=radio]:checked+label>img {
     border: 1px solid #fff;
-    box-shadow: 0 0 3px 10px #090;
+    box-shadow: 0 0 3px 10px #b52121;
 }
 input[type=radio]:checked+label>span {
     border: 1px solid #fff;
-    box-shadow: 0 0 3px 10px #090;
+    box-shadow: 0 0 3px 10px #b52121;
 }
 
 /* Stuff after this is only to make things more pretty */
 input[type=radio]+label>img {
-    border: 1px dashed #444;
+    /* border: 1px dashed #444; */
     width: 200px;
     height: 200px;
     transition: 500ms all;
 }
 input[type=radio]+label>span {
-    border: 1px dashed #444;
+    /* border: 1px dashed #444; */
     width: 100%;
     transition: 500ms all;
 }
