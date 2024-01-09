@@ -26,47 +26,51 @@
 </head>
 
 <body data-bs-theme="light">
-    <header class="text-center">
+    <header class="text-center border-bottom">
 
-        <div class="border-bottom">
-            <h1 class="display-4 mt-2"><a href="/" class="nav-link px-2">Cab Size Configurator</a></h1>
+        <div>
+            <h1 class="display-4 mt-2"><a href="index.html" class="nav-link px-2">Cab Size Configurator</a></h1>
             <p class="lead text-muted">Configure elevator based on your preferences</p>
-
         </div>
-
+        <section class="selections d-flex align-items-center justify-content-center">
+            <ul class="d-flex" id="urlproperties">
+                <!-- ... -->
+            </ul>
+        </section>
     </header>
     <main>
+
         <section class="text-center">
-            <div class="my-5">
-                <h1 class="display-4">Select the model</h1>
-                <form action="type.html">
-                    <div class="sect">
-                        <h4>Models available based on your configurations</h4>
 
-                        <input type="radio" name="model" value="panorama" id="panorama" required>
-                        <label for="panorama">
-                            <span class="btn btn-secondary">
-                                <h1>Panorama</h1>
-                            </span>
-                        </label>
+            <h1 class="display-4">Select the model</h1>
+            <form action="type.html">
+                <div class="sect">
+                    <h4>Models available based on your configurations</h4>
 
-                        <input type="radio" name="model" value="legacy" id="legacy" required>
-                        <label for="legacy">
-                            <span class="btn btn-secondary">
-                                <h1>Legacy</h1>
-                            </span>
-                        </label>
+                    <input type="radio" name="model" value="panorama" id="panorama" required>
+                    <label for="panorama">
+                        <span class="btn btn-secondary">
+                            <h1>Panorama</h1>
+                        </span>
+                    </label>
 
-                        <input type="radio" name="model" value="renaissance" id="renaissance" required>
-                        <label for="renaissance">
-                            <span class="btn btn-secondary">
-                                <h1>Renaissance</h1>
-                            </span>
-                        </label>
-                    </div>
-                    <input type="submit" value="Select type" class="btn btn-primary">
-                </form>
-            </div>
+                    <input type="radio" name="model" value="legacy" id="legacy" required>
+                    <label for="legacy">
+                        <span class="btn btn-secondary">
+                            <h1>Legacy Volt</h1>
+                        </span>
+                    </label>
+
+                    <input type="radio" name="model" value="renaissance" id="renaissance" required>
+                    <label for="renaissance">
+                        <span class="btn btn-secondary">
+                            <h1>Renaissance</h1>
+                        </span>
+                    </label>
+                </div>
+                <input type="submit" value="Select type" class="btn btn-primary">
+            </form>
+
         </section>
         <section class="text-center d-none py-2" id="restrictions">
             <div class="container">

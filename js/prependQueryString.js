@@ -1,9 +1,37 @@
-// Function to add query string parameters to the form in the order they appear in the URL
+urlproperties = document.querySelector('#urlproperties');
+
 elevatorData = {
 
 }
 
-
+function translateParam(param) {
+    switch (param) {
+        case 'model':
+            return 'Model';
+        case 'type':
+            return 'Type';
+        case 'door':
+            return 'Door';
+        case 'landing':
+            return 'Landing';
+        case 'panorama':
+            return 'Panorama';
+        case 'renaissance':
+            return 'Renaissance';
+        case 'legacy':
+            return 'Legacy Volt';
+        case 'on':
+            return 'Yes';
+        case 'off':
+            return 'No';
+        case '2speed':
+            return '2 Speed sliding';
+        case '1speed':
+            return '1 Speed sliding';
+        default:
+            return param;
+    }
+}
 
 // Get the form element
 var form = document.querySelector('form');
@@ -16,7 +44,7 @@ params = urlParams.entries();
 params = Array.from(params)
 params.reverse();
 
-function addHiddenInput(name, value, pend='prepend') {
+function addHiddenInput(name, value, pend = 'prepend') {
     const newInput = document.createElement('input');
     newInput.setAttribute('type', 'hidden');
     newInput.setAttribute('name', name);
@@ -32,4 +60,8 @@ for (const param of params) {
     elevatorData[paramName] = paramValue;
 
     addHiddenInput(paramName, paramValue);
+
+    if (urlproperties){
+        urlproperties.innerHTML = `<li class="mx-3">${translateParam(paramName)}:${translateParam(paramValue)}</li>` + urlproperties.innerHTML;
+    }
 }
