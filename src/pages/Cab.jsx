@@ -1,4 +1,7 @@
 import { FormPrepend } from "../components/FormPrepend"
+import { UnitSwitch } from "../components/UnitSwitch"
+import { Unit } from "../components/Unit"
+
 export function Cab() {
     return (
         <main>
@@ -6,14 +9,7 @@ export function Cab() {
                 <div className="my-5 col-md-8 col-sm-10 mx-auto">
                     <h1 className="display-4">Select the cab size</h1>
                     <FormPrepend action="result">
-                        <div id="unit-system">
-                            <div className="btn-group" role="group" aria-label="Basic radio toggle button group">
-                                <input type="radio" className="btn-check" name="unit" value="mm" id="unit-radio-mm" autoComplete="off" onClick="switchUnits('mm');cabRestrictions();updateTable();" />
-                                <label className="btn btn-outline-primary" htmlFor="unit-radio-mm">metric</label>
-                                <input type="radio" className="btn-check" name="unit" value="in" id="unit-radio-in" autoComplete="off" onClick="switchUnits('in');cabRestrictions();updateTable();" defaultChecked />
-                                <label className="btn btn-outline-primary" htmlFor="unit-radio-in">imperial</label>
-                            </div>
-                        </div>
+                        <UnitSwitch/>
                         <div className="row">
                             <div className="col-md-6">
                                 <label htmlFor="cab-width" className="form-label">Width <br />(<span id="width-range-label" />)</label>
@@ -27,8 +23,8 @@ export function Cab() {
                         <label htmlFor="cab-height" className="form-label">Height</label>
                         <select className="form-select form-select-sm text-center my-3 w-50 mx-auto" aria-label=".form-select-sm example" name="cab-height" id="cab-height" required>
                             <option value='' disabled>Select Height</option>
-                            <option value={84}>84"</option>
-                            <option value={96}>96"</option>
+                            <option value={84}><Unit type='in'>84</Unit></option>
+                            <option value={96}><Unit type='in'>96</Unit></option>
                         </select>
                         <div className="text-center my-3" id="planning-table">
                             <table className="table mx-auto">

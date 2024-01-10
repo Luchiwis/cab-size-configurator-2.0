@@ -1,4 +1,3 @@
-
 function filterHoistwayInRange(guide, hoistwayWidth, hoistwayDepth, model = null, type = null, door = null) {
     filter = guide
     if (!hoistwayWidth || !hoistwayDepth) return [];

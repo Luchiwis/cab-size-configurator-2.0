@@ -1,23 +1,17 @@
+//components
 import { ButtonCopyURL } from "../components/ButtonCopyURL";
 import { ButtonSavePDF } from "../components/ButtonSavePDF";
+import { useContext } from "react";
+import { UnitSwitch } from "../components/UnitSwitch";
 
+//context
 export function Result() {
     return (
         <main>
             <div className="container text-center">
                 <div className="row">
                     <h1 className="display-4">Your elevator properties</h1>
-                    <div id="unit-system">
-                        <div className="btn-group" role="group" aria-label="Basic radio toggle button group">
-                            <input type="radio" className="btn-check" name="unit" value="mm" id="unit-radio-mm"
-                                autoComplete="off" onClick="switchUnits('mm');displayResults()" />
-                            <label className="btn btn-outline-primary" htmlFor="unit-radio-mm">metric</label>
-
-                            <input type="radio" className="btn-check" name="unit" value="in" id="unit-radio-in"
-                                autoComplete="off" onClick="switchUnits('in');displayResults()" defaultChecked />
-                            <label className="btn btn-outline-primary" htmlFor="unit-radio-in">imperial</label>
-                        </div>
-                    </div>
+                    <UnitSwitch></UnitSwitch>
                 </div>
                 <div className="row mt-3">
                     <div className="col-lg-6 mx-auto my-1">
