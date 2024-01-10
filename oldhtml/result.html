@@ -7,7 +7,6 @@
     <title>Cab size configurator</title>
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/base.css">
-    <link rel="stylesheet" href="css/radio.css">
     <style>
         body {
             min-height: 100vh;
@@ -26,58 +25,13 @@
 </head>
 
 <body data-bs-theme="light">
-    <header class="text-center border-bottom">
-
-        <div>
+    <header class="text-center">
+        <div class="border-bottom">
             <h1 class="display-4 mt-2"><a href="index.html" class="nav-link px-2">Cab Size Configurator</a></h1>
         </div>
-        <section class="selections d-flex align-items-center justify-content-center">
-            <ul class="d-flex" id="urlproperties">
-                <!-- ... -->
-            </ul>
-        </section>
     </header>
-    <main>
-
-        <section class="text-center">
-
-            <h1 class="display-4">Select the model</h1>
-            <form action="type.html">
-                <div class="sect">
-                    <h4>Models available based on your configurations</h4>
-
-                    <input type="radio" name="model" value="panorama" id="panorama" required>
-                    <label for="panorama">
-                        <span class="btn btn-secondary">
-                            <h1>Panorama</h1>
-                        </span>
-                    </label>
-
-                    <input type="radio" name="model" value="legacy" id="legacy" required>
-                    <label for="legacy">
-                        <span class="btn btn-secondary">
-                            <h1>Legacy Volt</h1>
-                        </span>
-                    </label>
-
-                    <input type="radio" name="model" value="renaissance" id="renaissance" required>
-                    <label for="renaissance">
-                        <span class="btn btn-secondary">
-                            <h1>Renaissance</h1>
-                        </span>
-                    </label>
-                </div>
-                <input type="submit" value="Select type" class="btn btn-primary">
-            </form>
-
-        </section>
-        <section class="text-center d-none py-2" id="restrictions">
-            <div class="container">
-                <h4>Restrictions:</h4>
-                <ul id="advise"></ul>
-            </div>
-        </section>
-    </main>
+    
+    <form class="d-none"></form>
     <footer>
         <div class="container">
             <div class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
@@ -100,18 +54,35 @@
                             href="https://federalelevator.com/commercial-residential-elevator-manufacturer/"
                             class="nav-link px-2 text-muted">About</a></li>
                 </ul>
-
             </div>
         </div>
     </footer>
 
     <!-- script stuff -->
     <script src="js/bootstrap.js"></script>
+    <script src="js/metricConversion.js"></script>
     <script src="js/prependQueryString.js"></script>
-    <script src="js/guide.js"></script>
     <script src="js/errorMessages.js"></script>
-    <script src="js/restrictions.js"></script>
+    <script src="js/sizeCalculation.js"></script>
+    <script src="js/resultDisplay.js"></script>
 
+    <!-- jspdf -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js" type="module"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.5.0-alpha1/html2canvas.min.js"></script>
+
+    <script type="module">
+        const jspdf = window.jspdf;
+        const jsPDF = window.jspdf.jsPDF;
+        const doc = new jsPDF();
+
+        //export page as pdf
+        const source = document.querySelector('body');
+        doc.html(source, {
+            callback: function (doc) {
+                doc.save('federal-elevator-configurator.pdf');
+            }
+        });
+    </script> -->
 </body>
 
 </html>

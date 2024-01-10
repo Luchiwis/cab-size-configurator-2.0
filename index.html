@@ -1,96 +1,12 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cab size configurator</title>
-    <link rel="stylesheet" href="css/bootstrap.css">
-    <link rel="stylesheet" href="css/base.css">
-    <style>
-        body {
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-        }
-
-        main {
-            margin: auto 0;
-        }
-
-        footer {
-            margin-top: auto;
-        }
-    </style>
-</head>
-
-<body data-bs-theme="light">
-    <header class="text-center">
-        <div class="border-bottom">
-            <h1 class="display-4 mt-2"><a href="index.html" class="nav-link px-2">Cab Size Configurator</a></h1>
-        </div>
-    </header>
-    <main>
-        <section class="text-center">
-            <div class="my-5">
-                <h1 class="display-4">Do you already have hoistway size?</h1>
-                <div class="row w-50 m-auto">
-                    <div class="col">
-                        <a href="hoistway.html" class="btn btn-outline-primary w-100" data-bs-toggle="tooltip"
-                            data-bs-placement="top" title="Know avaliable models for your hoistway size">
-                            <h1>Yes</h1>
-                            <hr>
-                            <h5 class="text-muted mt-3">See available models based on your hoistway size</h5>
-                        </a>
-                    </div>
-                    <div class="col">
-                        <a href="model.html" class="btn btn-outline-secondary w-100" data-bs-toggle="tooltip"
-                            data-bs-placement="top" title="Know your hoistway size based on your elevator preferences">
-                            <h1>No</h1>
-                            <hr>
-                            <h5 class="text-muted mt-3">Know required spaces for your elevator</h5>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <section class="text-center d-none py-2" id="restrictions">
-            <div class="container">
-                <h4>Restrictions:</h4>
-                <ul id="advise"></ul>
-            </div>
-        </section>
-    </main>
-    <footer>
-        <div class="container">
-            <div class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
-                <p class="col-md-4 mb-0 text-muted">© 2023 FEDERAL ELEVATOR.</p>
-
-                <a href="https://federalelevator.com/"
-                    class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
-                    <img src="img/logo_federal-elevator_rev.png" height="50px" alt="">
-                </a>
-
-                <ul class="nav col-md-4 justify-content-end">
-                    <li class="nav-item"><a href="https://federalelevator.com/dealer-login/"
-                            class="nav-link px-2 text-muted">Dealer Login</a></li>
-                    <li class="nav-item"><a href="https://federalelevator.com/privacy-policy/"
-                            class="nav-link px-2 text-muted">Privacy
-                            Policy</a></li>
-                    <li class="nav-item"><a href="https://federalelevator.com/aoda/"
-                            class="nav-link px-2 text-muted">AODA</a></li>
-                    <li class="nav-item"><a
-                            href="https://federalelevator.com/commercial-residential-elevator-manufacturer/"
-                            class="nav-link px-2 text-muted">About</a></li>
-                </ul>
-
-            </div>
-        </div>
-    </footer>
-
-    <!-- script stuff -->
-    <script src="js/bootstrap.js"></script>
-    <script src="js/errorMessages.js"></script>
-</body>
-
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="img/png" href="img/gr_footer-logo-mark.png" />
+    <title>Cab Size Configurator</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
 </html>

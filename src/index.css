@@ -1,0 +1,10 @@
+
+/* center vertical */
+#root {
+  min-height: 70vh;
+  display: flex;
+  flex-direction: column;
+}
+main {
+  margin: auto 0;
+}

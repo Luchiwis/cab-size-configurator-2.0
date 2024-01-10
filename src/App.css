@@ -1,8 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
 
-[data-bs-theme="dark"] body{
-    background-color: rgb(16, 16, 16);
-}
 body{
     font-family: 'Lato', sans-serif;
     background-color: rgb(231, 231, 231);
@@ -12,19 +9,10 @@ body{
     background-position: center;
     background-attachment: fixed;
 }
-footer img{
-    /* filter: invert(1); */
-    padding: 10px;
-    border-radius: 10px;
-    box-shadow: #696969 5px 5px 10px;
-    background-color: #000000;
-}
 
 header{
     background-color: var(--bs-body-bg);
-}
-footer{
-    background-color: var(--bs-body-bg);
+    border-bottom: 1px solid #000000;
 }
 
 /* disabled */
