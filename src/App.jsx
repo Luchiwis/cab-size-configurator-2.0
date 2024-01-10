@@ -33,10 +33,10 @@ function App() {
           <Navbar></Navbar>
           <Routes>
             <Route path="/hoistway" element={<Selections />} />
-            {/* <Route path="/model" element={<Selections />} /> */}
             <Route path="/type" element={<Selections />} />
             <Route path="/door" element={<Selections />} />
             <Route path="/cab" element={<Selections />} />
+            <Route path="*" element/>
           </Routes>
         </header>
         <Routes>

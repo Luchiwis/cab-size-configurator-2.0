@@ -108,7 +108,6 @@ function updateTable() {
 
 }
 
-
 inputs = document.querySelectorAll('input[type="number"]');
 for (input of inputs) {
     input.addEventListener('input', updateTable);

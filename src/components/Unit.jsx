@@ -3,15 +3,12 @@ import { useContext } from "react";
 import { UnitContext } from "../App";
 import { useState } from "react";
 import { inchesToMillimeters, millimetersToInches } from "../logic/unitConversion";
+import { unitSymbols } from "../logic/constants";
 
 
 export function Unit({ children, type }) {
     const [globalUnit, setGlobalUnit] = useContext(UnitContext);
     const [shownValue, setShownValue] = useState(children);
-    const unitSymbols = {
-        'mm': 'mm',
-        'in': '"'
-    }
     useEffect(() => {
         if ( type == 'in' && globalUnit == 'mm') {
             setShownValue(inchesToMillimeters(children).toFixed(1))
@@ -22,6 +19,6 @@ export function Unit({ children, type }) {
         }
     }, [globalUnit])
     return (
-        <>{shownValue + unitSymbols[globalUnit]}</>
+        shownValue + unitSymbols[globalUnit]
     )
 }
