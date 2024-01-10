@@ -8,9 +8,9 @@ export function Cab() {
                     <FormPrepend action="result">
                         <div id="unit-system">
                             <div className="btn-group" role="group" aria-label="Basic radio toggle button group">
-                                <input type="radio" className="btn-check" name="unit" defaultValue="mm" id="unit-radio-mm" autoComplete="off" onClick="switchUnits('mm');cabRestrictions();updateTable();" />
+                                <input type="radio" className="btn-check" name="unit" value="mm" id="unit-radio-mm" autoComplete="off" onClick="switchUnits('mm');cabRestrictions();updateTable();" />
                                 <label className="btn btn-outline-primary" htmlFor="unit-radio-mm">metric</label>
-                                <input type="radio" className="btn-check" name="unit" defaultValue="in" id="unit-radio-in" autoComplete="off" onClick="switchUnits('in');cabRestrictions();updateTable();" defaultChecked />
+                                <input type="radio" className="btn-check" name="unit" value="in" id="unit-radio-in" autoComplete="off" onClick="switchUnits('in');cabRestrictions();updateTable();" defaultChecked />
                                 <label className="btn btn-outline-primary" htmlFor="unit-radio-in">imperial</label>
                             </div>
                         </div>
@@ -26,7 +26,7 @@ export function Cab() {
                         </div>
                         <label htmlFor="cab-height" className="form-label">Height</label>
                         <select className="form-select form-select-sm text-center my-3 w-50 mx-auto" aria-label=".form-select-sm example" name="cab-height" id="cab-height" required>
-                            <option defaultValue='' disabled>Select Height</option>
+                            <option value='' disabled>Select Height</option>
                             <option value={84}>84"</option>
                             <option value={96}>96"</option>
                         </select>
@@ -58,7 +58,7 @@ export function Cab() {
                                 </tbody>
                             </table>
                         </div>
-                        <input type="button" defaultValue="See results" className="btn btn-primary"/>
+                        <input type="submit" value="Next" className="btn btn-primary"/>
                     </FormPrepend>
                 </div>
             </section>

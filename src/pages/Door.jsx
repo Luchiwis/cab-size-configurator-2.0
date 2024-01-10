@@ -48,7 +48,7 @@ export function Door() {
                                     style={{width: '20px', height: '20px'}} />
                             </div>
                         </div>
-                        <input type="submit" value="Select size" className="btn btn-primary" />
+                        <input type="submit" value="Next" className="btn btn-primary" />
                     </FormPrepend>
                 </div>
             </section>

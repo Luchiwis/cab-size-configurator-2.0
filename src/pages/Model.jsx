@@ -31,7 +31,7 @@ export function Model() {
                             </span>
                         </label>
                     </div>
-                    <input type="submit" value="Select type" className="btn btn-primary" />
+                    <input type="submit" value="Next" className="btn btn-primary" />
                 </form>
 
             </section>

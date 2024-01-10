@@ -29,7 +29,7 @@ export function Type(){
                         <label htmlFor="T"><img src="img/T.png" alt="type T"></label> */}
                         <br/>
                     </div>
-                    <input type="submit" value="Select Door" className="btn btn-primary"/>
+                    <input type="submit" value="Next" className="btn btn-primary"/>
                 </FormPrepend>
             </div>
         </section>

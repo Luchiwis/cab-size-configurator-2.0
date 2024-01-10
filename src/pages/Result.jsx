@@ -1,7 +1,7 @@
 import { ButtonCopyURL } from "../components/ButtonCopyURL";
 import { ButtonSavePDF } from "../components/ButtonSavePDF";
 
-export function Results() {
+export function Result() {
     return (
         <main>
             <div className="container text-center">
