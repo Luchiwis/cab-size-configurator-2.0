@@ -1,21 +1,11 @@
+import { UnitSwitch } from "../components/UnitSwitch";
 export function Hoistway() {
     return (
         <main>
             <section className="text-center">
                 <div className="my-5 col-md-8 col-sm-10 mx-auto">
                     <h2 className="display-6">Enter the Hoistway size</h2>
-
-                    <div id="unit-system">
-                        <div className="btn-group" role="group" aria-label="Basic radio toggle button group">
-                            <input type="radio" className="btn-check" name="unit" value="mm" id="unit-radio-mm"
-                                autoComplete="off" onClick="switchUnits('mm');changeUnitsInputs()" />
-                            <label className="btn btn-outline-primary" htmlFor="unit-radio-mm">metric</label>
-
-                            <input type="radio" className="btn-check" name="unit" value="in" id="unit-radio-in"
-                                autoComplete="off" onClick="switchUnits('in');changeUnitsInputs()" defaultChecked />
-                            <label className="btn btn-outline-primary" htmlFor="unit-radio-in">imperial</label>
-                        </div>
-                    </div>
+                    <UnitSwitch/>
                     <div className="row">
                         <div className="col-md-6">
                             <label htmlFor="width" className="form-label">Width <br /><span id="width-label" className="text-muted">min:49.5" | max:76.5"</span></label>

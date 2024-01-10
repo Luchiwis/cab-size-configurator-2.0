@@ -11,7 +11,7 @@ export function Result() {
             <div className="container text-center">
                 <div className="row">
                     <h1 className="display-4">Your elevator properties</h1>
-                    <UnitSwitch></UnitSwitch>
+                    <UnitSwitch/>
                 </div>
                 <div className="row mt-3">
                     <div className="col-lg-6 mx-auto my-1">
