@@ -1,6 +1,6 @@
 export function Home() {
     return (
-        <>
+        <main>
             <section className="text-center">
                 <div className="my-5">
                     <h1 className="display-4">Do you already have hoistway size?</h1>
@@ -30,6 +30,6 @@ export function Home() {
                     <ul id="advise"></ul>
                 </div>
             </section>
-        </>
+        </main>
     )
 }

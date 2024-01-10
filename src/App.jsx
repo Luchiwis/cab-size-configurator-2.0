@@ -1,14 +1,16 @@
 import { Navbar } from './components/Navbar'
 import { Footer } from './components/Footer'
-import { Home } from './components/Home'
-import { Hoistway } from './components/Hoistway'
-import { Model } from './components/Model'
+import { Home } from './pages/Home'
+import { Hoistway } from './pages/Hoistway'
+import { Model } from './pages/Model'
 import { Type } from './components/Type'
 import { Door } from './components/Door'
 import { Cab } from './components/Cab'
-import { Results } from './components/Results'
+import { Results } from './pages/Results'
+import { PageNotFound } from './pages/PageNotFound'
 import './bootstrap/bootstrap-federal.css'
-import './App.css'
+import './css/App.css'
+import { Routes, Route } from 'react-router-dom'
 
 function App() {
 
@@ -17,15 +19,16 @@ function App() {
       <header>
         <Navbar></Navbar>
       </header>
-      <main>
-        {/* <Home></Home> */}
-        {/* <Hoistway></Hoistway> */}
-        {/* <Model></Model> */}
-        {/* <Type></Type> */}
-        {/* <Door></Door> */}
-        {/* <Cab></Cab> */}
-        <Results></Results>
-      </main>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/hoistway" element={<Hoistway />} />
+        <Route path="/model" element={<Model />} />
+        <Route path="/type" element={<Type />} />
+        <Route path="/door" element={<Door />} />
+        <Route path="/cab" element={<Cab />} />
+        <Route path="/results" element={<Results />} />
+        <Route path="*" element={<PageNotFound />}/>
+      </Routes>
 
       <Footer></Footer>
     </>

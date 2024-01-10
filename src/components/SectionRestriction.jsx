@@ -1,4 +1,4 @@
-export function RestrictionSection() {
+export function SectionRestriction() {
     return (
         <section className="text-center py-2 my-3" id="restrictions">
                 <div className="container">
