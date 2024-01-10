@@ -9,11 +9,11 @@
 
 input[type=radio]:checked+label>img {
     border: 1px solid #fff;
-    box-shadow: 0 0 3px 10px #b52121;
+    box-shadow: 0 0 13px 10px #b5212191;
 }
 input[type=radio]:checked+label>span {
     border: 1px solid #fff;
-    box-shadow: 0 0 3px 10px #b52121;
+    box-shadow: 0 0 13px 10px #b5212191;
 }
 
 /* Stuff after this is only to make things more pretty */

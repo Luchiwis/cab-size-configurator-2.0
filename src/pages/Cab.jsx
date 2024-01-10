@@ -1,10 +1,11 @@
+import { FormPrepend } from "../components/FormPrepend"
 export function Cab() {
     return (
         <main>
             <section className="text-center">
                 <div className="my-5 col-md-8 col-sm-10 mx-auto">
                     <h1 className="display-4">Select the cab size</h1>
-                    <form action="result.html">
+                    <FormPrepend action="result">
                         <div id="unit-system">
                             <div className="btn-group" role="group" aria-label="Basic radio toggle button group">
                                 <input type="radio" className="btn-check" name="unit" defaultValue="mm" id="unit-radio-mm" autoComplete="off" onClick="switchUnits('mm');cabRestrictions();updateTable();" />
@@ -57,8 +58,8 @@ export function Cab() {
                                 </tbody>
                             </table>
                         </div>
-                        <input type="button" defaultValue="See results" className="btn btn-primary" onClick="customSubmit();" />
-                    </form>
+                        <input type="button" defaultValue="See results" className="btn btn-primary"/>
+                    </FormPrepend>
                 </div>
             </section>
             <section className="text-center d-none py-2 mb-4" id="restrictions">

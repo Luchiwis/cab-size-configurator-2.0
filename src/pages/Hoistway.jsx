@@ -3,7 +3,7 @@ export function Hoistway() {
         <main>
             <section className="text-center">
                 <div className="my-5 col-md-8 col-sm-10 mx-auto">
-                    <h1 className="display-4">Enter the Hoistway size</h1>
+                    <h2 className="display-6">Enter the Hoistway size</h2>
 
                     <div id="unit-system">
                         <div className="btn-group" role="group" aria-label="Basic radio toggle button group">

@@ -1,9 +1,18 @@
 /* fix footer bottom */
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  position: relative;
+}
+main {
+  margin: auto 0;
+}
+
 footer {
-    margin-top: auto;
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    background-color: var(--bs-body-bg);
-  }
+  margin-top: auto;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: var(--bs-body-bg);
+}

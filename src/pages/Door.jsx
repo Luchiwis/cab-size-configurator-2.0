@@ -1,10 +1,11 @@
+import { FormPrepend } from '../components/FormPrepend.jsx';
 export function Door() {
     return (
         <main>
             <section className="text-center">
                 <div className="my-5">
                     <h1 className="display-4">Select the type of door</h1>
-                    <form action="cab.html">
+                    <FormPrepend action="cab">
                         <div className="sect" id="sect-door">
                             <h4>Door type</h4>
 
@@ -48,7 +49,7 @@ export function Door() {
                             </div>
                         </div>
                         <input type="submit" value="Select size" className="btn btn-primary" />
-                    </form>
+                    </FormPrepend>
                 </div>
             </section>
             <section className="text-center d-none py-2" id="restrictions">
