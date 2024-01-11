@@ -14,49 +14,52 @@ const unitSymbols = {
     'in': '"'
 }
 
-const restrictedCombos = [
+
+const restrictedDoorCombos = [
     {
         type: 'C',
-        door: '2speed',
+        restrictions: '2speed',
     },
     {
         type: 'C',
-        door: '3speed',
+        restrictions: '3speed',
     },
     {
         type: 'D',
-        door: '2speed',
+        restrictions: '2speed',
     },
     {
         type: 'D',
-        door: '3speed',
+        restrictions: '3speed',
     },
     {
         model: 'legacy',
         type: 'C',
-        door: 'bifold',
+        restrictions: 'bifold',
     },
     {
         model: 'legacy',
         type: 'D',
-        door: 'bifold',
+        restrictions: 'bifold',
     },
     {
         model: 'legacy',
-        door: '2speed',
+        restrictions: '2speed',
     },
     {
         model: 'legacy',
-        door: '3speed',
-    },
+        restrictions: '3speed',
+    }
+]
+const restrictedLandingCombos = [
     {
         door: 'accordion',
-        landing: true,
+        restrictions: ['landing'],
     },
     {
         door: 'bifold',
-        landing: true,
+        restrictions: ['landing'],
     }
 ]
 
-export { doors, models, unitSymbols, restrictedCombos }
+export { doors, models, unitSymbols, restrictedDoorCombos, restrictedLandingCombos }

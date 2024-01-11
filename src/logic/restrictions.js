@@ -1,4 +1,5 @@
 
+
 function cabRestrictions() {
     const type = elevatorData['type'];
     const door = elevatorData['door'];
@@ -74,14 +75,4 @@ function cabRestrictions() {
     }
 
 
-}
-
-if (window.location.pathname.endsWith('/door.html')) {
-    doorRestrictions();
-}
-else if (window.location.pathname.endsWith('/cab.html')) {
-    cabRestrictions();
-}
-else if (window.location.pathname.endsWith('/model.html')) {
-    modelRestrictions();
 }

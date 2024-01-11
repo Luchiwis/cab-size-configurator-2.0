@@ -1,53 +1,33 @@
 import { FormPrepend } from '../components/FormPrepend.jsx';
 import { useElevatorParams } from '/hooks/useElevatorParams.js';
 import { useEffect, useState } from 'react';
-import { restrictedCombos } from '../logic/constants.js';
+import { restrictedDoorCombos } from '../logic/constants.js';
 
-function doorRestrictions(elevatorData, availableDoors) {
 
-    //filter combos based on elevatorData
-    const actualCombos = restrictedCombos.filter(combo => {
-        const { type, model } = elevatorData;
-        return combo['type'] == type || combo['model'] == model;
-    });
-
-    // for each door, if combo has door, disable door
-    availableDoors = Object.keys(availableDoors).reduce((acc, door) => {
-        const combo = actualCombos.find(combo => combo['door'] == door);
-        if (combo) {
-            acc[door] = true;
+function DoorButton({ name, value, children, elevatorData , setDoor}) {
+    const [disabled, setDisabled] = useState(false);
+    const isDoorRestricted= ({ door, type, model }) => {
+        //return true if the door is restricted
+        for (const combo of restrictedDoorCombos) {
+            if (door == combo.restrictions) {
+                if (combo.type && combo.model) {
+                    return (type == combo.type && model == combo.model)? true : false;
+                } else if (combo.type && type == combo.type) {
+                    return true;
+                } else if (combo.model && model == combo.model) {
+                    return true;
+                }
+            }
         }
-        return acc;
-    }, availableDoors);
+        return false;
+    }
+    useEffect(() => {
+        setDisabled(isDoorRestricted({...elevatorData, door: value}));
+    }, [elevatorData]);
 
-    return availableDoors;
-}
-//     //if type is C or D, disable slide2, slide3 and landing
-//     if (['C', 'D'].includes(type)) {
-//         document.getElementById('slide2').disabled = true;
-//         document.getElementById('slide3').disabled = true;
-//         // document.getElementById('landing').disabled = true;
-
-//         // errorBox.showError('2 and 3 speed sliding doors are not available for types C and D, consult factory for these properties.');
-//     }
-//     if (model == 'legacy') {
-//         document.getElementById('slide2').disabled = true;
-//         document.getElementById('slide3').disabled = true;
-//         // document.getElementById('landing').disabled = true;
-
-//         // errorBox.showError('2 and 3 speed sliding doors are not available for legacy models, consult factory for these properties.');
-//     }
-//     if (['C', 'D'].includes(type) && model == 'legacy') {
-//         // document.getElementById('bifold').disabled = true;
-
-//         // errorBox.showError('Bi-fold doors are not available for types C and D in lecagy model, consult factory for these properties.');
-//     }
-// }
-
-function DoorButton({ name, value, children, disabled = false }) {
     return (
         <>
-            <input type="radio" name={name} value={value} id={value} disabled={disabled} required />
+            <input type="radio" name={name} value={value} id={value} disabled={disabled} onClick={() => {setDoor(value)}} required />
             <label htmlFor={value}>
                 <span className="btn btn-secondary">
                     <h1>{children}</h1>
@@ -57,15 +37,35 @@ function DoorButton({ name, value, children, disabled = false }) {
     )
 }
 
-export function Door() {
-    const elevatorData = useElevatorParams();
-    const [availableDoors, setAvailableDoors] = useState({ 'accordion': false, 'bifold': false, '2speed': false, '3speed': false });
+function LandingButton({ name, children, door }) {
+    const [displayClass, setDisplayClass] = useState('d-none');
 
     useEffect(() => {
-        const availableDoors = { 'accordion': false, 'bifold': false, '2speed': false, '3speed': false };
-        const filteredDoors = doorRestrictions(elevatorData, availableDoors);
-        setAvailableDoors(filteredDoors);
-    }, []);
+        console.log(door);
+        if (['2speed', '3speed'].includes(door)) {
+            setDisplayClass('');
+        }else {
+            setDisplayClass('d-none');
+        }
+    }, [door]);
+
+    return (
+        <>
+            <div className={"col-xs-2 text-xs-center m-auto pb-3 border w-50 " + displayClass} id="landingSection"
+                data-toggle="buttons">
+                <label className="form-check-label" htmlFor={name}>{children}</label>
+                <br />
+                <input className="form-check-input" type="checkbox" id={name} name={name} value="on"
+                    style={{ width: '20px', height: '20px' }} />
+            </div>
+        </>
+    )
+}
+
+export function Door() {
+    const elevatorData = useElevatorParams();
+    const [door, setDoor] = useState('');
+
 
     return (
         <main>
@@ -74,32 +74,14 @@ export function Door() {
                     <h1 className="display-4">Select the type of door</h1>
                     <FormPrepend action="cab">
                         <div className="sect" id="sect-door">
-                            
-
-                            {/* <DoorButton name="door" value="accordion">Accordion</DoorButton>
-                            <DoorButton name="door" value="bifold">Bifold</DoorButton>
-                            <DoorButton name="door" value="2speed">2 speed sliding</DoorButton>
-                            <DoorButton name="door" value="3speed">3 speed sliding</DoorButton> */}
-
-                            {/* put all filtered buttons */}
-                            {Object.keys(availableDoors).map(door => {
-                                return (
-                                    <DoorButton name="door" value={door} disabled={availableDoors[door]} key={door}>
-                                        {door}
-                                    </DoorButton>
-                                )
-                            })}
+                            <DoorButton name="door" value="accordion" elevatorData={elevatorData} setDoor={setDoor}>Accordion</DoorButton>
+                            <DoorButton name="door" value="bifold" elevatorData={elevatorData} setDoor={setDoor}>Bifold</DoorButton>
+                            <DoorButton name="door" value="2speed" elevatorData={elevatorData} setDoor={setDoor}>2 speed sliding</DoorButton>
+                            <DoorButton name="door" value="3speed" elevatorData={elevatorData} setDoor={setDoor}>3 speed sliding</DoorButton>
 
                             <hr className="w-50 m-auto my-3" />
 
-
-                            <div className="col-xs-2 text-xs-center m-auto pb-3 border w-50 d-none" id="landingSection"
-                                data-toggle="buttons">
-                                <label className="form-check-label" htmlFor="landing">Federal provides cab and hall door</label>
-                                <br />
-                                <input className="form-check-input" type="checkbox" id="landing" name="landing" value="on"
-                                    style={{ width: '20px', height: '20px' }} />
-                            </div>
+                            <LandingButton name="landing" door={door}>Federal provides cab and hall door</LandingButton>
                         </div>
                         <input type="submit" value="Next" className="btn btn-primary" />
                     </FormPrepend>
