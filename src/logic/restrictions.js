@@ -1,34 +1,3 @@
-function doorRestrictions() {
-    //get url params
-    // const urlParams = new URLSearchParams(window.location.search);
-    // const type = urlParams.get('type');
-    const type = elevatorData['type'];
-    const model = elevatorData['model'];
-    const restrictions = document.getElementById('restrictions');
-    const advise = document.getElementById('advise');
-
-    //if type is C or D, disable slide2, slide3 and landing
-    if (['C', 'D'].includes(type)) {
-        document.getElementById('slide2').disabled = true;
-        document.getElementById('slide3').disabled = true;
-        document.getElementById('landing').disabled = true;
-
-        errorBox.showError('2 and 3 speed sliding doors are not available for types C and D, consult factory for these properties.');
-    }
-    if (model == 'legacy') {
-        document.getElementById('slide2').disabled = true;
-        document.getElementById('slide3').disabled = true;
-        document.getElementById('landing').disabled = true;
-
-        errorBox.showError('2 and 3 speed sliding doors are not available for legacy models, consult factory for these properties.');
-    }
-    if (['C', 'D'].includes(type) && model == 'legacy') {
-        console.log('both');
-        document.getElementById('bifold').disabled = true;
-
-        errorBox.showError('Bi-fold doors are not available for types C and D in lecagy model, consult factory for these properties.');
-    }
-}
 
 function cabRestrictions() {
     const type = elevatorData['type'];
