@@ -41,7 +41,6 @@ function LandingButton({ name, children, door }) {
     const [displayClass, setDisplayClass] = useState('d-none');
 
     useEffect(() => {
-        console.log(door);
         if (['2speed', '3speed'].includes(door)) {
             setDisplayClass('');
         }else {

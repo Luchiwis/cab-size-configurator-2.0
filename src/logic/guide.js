@@ -31,43 +31,6 @@ function filterHoistwayInRange(guide, hoistwayWidth, hoistwayDepth, model = null
     return filter;
 }
 
-
-function filterObjects(guide, filters) {
-    return guide.filter(obj => {
-        for (const key in filters) {
-            if (filters[key] !== null && obj[key] !== filters[key]) {
-                return false;
-            }
-        }
-        return true;
-    });
-}
-
-function getRanges(objects) {
-    //return minOverallWidth, maxOverallWidth, minOverallDepth, maxOverallDepth
-
-    //get minOverallWidth
-    const minOverallWidth = Math.min(...objects.map(obj => obj.minOverallWidth));
-    const maxOverallWidth = Math.max(...objects.map(obj => obj.maxOverallWidth));
-    const minOverallDepth = Math.min(...objects.map(obj => obj.minOverallDepth));
-    const maxOverallDepth = Math.max(...objects.map(obj => obj.maxOverallDepth));
-    const minHoistwayWidth = Math.min(...objects.map(obj => obj.minHoistwayWidth));
-    const maxHoistwayWidth = Math.max(...objects.map(obj => obj.maxHoistwayWidth));
-    const minHoistwayDepth = Math.min(...objects.map(obj => obj.minHoistwayDepth));
-    const maxHoistwayDepth = Math.max(...objects.map(obj => obj.maxHoistwayDepth));
-
-    return {
-        minOverallWidth: minOverallWidth,
-        maxOverallWidth: maxOverallWidth,
-        minOverallDepth: minOverallDepth,
-        maxOverallDepth: maxOverallDepth,
-        minHoistwayWidth: minHoistwayWidth,
-        maxHoistwayWidth: maxHoistwayWidth,
-        minHoistwayDepth: minHoistwayDepth,
-        maxHoistwayDepth: maxHoistwayDepth,
-    }
-}
-
 function getDoorTypes(guide) {
     return [...new Set(guide.map(obj => obj.door))];
 }

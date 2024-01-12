@@ -1,7 +1,6 @@
 //components
 import { ButtonCopyURL } from "../components/ButtonCopyURL";
 import { ButtonSavePDF } from "../components/ButtonSavePDF";
-import { useContext } from "react";
 import { UnitSwitch } from "../components/UnitSwitch";
 
 //context

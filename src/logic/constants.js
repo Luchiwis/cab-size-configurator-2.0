@@ -13,7 +13,7 @@ const unitSymbols = {
     'mm': 'mm',
     'in': '"'
 }
-
+const WALL_THICKNESS = 1.5; //inches
 
 const restrictedDoorCombos = [
     {
@@ -51,15 +51,5 @@ const restrictedDoorCombos = [
         restrictions: '3speed',
     }
 ]
-const restrictedLandingCombos = [
-    {
-        door: 'accordion',
-        restrictions: ['landing'],
-    },
-    {
-        door: 'bifold',
-        restrictions: ['landing'],
-    }
-]
 
-export { doors, models, unitSymbols, restrictedDoorCombos, restrictedLandingCombos }
+export { doors, models, unitSymbols, restrictedDoorCombos, WALL_THICKNESS }

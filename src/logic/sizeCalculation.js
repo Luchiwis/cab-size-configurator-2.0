@@ -1,6 +1,21 @@
-const WALL_THICKNESS = 1.5; //inches
+import { WALL_THICKNESS } from './constants';
+import { inchesToMillimeters, millimetersToInches } from './unitConversion';
 
-function getInnerCabDimensions(type, overallWidth, overallDepth) {
+
+export function innerDimensions(type, overallWidth, overallDepth, units = 'in') {
+    /*
+    inches function
+    input: type, overallWidth, overallDepth
+    output: {width: innerWidth, depth: innerDepth}
+    */
+    //conditional conversion
+    if (units == 'mm') {
+        overallWidth = millimetersToInches(overallWidth);
+        overallDepth = millimetersToInches(overallDepth);
+    }
+
+    let widthWallThickness;
+    let depthWallThickness;
     if (type == 'A') {
         widthWallThickness = WALL_THICKNESS * 2;
         depthWallThickness = WALL_THICKNESS;
@@ -22,16 +37,45 @@ function getInnerCabDimensions(type, overallWidth, overallDepth) {
         depthWallThickness = WALL_THICKNESS * 2;
     }
 
-    innerWidth = overallWidth - widthWallThickness;
-    innerDepth = overallDepth - depthWallThickness;
 
-    return {
-        innerWidth: innerWidth,
-        innerHeight: innerDepth,
+
+    //conditional conversion
+    if (units == 'mm') {
+        return {
+            width: inchesToMillimeters(overallWidth - widthWallThickness),
+            depth: inchesToMillimeters(overallDepth - depthWallThickness)
+        }
+    } else {
+        return {
+            width: overallWidth - widthWallThickness,
+            depth: overallDepth - depthWallThickness
+        }
     }
 }
 
-function getHoistwayDimensions(type, model, overallWidth, overallDepth) {
+export function hoistwayDimensions(type, model, overallWidth, overallDepth, units = 'in') {
+    /*
+    inches function
+    input: type, model, overallWidth, overallDepth
+    output: {width: hoistwayWidth, depth: hoistwayDepth, runningClearance: runningClearance, otherClearance: otherClearance, distanceToBackOfControlWall: distanceToBackOfControlWall}
+    */
+    // convert to number
+
+    //conditional conversion
+    if (units == 'mm') {
+        overallWidth = millimetersToInches(overallWidth);
+        overallDepth = millimetersToInches(overallDepth);
+    }
+    overallWidth = Number(overallWidth);
+    overallDepth = Number(overallDepth);
+
+    let runningClearance;
+    let otherClearance;
+    let distanceToBackOfControlWall;
+    let hoistwayWidth;
+    let hoistwayDepth;
+
+
     if (model == 'panorama' || model == 'renaissance') {
         runningClearance = 1.25;
         otherClearance = 2.5;
@@ -69,38 +113,27 @@ function getHoistwayDimensions(type, model, overallWidth, overallDepth) {
         hoistwayDepth = otherClearance + overallDepth + otherClearance;
     }
 
-    return {
-        runningClearance: runningClearance,
-        otherClearance: otherClearance,
-        distanceToBackOfControlWall: distanceToBackOfControlWall,
-        hoistwayWidth: hoistwayWidth,
-        hoistwayDepth: hoistwayDepth,
-    }
-}
-
-function getOverhead(door, cabHeight) {
-    if (door == 'bifold' || door == 'accordion') {
-        if (cabHeight == 48) { //84"
-            return 96; //96"
-        } else if (cabHeight == 96) { //96"
-            return 108; //108"
+    //conditional conversion
+    if (units == 'mm') {
+        return {
+            width: inchesToMillimeters(hoistwayWidth),
+            depth: inchesToMillimeters(hoistwayDepth),
+            runningClearance: inchesToMillimeters(runningClearance),
+            otherClearance: inchesToMillimeters(otherClearance),
+            distanceToBackOfControlWall: inchesToMillimeters(distanceToBackOfControlWall),
         }
-
     } else {
-        return 108; //108"
+        return {
+            width: hoistwayWidth,
+            depth: hoistwayDepth,
+            runningClearance: runningClearance,
+            otherClearance: otherClearance,
+            distanceToBackOfControlWall: distanceToBackOfControlWall,
+        }
     }
 }
 
-function getPitDepth(door){
-    if (door == '2speed' || door == '3speed'){
-        return 12; //12"
-    }
-    else {
-        return 8; //8"
-    }
-}
-
-function getOverallDimensions(model,type, hoistwayWidth, hoistwayDepth){
+export function overallDimensions(model, type, hoistwayWidth, hoistwayDepth) {
     if (model == 'panorama' || model == 'renaissance') {
         runningClearance = 1.25;
         otherClearance = 2.5;
@@ -138,13 +171,35 @@ function getOverallDimensions(model,type, hoistwayWidth, hoistwayDepth){
         overallDepth = hoistwayDepth - otherClearance - otherClearance;
     }
     else {
-        console.log('error');
+        console.log('error in calculation');
         console.log(type);
         console.log(model);
     }
-
     return {
-        overallWidth: overallWidth,
-        overallDepth: overallDepth,
+        width: overallWidth,
+        depth: overallDepth,
     }
 }
+
+function overhead(door, cabHeight) {
+    if (door == 'bifold' || door == 'accordion') {
+        if (cabHeight == 48) { //84"
+            return 96; //96"
+        } else if (cabHeight == 96) { //96"
+            return 108; //108"
+        }
+
+    } else {
+        return 108; //108"
+    }
+}
+
+function pitDepth(door) {
+    if (door == '2speed' || door == '3speed') {
+        return 12; //12"
+    }
+    else {
+        return 8; //8"
+    }
+}
+
