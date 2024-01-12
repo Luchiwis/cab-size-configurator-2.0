@@ -20,6 +20,7 @@ export function UnitSwitch() {
                     id="unit-radio-mm"
                     autoComplete="off"
                     onClick={handleUnitChange}
+                    defaultChecked = {unit == 'mm'}
                 />
                 <label className="btn btn-outline-primary" htmlFor="unit-radio-mm">metric</label>
 
@@ -29,7 +30,7 @@ export function UnitSwitch() {
                     id="unit-radio-in"
                     autoComplete="off"
                     onClick={handleUnitChange}
-                    defaultChecked
+                    defaultChecked = {unit == 'in'}
                 />
                 <label className="btn btn-outline-primary" htmlFor="unit-radio-in">imperial</label>
             </div>

@@ -69,7 +69,7 @@ export function Cab() {
                                     className="form-control text-center"
                                     onChange={inputHandler}
                                     disabled={minWidth == maxWidth ? true : false}
-                                    defaultValue={defaultWidth}
+                                    defaultValue={defaultWidth || ''}
                                     required />
                             </div>
                             <div className="col-md-6">
@@ -87,7 +87,7 @@ export function Cab() {
                                     className="form-control text-center"
                                     onChange={inputHandler}
                                     disabled={minDepth == maxDepth ? true : false}
-                                    defaultValue={defaultDepth}
+                                    defaultValue={defaultDepth || ''}
                                     required />
                             </div>
                         </div>

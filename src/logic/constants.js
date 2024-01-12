@@ -9,6 +9,12 @@ const models = {
     'panorama': 'Panorama',
     'renaissance': 'Renaissance',
 }
+
+const landing = {
+    false: 'No',
+    true: 'Yes',
+}
+
 const unitSymbols = {
     'mm': 'mm',
     'in': '"'
@@ -52,4 +58,4 @@ const restrictedDoorCombos = [
     }
 ]
 
-export { doors, models, unitSymbols, restrictedDoorCombos, WALL_THICKNESS }
+export { doors, models, unitSymbols, restrictedDoorCombos, landing , WALL_THICKNESS }

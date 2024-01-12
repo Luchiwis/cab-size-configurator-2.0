@@ -1,9 +1,11 @@
-import { Unit } from './Unit';
 import { useEffect, useState, useContext } from 'react';
 import * as calculate from '../logic/sizeCalculation';
 import { UnitContext } from '../App';
+import { unitSymbols as symbols } from '../logic/constants';
 
-export function ReactiveTable({ width, depth, minWidth, maxWidth, minDepth, maxDepth, elevatorData }) {
+export function ReactiveTable({ width, depth, minWidth=0, maxWidth=Infinity, minDepth=0, maxDepth=Infinity , elevatorData }) {
+    //todo:re think component
+
     const [globalUnit, setGlobalUnit] = useContext(UnitContext);
     const [innerWidth, setInnerWidth] = useState('-');
     const [innerDepth, setInnerDepth] = useState('-');
@@ -51,18 +53,18 @@ export function ReactiveTable({ width, depth, minWidth, maxWidth, minDepth, maxD
             <tbody>
                 <tr>
                     <td>Interior Cab Size</td>
-                    <td>{innerWidth}</td>
-                    <td>{innerDepth}</td>
+                    <td>{innerWidth}{!isNaN(innerWidth) && symbols[globalUnit]}</td>
+                    <td>{innerDepth}{!isNaN(innerDepth) && symbols[globalUnit]}</td>
                 </tr>
                 <tr>
                     <td>Hoistway Size</td>
-                    <td>{hoistwayWidth}</td>
-                    <td>{hoistwayDepth}</td>
+                    <td>{hoistwayWidth}{!isNaN(hoistwayWidth) && symbols[globalUnit]}</td>
+                    <td>{hoistwayDepth}{!isNaN(hoistwayDepth) && symbols[globalUnit]}</td>
                 </tr>
                 <tr>
                     <td>Platform Size</td>
-                    <td>{overallWidth}</td>
-                    <td>{overallDepth}</td>
+                    <td>{overallWidth}{!isNaN(overallWidth) && symbols[globalUnit]}</td>
+                    <td>{overallDepth}{!isNaN(overallDepth) && symbols[globalUnit]}</td>
                 </tr>
             </tbody>
         </table>

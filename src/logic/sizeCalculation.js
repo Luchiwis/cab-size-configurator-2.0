@@ -42,8 +42,8 @@ export function innerDimensions(type, overallWidth, overallDepth, units = 'in') 
     //conditional conversion
     if (units == 'mm') {
         return {
-            width: inchesToMillimeters(overallWidth - widthWallThickness),
-            depth: inchesToMillimeters(overallDepth - depthWallThickness)
+            width: inchesToMillimeters(overallWidth - widthWallThickness).toFixed(),
+            depth: inchesToMillimeters(overallDepth - depthWallThickness).toFixed()
         }
     } else {
         return {
@@ -60,7 +60,6 @@ export function hoistwayDimensions(type, model, overallWidth, overallDepth, unit
     output: {width: hoistwayWidth, depth: hoistwayDepth, runningClearance: runningClearance, otherClearance: otherClearance, distanceToBackOfControlWall: distanceToBackOfControlWall}
     */
     // convert to number
-
     //conditional conversion
     if (units == 'mm') {
         overallWidth = millimetersToInches(overallWidth);
@@ -116,8 +115,8 @@ export function hoistwayDimensions(type, model, overallWidth, overallDepth, unit
     //conditional conversion
     if (units == 'mm') {
         return {
-            width: inchesToMillimeters(hoistwayWidth),
-            depth: inchesToMillimeters(hoistwayDepth),
+            width: inchesToMillimeters(hoistwayWidth).toFixed(),
+            depth: inchesToMillimeters(hoistwayDepth).toFixed(),
             runningClearance: inchesToMillimeters(runningClearance),
             otherClearance: inchesToMillimeters(otherClearance),
             distanceToBackOfControlWall: inchesToMillimeters(distanceToBackOfControlWall),

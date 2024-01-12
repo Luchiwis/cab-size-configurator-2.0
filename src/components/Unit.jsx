@@ -8,6 +8,7 @@ export function Unit({ children, type }) {
     const [globalUnit, setGlobalUnit] = useContext(UnitContext);
     const [shownValue, setShownValue] = useState(children);
     const [symbol, setSymbol] = useState(unitSymbols[globalUnit]);
+
     useEffect(() => {
         setSymbol(unitSymbols[globalUnit]);
         if (isNaN(children)) {

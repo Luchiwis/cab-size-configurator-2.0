@@ -19,13 +19,15 @@ import { Door } from './pages/Door'
 import { Cab } from './pages/Cab'
 import { Result } from './pages/Result'
 import { PageNotFound } from './pages/PageNotFound'
+import { useElevatorParams } from '../hooks/useElevatorParams'
 
 //context
 
 export const UnitContext = React.createContext(null);
 
 function App() {
-  const [unit, setUnit] = useState('in')
+  const elevatorParams = useElevatorParams()
+  const [unit, setUnit] = useState(elevatorParams.unit || 'in')
   return (
     <>
       <UnitContext.Provider value={[unit, setUnit]}>
