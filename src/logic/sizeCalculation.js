@@ -132,7 +132,7 @@ export function hoistwayDimensions(type, model, overallWidth, overallDepth, unit
     }
 }
 
-export function overallDimensions(model, type, hoistwayWidth, hoistwayDepth) {
+export function overallDimensions(model, type, hoistwayWidth, hoistwayDepth, units = 'in') {
     if (model == 'panorama' || model == 'renaissance') {
         runningClearance = 1.25;
         otherClearance = 2.5;
@@ -180,20 +180,22 @@ export function overallDimensions(model, type, hoistwayWidth, hoistwayDepth) {
     }
 }
 
-function overhead(door, cabHeight) {
+export function overhead(door, cabHeight) {
     if (door == 'bifold' || door == 'accordion') {
-        if (cabHeight == 48) { //84"
+        if (cabHeight == 84) { //84"
             return 96; //96"
         } else if (cabHeight == 96) { //96"
             return 108; //108"
         }
-
     } else {
         return 108; //108"
     }
+
 }
 
-function pitDepth(door) {
+export function pitDepth(door) {
+
+
     if (door == '2speed' || door == '3speed') {
         return 12; //12"
     }

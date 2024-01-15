@@ -12,7 +12,7 @@ export function Footer() {
                     <img src="img/FED ELv logo_clean_cmyk.png" height="50px" alt="" />
                 </a>
 
-                <ul className="nav col-md-4 justify-content-end">
+                <ul className="nav col-md-4 justify-content-end no-print">
                     <li className="nav-item"><a href="https://federalelevator.com/dealer-login/"
                         className="nav-link px-2 text-muted">Dealer Login</a></li>
                     <li className="nav-item"><a href="https://federalelevator.com/privacy-policy/"

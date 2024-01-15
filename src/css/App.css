@@ -58,3 +58,9 @@ input[type=number] {
 h1.display-4:hover{
     /* text-shadow: black 0 0 10px; */
 }
+
+@media print{
+    .no-print{
+        display: none !important;
+    }
+}

@@ -1,11 +1,11 @@
 const doors = {
-    'accordion': 'accordion',
+    'accordion': 'Accordion',
     'bifold': 'Bi-Fold',
     '3speed': '3 Speed sliding',
     '2speed': '2 Speed sliding',
 }
 const models = {
-    'legacy': 'legacy',
+    'legacy': 'Legacy',
     'panorama': 'Panorama',
     'renaissance': 'Renaissance',
 }

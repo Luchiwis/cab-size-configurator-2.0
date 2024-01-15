@@ -3,22 +3,22 @@ import { ButtonCopyURL } from "../components/ButtonCopyURL";
 import { ButtonSavePDF } from "../components/ButtonSavePDF";
 import { UnitSwitch } from "../components/UnitSwitch";
 import { Unit } from "../components/Unit";
-import { ReactiveTable } from "../components/ReactiveTable";
+import { ReactiveTable, TableFinish } from "../components/ReactiveTable";
 
 //hooks
 import { useElevatorParams } from "../../hooks/useElevatorParams";
-import { useState, useEffect } from "react";
-
+import { useState } from "react";
 
 
 //context
 export function Result() {
     const prettyElevatorParams = useElevatorParams(true);
     const elevatorParams = useElevatorParams();
+    const [overhead,setOverhead] = useState(0);
+    const [pit,setPit] = useState(0);
+    
 
-    const [urlUnit, setUrlUnit] = useState(elevatorParams.unit || 'in');
-    const [overhead, setOverhead] = useState(0);
-    const [pitDepth, setPitDepth] = useState(0);
+
 
     return (
         <main>
@@ -30,22 +30,22 @@ export function Result() {
                 <div className="row mt-3">
                     <div className="col-lg-6 mx-auto my-1">
                         <ul className="list-group">
-                            <li className="list-group-item">Model: <span id="model">{prettyElevatorParams.model}</span></li>
-                            <li className="list-group-item">Type: <span id="type">{prettyElevatorParams.type}</span></li>
-                            <li className="list-group-item">Door: <span id="door">{prettyElevatorParams.door}</span></li>
-                            <li className="list-group-item">Landing door: <span id="landing">{prettyElevatorParams.landing || 'no'}</span></li>
-                            <li className="list-group-item">Overhead: { }<span id="overhead"></span></li>
-                            <li className="list-group-item">Inner height: <span id="height"><Unit type='in'>{elevatorParams['cab-height']}</Unit></span></li>
-                            <li className="list-group-item">Pit depth: <span id="pit-depth"></span></li>
+                            <li className="list-group-item">Model:{prettyElevatorParams.model}</li>
+                            <li className="list-group-item">Type: {prettyElevatorParams.type}</li>
+                            <li className="list-group-item">Door: {prettyElevatorParams.door}</li>
+                            <li className="list-group-item">Landing door: {prettyElevatorParams.landing || 'no'}</li>
+                            <li className="list-group-item">Inner height: <Unit type='in'>{elevatorParams['cab-height']}</Unit></li>
+                            <li className="list-group-item">Overhead: <Unit type='in'>{overhead}</Unit></li>
+                            <li className="list-group-item">Pit depth: <Unit type='in'>{pit}</Unit></li>
                         </ul>
                     </div>
                     <div className="col-lg-6 mx-auto my-1">
-                        <ReactiveTable
-                            width={elevatorParams['cab-width']}
-                            depth={elevatorParams['cab-depth']}
-                            elevatorData={elevatorParams} />
-
-                        <div className="shareSeciton mt-5">
+                        <TableFinish
+                            elevator={elevatorParams}
+                            setOverhead={setOverhead}
+                            setPit={setPit}
+                        />
+                        <div className="shareSeciton mt-5 no-print">
                             <ButtonCopyURL>copy URL to share</ButtonCopyURL>
                             <br />
                             <ButtonSavePDF></ButtonSavePDF>
