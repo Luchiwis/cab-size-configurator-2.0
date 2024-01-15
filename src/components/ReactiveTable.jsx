@@ -3,7 +3,10 @@ import * as calculate from '../logic/sizeCalculation';
 import { UnitContext } from '../App';
 import { unitSymbols as symbols } from '../logic/constants';
 import { Unit } from "../components/Unit";
-
+import { filterHoistwayInRange } from '../logic/dbManager';
+import { doors, models, landing as landings } from '../logic/constants';
+import { useNavigate } from 'react-router-dom';
+import { unitConvert } from '/hooks/Units';
 
 export function ReactiveTable({ width, depth, minWidth = 0, maxWidth = Infinity, minDepth = 0, maxDepth = Infinity, elevatorData }) {
     //todo:re think component
@@ -81,7 +84,7 @@ export function TableFinish({ elevator, setOverhead, setPit }) {
     const [hoistwayDepth, setHoistwayDepth] = useState(DEFAULT_SYMBOL);
     const [overallWidth, setOverallWidth] = useState(DEFAULT_SYMBOL);
     const [overallDepth, setOverallDepth] = useState(DEFAULT_SYMBOL);
-    
+
     const [units, setUnits] = useContext(UnitContext)
     const [urlUnit, setUrlUnit] = useState(elevator['unit'] || 'in');
 
@@ -140,5 +143,76 @@ export function TableFinish({ elevator, setOverhead, setPit }) {
                 </tbody>
             </table>
         </>
+    )
+}
+
+export function TableOptions({ hoistwayWidth, hoistwayDepth, model, type, door }) {
+    const [guide, setGuide] = useState([]);
+    const navigate = useNavigate();
+    const [units, setUnits] = useContext(UnitContext)
+    hoistwayWidth = unitConvert(hoistwayWidth, 'in');
+    hoistwayDepth = unitConvert(hoistwayDepth, 'in');
+    useEffect(() => {
+        let filtered = filterHoistwayInRange(hoistwayWidth, hoistwayDepth, model, type, door);
+        setGuide(
+            filtered.map((elevator, index) => {
+                const { model, type, door, landing } = elevator;
+                const redirecturl = `/cab?model=${model}&type=${type}&door=${door}${landing ? '&landing=on' : ''}`
+                const cabDeduction = calculate.overall(elevator.model, elevator.type, hoistwayWidth, hoistwayDepth);
+                let maxWidth, maxDepth;
+
+                //if exceeded max hoistway size, use max overall size of planning guide. if not, use cab deduction
+                if (hoistwayWidth > elevator['maxHoistwayWidth']) {
+                    maxWidth = elevator['maxOverallWidth'];
+                } else {
+                    maxWidth = cabDeduction['width'];
+                }
+                if (hoistwayDepth > elevator['maxHoistwayDepth']) {
+                    maxDepth = elevator['maxOverallDepth'];
+                } else {
+                    maxDepth = cabDeduction['depth'];
+                }
+
+                // B,C,D cannot exceed in depth, E cannot exceed in width
+                if ((['B', 'C', 'D'].includes(elevator.type)) && hoistwayDepth > elevator.maxHoistwayDepth) {
+                    maxWidth = `type: ${elevator.type} cannot exceed in depth`;
+                    // return null
+                } else if ((['E'].includes(elevator.type)) && hoistwayWidth > elevator.maxHoistwayWidth) {
+                    maxDepth = `type: ${elevator.type} cannot exceed in width`;
+                    // return null
+                }
+
+
+                return (
+                    <tr key={index} onClick={() => { navigate(redirecturl) }}>
+                        <td>{models[model]}</td>
+                        <td>{type}</td>
+                        <td>{doors[door]}</td>
+                        <td>{landings[landing]}</td>
+                        <td><Unit type='in'>{maxWidth}</Unit></td>
+                        <td><Unit type='in'>{maxDepth}</Unit></td>
+                    </tr>
+                )
+            }
+            )
+        )
+    }, [hoistwayWidth, hoistwayDepth, model, type, door]);
+    return (
+        <table className="table table-hoistway">
+            <thead>
+                <tr>
+                    <th>Model</th>
+                    <th>Type</th>
+                    <th>Door</th>
+                    <th>Landing</th>
+                    <th>Max cab width</th>
+                    <th>Max cab depth</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                {guide}
+            </tbody>
+        </table>
     )
 }

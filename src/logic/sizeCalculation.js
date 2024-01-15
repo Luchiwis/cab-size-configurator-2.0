@@ -132,7 +132,19 @@ export function hoistwayDimensions(type, model, overallWidth, overallDepth, unit
     }
 }
 
-export function overallDimensions(model, type, hoistwayWidth, hoistwayDepth, units = 'in') {
+export function overall(model, type, hoistwayWidth, hoistwayDepth, units = 'in') {
+    //
+    //conditional conversion
+    if (units == 'mm') {
+        hoistwayWidth = millimetersToInches(hoistwayWidth);
+        hoistwayDepth = millimetersToInches(hoistwayDepth);
+    }
+
+    let runningClearance;
+    let otherClearance;
+    let distanceToBackOfControlWall;
+    let overallWidth;
+    let overallDepth;
     if (model == 'panorama' || model == 'renaissance') {
         runningClearance = 1.25;
         otherClearance = 2.5;
@@ -174,9 +186,18 @@ export function overallDimensions(model, type, hoistwayWidth, hoistwayDepth, uni
         console.log(type);
         console.log(model);
     }
-    return {
-        width: overallWidth,
-        depth: overallDepth,
+
+    //conditional conversion
+    if (units == 'mm') {
+        return {
+            width: inchesToMillimeters(overallWidth).toFixed(),
+            depth: inchesToMillimeters(overallDepth).toFixed(),
+        }
+    } else {
+        return {
+            width: overallWidth,
+            depth: overallDepth,
+        }
     }
 }
 

@@ -1,4 +1,4 @@
-import guide from  '../elevators/guide.json'
+import guide from '../elevators/guide.json'
 
 export function filterObjects(filters) {
     /*
@@ -6,7 +6,7 @@ export function filterObjects(filters) {
     output: filteredResult = [{...}, {...}, {...}]
     */
     // copy filters
-    filters = {...filters};
+    filters = { ...filters };
     return guide.filter(obj => {
         for (const key in filters) {
             if (filters[key] !== null && obj[key] !== filters[key]) {
@@ -52,4 +52,51 @@ export function getRanges(objects) {
         minHoistwayDepth: minHoistwayDepth,
         maxHoistwayDepth: maxHoistwayDepth,
     }
+}
+
+export function filterHoistwayInRange(hoistwayWidth, hoistwayDepth, model = null, type = null, door = null) {
+    // copy
+    let filtered = guide.slice(0);
+
+    if (!hoistwayWidth || !hoistwayDepth) return [];
+    if (hoistwayWidth) {
+        filtered = filtered.filter(obj => {
+            return obj.minHoistwayWidth <= hoistwayWidth;// && obj.maxHoistwayWidth >= hoistwayWidth;
+        }
+        );
+    }
+    if (hoistwayDepth) {
+        filtered = filtered.filter(obj => {
+            return obj.minHoistwayDepth <= hoistwayDepth;// && obj.maxHoistwayDepth >= hoistwayDepth;
+        }
+        );
+    }
+    if (model) {
+        filtered = filtered.filter(obj => {
+            return obj.model == model;
+        });
+    }
+    if (type) {
+        filtered = filtered.filter(obj => {
+            return obj.type == type;
+        });
+    }
+    if (door) {
+        filtered = filtered.filter(obj => {
+            return obj.door == door;
+        });
+    }
+
+    // B,C,D cannot exceed max hoistway depth
+    // E cannot exceed max hoistway width
+    
+    // filtered = filtered.filter(elevator => {
+    //     return (
+    //         !(['B', 'C', 'D'].includes(elevator.type)) && hoistwayDepth > elevator.maxHoistwayDepth)
+    //         &&
+    //         !((['E'].includes(elevator.type)) && hoistwayWidth > elevator.maxHoistwayWidth)
+    // }
+    // )
+
+    return filtered;
 }

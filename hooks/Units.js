@@ -18,3 +18,18 @@ export function unit(value, type='in') {
         return value
     }
 }
+
+export function unitConvert(value, to='in') {
+    //convert value to global unit
+    const [globalUnit, setGlobalUnit] = useContext(UnitContext);
+    if (isNaN(value)) {
+        return value;
+    } else if (to == 'in' && globalUnit == 'mm') {
+        return millimetersToInches(value).toFixed(2)
+    }
+    else if (to == 'mm' && globalUnit == 'in') {
+        return Math.round(inchesToMillimeters(value))
+    } else {
+        return value
+    }
+}

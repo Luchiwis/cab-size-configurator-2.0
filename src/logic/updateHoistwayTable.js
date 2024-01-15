@@ -40,8 +40,6 @@ function updateTable() {
     type = typeInput.value
     door = doorInput.value
 
-    console.log(model, type, door)
-
     if (UNITS == 'mm') {
         hoistwayWidth = millimetersToInches(hoistwayWidth);
         hoistwayDepth = millimetersToInches(hoistwayDepth);

@@ -18,8 +18,6 @@ export function Result() {
     const [pit,setPit] = useState(0);
     
 
-
-
     return (
         <main>
             <div className="container text-center">
@@ -34,7 +32,7 @@ export function Result() {
                             <li className="list-group-item">Type: {prettyElevatorParams.type}</li>
                             <li className="list-group-item">Door: {prettyElevatorParams.door}</li>
                             <li className="list-group-item">Landing door: {prettyElevatorParams.landing || 'no'}</li>
-                            <li className="list-group-item">Inner height: <Unit type='in'>{elevatorParams['cab-height']}</Unit></li>
+                            <li className="list-group-item">Cab height: <Unit type='in'>{elevatorParams['cab-height']}</Unit></li>
                             <li className="list-group-item">Overhead: <Unit type='in'>{overhead}</Unit></li>
                             <li className="list-group-item">Pit depth: <Unit type='in'>{pit}</Unit></li>
                         </ul>
