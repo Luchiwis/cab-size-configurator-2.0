@@ -29,11 +29,12 @@ export function Result() {
                 <div className="row mt-3">
                     <div className="col-lg-6 mx-auto my-1">
                         <ul className="list-group">
-                            <li className="list-group-item">Model:{prettyElevatorParams.model}</li>
+                            <li className="list-group-item">Model: {prettyElevatorParams.model}</li>
                             <li className="list-group-item">Type: {prettyElevatorParams.type}</li>
                             <li className="list-group-item">Door: {prettyElevatorParams.door}</li>
                             <li className="list-group-item">Landing door: {prettyElevatorParams.landing || 'no'}</li>
                             <li className="list-group-item">Cab height: <Unit type='in'>{elevatorParams['cab-height']}</Unit></li>
+                            <li className="list-group-item">Door height: <Unit type='in'>{elevatorParams['door-height']}</Unit></li>
                             <li className="list-group-item">Overhead: <Unit type='in'>{overhead}</Unit></li>
                             <li className="list-group-item">Pit depth: <Unit type='in'>{pit}</Unit></li>
                         </ul>

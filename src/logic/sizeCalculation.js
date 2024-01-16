@@ -206,15 +206,16 @@ export function overhead(model, door, doorHeight, cabHeight) {
         return 115; //115"
     }
     if (door == 'bifold' || door == 'accordion') {
-        if (cabHeight == 84) { //84"
+        if (cabHeight == 84 && doorHeight==84) { //84"
             return 96; //96"
-        } else if (cabHeight == 96) { //96"
+        } else if (cabHeight == 96 && doorHeight==84) { //96"
+            return 103; //108"
+        } else if (cabHeight == 96 && doorHeight==96) { //96"
             return 108; //108"
         }
     } else {
         return 108; //108"
     }
-
 }
 
 export function pitDepth(door) {

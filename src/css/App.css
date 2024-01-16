@@ -1,7 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Lato&family=Poppins&display=swap');
+
 
 body{
-    font-family: 'Lato', sans-serif;
+    /* font-family: 'Lato', 'Arial', sans-serif; */
+    font-family: 'Poppins', sans-serif;
     background-color: rgb(231, 231, 231);
     background-image: url('../img/Side-Line-Work-instance_white.png');
     background-repeat: no-repeat;
@@ -13,6 +16,10 @@ body{
 header{
     background-color: var(--bs-body-bg);
     border-bottom: 1px solid #000000;
+}
+
+.underlineshadow{
+    text-shadow: #7b7979 0 10px 20px;
 }
 
 /* read-only */
