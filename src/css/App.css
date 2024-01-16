@@ -15,9 +15,9 @@ header{
     border-bottom: 1px solid #000000;
 }
 
-/* disabled */
+/* read-only */
 input:disabled + label>span{
-    background-color: #8e2f2f;
+    background-color: #d28989;
     opacity: 0.7;
 }
 input:disabled + label>span:hover{
@@ -27,11 +27,18 @@ div:has(>input#landing:disabled){
     background-color: #8e2f2f !important;
     opacity: 0.7;
 }
+input[type=number]:read-only{
+    background-color: #c3c3c3;
+}
+input[type=number]:read-only:focus{
+    background-color: #c3c3c3;
+    box-shadow: 0 0 0 0;
+}
 
 /* restriction section */
 #restrictions{
     color: #ffffff;
-    background-color: #8c8e2f85;
+    background-color: #6a6c0085;
     width: 50%;
     margin: auto;
     border-radius: 10px;
@@ -63,4 +70,9 @@ h1.display-4:hover{
     .no-print{
         display: none !important;
     }
+}
+
+/* result */
+.shareSeciton > button {
+    margin:5px
 }

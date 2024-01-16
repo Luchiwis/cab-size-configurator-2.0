@@ -201,7 +201,10 @@ export function overall(model, type, hoistwayWidth, hoistwayDepth, units = 'in')
     }
 }
 
-export function overhead(door, cabHeight) {
+export function overhead(model, door, doorHeight, cabHeight) {
+    if (model == 'legacy') {
+        return 115; //115"
+    }
     if (door == 'bifold' || door == 'accordion') {
         if (cabHeight == 84) { //84"
             return 96; //96"

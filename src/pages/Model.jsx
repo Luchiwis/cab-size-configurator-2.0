@@ -12,21 +12,21 @@ export function Model() {
 
                         <input type="radio" name="model" value="panorama" id="panorama" required />
                         <label htmlFor="panorama">
-                            <span className="btn btn-secondary">
+                            <span className="btn btn-outline-primary">
                                 <h1>Panorama</h1>
                             </span>
                         </label>
 
                         <input type="radio" name="model" value="legacy" id="legacy" required />
                         <label htmlFor="legacy">
-                            <span className="btn btn-secondary">
+                            <span className="btn btn-outline-primary">
                                 <h1>Legacy Volt</h1>
                             </span>
                         </label>
 
                         <input type="radio" name="model" value="renaissance" id="renaissance" required />
                         <label htmlFor="renaissance">
-                            <span className="btn btn-secondary">
+                            <span className="btn btn-outline-primary">
                                 <h1>Renaissance</h1>
                             </span>
                         </label>

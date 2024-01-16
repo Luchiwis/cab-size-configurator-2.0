@@ -6,8 +6,10 @@ import { useEffect, useState } from "react"
 import { useElevatorParams } from "../../hooks/useElevatorParams"
 import { filterObjects, getRanges } from "../logic/dbManager"
 import { ReactiveTable } from "../components/ReactiveTable"
+import { useAddRestrictions } from "/hooks/useAddRestrictions"
 
 export function Cab() {
+    const [restrictions, addRestriction, resetRestrictions] = useAddRestrictions();
     const elevatorParams = useElevatorParams();
     const [inputWidth, setinputWidth] = useState(0);
     const [inputDepth, setinputDepth] = useState(0);
@@ -15,6 +17,7 @@ export function Cab() {
     const [maxWidth, setMaxWidth] = useState(0);
     const [minDepth, setMinDepth] = useState(0);
     const [maxDepth, setMaxDepth] = useState(0);
+    const [height, setHeight] = useState(0);
     const [defaultWidth, setDefaultWidth] = useState(undefined);
     const [defaultDepth, setDefaultDepth] = useState(undefined);
 
@@ -23,9 +26,12 @@ export function Cab() {
             setinputWidth(e.target.value);
         } else if (e.target.id == 'cab-depth') {
             setinputDepth(e.target.value);
+        } else if (e.target.name == 'cab-height') {
+            setHeight(e.target.value);
         }
     }
 
+    //first render
     useEffect(() => {
         const objects = filterObjects(elevatorParams);
         const gotRanges = getRanges(objects);
@@ -33,8 +39,16 @@ export function Cab() {
         setMaxWidth(gotRanges.maxOverallWidth);
         setMinDepth(gotRanges.minOverallDepth);
         setMaxDepth(gotRanges.maxOverallDepth);
+
+        if (elevatorParams.door == '2speed'){
+            addRestriction('2 speed doors are not available with 96" door height');
+        }
+        return () => {
+            resetRestrictions();
+        }
     }, []);
 
+    //when min == max restrict
     useEffect(() => {
         if (minWidth == maxWidth) {
             setDefaultWidth(minWidth);
@@ -68,7 +82,7 @@ export function Cab() {
                                     step="0.01"
                                     className="form-control text-center"
                                     onChange={inputHandler}
-                                    disabled={minWidth == maxWidth ? true : false}
+                                    readOnly={minWidth == maxWidth ? true : false}
                                     defaultValue={defaultWidth || ''}
                                     required />
                             </div>
@@ -86,18 +100,30 @@ export function Cab() {
                                     step="0.01"
                                     className="form-control text-center"
                                     onChange={inputHandler}
-                                    disabled={minDepth == maxDepth ? true : false}
+                                    readOnly={minDepth == maxDepth ? true : false}
                                     defaultValue={defaultDepth || ''}
                                     required />
                             </div>
                         </div>
-                        <label className="form-label w-50">Height
-                            <select className="form-select form-select-sm text-center mx-auto" aria-label=".form-select-sm example" name="cab-height" required>
-                                <option value='' defaultValue>Select Height</option>
-                                <option value={84}><Unit type='in'>84</Unit></option>
-                                <option value={96}><Unit type='in'>96</Unit></option>
-                            </select>
-                        </label>
+                        <div className="row">
+                            <label className="form-label col-6 m-auto">Height:
+                                <select className="form-select form-select-sm text-center mx-auto" aria-label=".form-select-sm example" name="cab-height" required onChange={inputHandler}>
+                                    <option value='' defaultValue>Select Height</option>
+                                    <option value={84}><Unit type='in'>84</Unit></option>
+                                    <option disabled={elevatorParams.door == '2speed'} value={96}><Unit type='in'>96</Unit></option>
+                                </select>
+                            </label>
+                            <label className="form-label col-6 m-auto">Door Height:
+                                <select className="form-select form-select-sm text-center mx-auto" aria-label=".form-select-sm example" name="door-height" required
+                                    defaultValue={height < 96 && ''}>
+                                    <option value='' defaultValue>Select Door Height</option>
+                                    <option value={84}><Unit type='in'>84</Unit></option>
+                                    {(height != 96) ? '' : <option value={96}><Unit type='in'>96</Unit></option>}
+                                </select>
+                            </label>
+                        </div>
+
+
                         <div className="text-center my-3">
                             <ReactiveTable
                                 width={minWidth == maxWidth ? unit(inputWidth, 'in') : inputWidth}

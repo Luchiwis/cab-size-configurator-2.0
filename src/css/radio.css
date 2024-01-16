@@ -14,6 +14,8 @@ input[type=radio]:checked+label>img {
 input[type=radio]:checked+label>span {
     border: 1px solid #fff;
     box-shadow: 0 0 13px 10px #b5212191;
+    background-color: var(--bs-primary);
+    color: white;
 }
 
 /* Stuff after this is only to make things more pretty */

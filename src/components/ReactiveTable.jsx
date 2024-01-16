@@ -96,10 +96,11 @@ export function TableFinish({ elevator, setOverhead, setPit }) {
         const width = elevator['cab-width'];
         const depth = elevator['cab-width'];
         const cabHeight = elevator['cab-height'];
+        const doorHeight = elevator['door-height'];
 
         let innerDimensions = calculate.innerDimensions(type, width, depth, units);
         let hoistwayDimensions = calculate.hoistwayDimensions(type, model, width, depth, units);
-        let overhead = calculate.overhead(door, cabHeight, units)
+        let overhead = calculate.overhead(model, door, doorHeight, cabHeight)
         let pit = calculate.pitDepth(door);
 
         setInnerWidth(innerDimensions['width']);
@@ -175,10 +176,10 @@ export function TableOptions({ hoistwayWidth, hoistwayDepth, model, type, door }
 
                 // B,C,D cannot exceed in depth, E cannot exceed in width
                 if ((['B', 'C', 'D'].includes(elevator.type)) && hoistwayDepth > elevator.maxHoistwayDepth) {
-                    maxWidth = `type: ${elevator.type} cannot exceed in depth`;
+                    maxWidth = `type: ${elevator.type} cannot exceed in depth (max: ${elevator.maxHoistwayDepth}in)`;
                     // return null
                 } else if ((['E'].includes(elevator.type)) && hoistwayWidth > elevator.maxHoistwayWidth) {
-                    maxDepth = `type: ${elevator.type} cannot exceed in width`;
+                    maxDepth = `type: ${elevator.type} cannot exceed in width (max: ${elevator.maxHoistwayWidth}in)`;
                     // return null
                 }
 

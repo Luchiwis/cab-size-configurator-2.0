@@ -38,7 +38,7 @@ export function Hoistway() {
                                     {/* |max: <Unit type='in'>76.5</Unit> */}
                                 </span>
                             </label>
-                            <input type="number" id="width" name="width" step="0.01"
+                            <input type="number" id="width" name="width" step="0.25"
                                 className="form-control text-center" required onChange={inputHandler} />
                         </div>
                         <div className="col-md-6">
@@ -48,7 +48,7 @@ export function Hoistway() {
                                     {/* |max: <Unit type='in'>92.5</Unit> */}
                                 </span>
                             </label>
-                            <input type="number" id="depth" name="depth" step="0.01"
+                            <input type="number" id="depth" name="depth" step="0.25"
                                 className="form-control text-center" required onChange={inputHandler} />
                         </div>
                     </div>

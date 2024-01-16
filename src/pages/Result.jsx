@@ -4,6 +4,7 @@ import { ButtonSavePDF } from "../components/ButtonSavePDF";
 import { UnitSwitch } from "../components/UnitSwitch";
 import { Unit } from "../components/Unit";
 import { ReactiveTable, TableFinish } from "../components/ReactiveTable";
+import { ButtonEmailShare } from "../components/ButtonEmailShare";
 
 //hooks
 import { useElevatorParams } from "../../hooks/useElevatorParams";
@@ -14,9 +15,9 @@ import { useState } from "react";
 export function Result() {
     const prettyElevatorParams = useElevatorParams(true);
     const elevatorParams = useElevatorParams();
-    const [overhead,setOverhead] = useState(0);
-    const [pit,setPit] = useState(0);
-    
+    const [overhead, setOverhead] = useState(0);
+    const [pit, setPit] = useState(0);
+
 
     return (
         <main>
@@ -43,10 +44,10 @@ export function Result() {
                             setOverhead={setOverhead}
                             setPit={setPit}
                         />
-                        <div className="shareSeciton mt-5 no-print">
-                            <ButtonCopyURL>copy URL to share</ButtonCopyURL>
-                            <br />
-                            <ButtonSavePDF></ButtonSavePDF>
+                        <div className="shareSeciton my-4 no-print d-flexbox">
+                            <ButtonCopyURL>Copy URL</ButtonCopyURL>
+                            <ButtonSavePDF>Save as PDF</ButtonSavePDF>
+                            <ButtonEmailShare>Consult via email</ButtonEmailShare>
                         </div>
                     </div>
 

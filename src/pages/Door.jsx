@@ -1,35 +1,47 @@
 import { FormPrepend } from '../components/FormPrepend.jsx';
 import { useElevatorParams } from '/hooks/useElevatorParams.js';
-import { useEffect, useState } from 'react';
 import { restrictedDoorCombos } from '../logic/constants.js';
+import { useAddRestrictions } from '/hooks/useAddRestrictions.js';
+import { useEffect, useState } from 'react';
 
 
-function DoorButton({ name, value, children, elevatorData , setDoor}) {
+function DoorButton({ name, value, children, elevatorData, setDoor }) {
+    const [restrictions, addRestriction, resetRestrictions] = useAddRestrictions();
     const [disabled, setDisabled] = useState(false);
-    const isDoorRestricted= ({ door, type, model }) => {
+    const doorRestriction = ({ door, type, model }) => {
         //return true if the door is restricted
         for (const combo of restrictedDoorCombos) {
             if (door == combo.restrictions) {
                 if (combo.type && combo.model) {
-                    return (type == combo.type && model == combo.model)? true : false;
+                    return (type == combo.type && model == combo.model) ? combo : false;
                 } else if (combo.type && type == combo.type) {
-                    return true;
+                    return combo;
                 } else if (combo.model && model == combo.model) {
-                    return true;
+                    return combo;
                 }
             }
         }
         return false;
     }
+
+
     useEffect(() => {
-        setDisabled(isDoorRestricted({...elevatorData, door: value}));
-    }, [elevatorData]);
+        const restrictionMessage = doorRestriction({ ...elevatorData, door: value });
+        setDisabled(restrictionMessage);
+
+        if (restrictionMessage) {
+            addRestriction(restrictionMessage.message);
+        }
+        return () => {
+            resetRestrictions();
+        }
+    }, []);
 
     return (
         <>
-            <input type="radio" name={name} value={value} id={value} disabled={disabled} onClick={() => {setDoor(value)}} required />
+            <input type="radio" name={name} value={value} id={value} disabled={disabled} onClick={() => { setDoor(value) }} required />
             <label htmlFor={value}>
-                <span className="btn btn-secondary">
+                <span className="btn btn-outline-primary">
                     <h1>{children}</h1>
                 </span>
             </label>
@@ -43,7 +55,7 @@ function LandingButton({ name, children, door }) {
     useEffect(() => {
         if (['2speed', '3speed'].includes(door)) {
             setDisplayClass('');
-        }else {
+        } else {
             setDisplayClass('d-none');
         }
     }, [door]);
