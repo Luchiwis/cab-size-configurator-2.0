@@ -118,7 +118,7 @@ export function Cab() {
                                     defaultValue={height < 96 && ''}>
                                     <option value='' defaultValue>Select Door Height</option>
                                     <option value={84}><Unit type='in'>84</Unit></option>
-                                    {(height != 96) ? '' : <option value={96}><Unit type='in'>96</Unit></option>}
+                                    {(height == 84) ? '' : <option value={96}><Unit type='in'>96</Unit></option>}
                                 </select>
                             </label>
                         </div>

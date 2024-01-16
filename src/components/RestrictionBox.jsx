@@ -24,7 +24,7 @@ export function RestrictionBox({ children }) {
                         )
                     })}
                 </ul>
-                <button className="btn btn-outline-primary"><EmailConsult>consult factory</EmailConsult></button>
+                <button className="btn btn-secondary"><EmailConsult>consult factory</EmailConsult></button>
                 
             </section>
         </>
