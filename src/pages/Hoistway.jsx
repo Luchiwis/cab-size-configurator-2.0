@@ -1,7 +1,11 @@
-import { UnitSwitch } from "../components/UnitSwitch";
-import { Unit } from "../components/Unit";
-import { TableOptions } from "../components/ReactiveTable";
+// hooks
 import { useState } from "react";
+
+// components
+import { TableHoistway } from "/src/components/TableHoistway";
+import { UnitSwitch } from "/src/components/UnitSwitch";
+import { Unit } from "/src/components/Unit";
+
 
 export function Hoistway() {
     const [hoistwayWidth, setHoistwayWidth] = useState(0);
@@ -93,7 +97,7 @@ export function Hoistway() {
                     <h4 className="text-center">Standard options:</h4>
                     <p className="text-muted text-center">Click a row to select these properties and configure cab size</p>
 
-                    <TableOptions
+                    <TableHoistway
                         hoistwayWidth={hoistwayWidth}
                         hoistwayDepth={hoistwayDepth}
                         model={model}

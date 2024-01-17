@@ -1,8 +1,8 @@
+// hooks
+import { useContext } from "react";
+
 //context
 import { UnitContext } from "../App";
-import { useContext } from "react";
-import { useEffect, useState } from "react";
-import { useElevatorParams } from "/hooks/useElevatorParams";
 
 export function UnitSwitch() {
     const [unit, setUnit] = useContext(UnitContext);

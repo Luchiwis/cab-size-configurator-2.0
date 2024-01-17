@@ -1,9 +1,13 @@
-import { FormPrepend } from '../components/FormPrepend.jsx';
-import { useElevatorParams } from '/hooks/useElevatorParams.js';
-import { restrictedDoorCombos } from '../logic/constants.js';
+// hooks
 import { useAddRestrictions } from '/hooks/useAddRestrictions.js';
 import { useEffect, useState } from 'react';
+import { useElevatorParams } from '/hooks/useElevatorParams.js';
 
+// components
+import { FormPrepend } from '/src/components/FormPrepend.jsx';
+
+// scripts
+import { restrictedDoorCombos } from '/src/logic/constants.js';
 
 function DoorButton({ name, value, children, elevatorData, setDoor }) {
     const [restrictions, addRestriction, resetRestrictions] = useAddRestrictions();

@@ -1,15 +1,14 @@
 //components
-import { ButtonCopyURL } from "../components/ButtonCopyURL";
-import { ButtonSavePDF } from "../components/ButtonSavePDF";
-import { UnitSwitch } from "../components/UnitSwitch";
-import { Unit } from "../components/Unit";
-import { TableFinish } from "../components/ReactiveTable";
-import { ButtonEmailShare } from "../components/ButtonEmailShare";
+import { ButtonCopyURL } from "/src/components/ButtonCopyURL";
+import { ButtonSavePDF } from "/src/components/ButtonSavePDF";
+import { UnitSwitch } from "/src/components/UnitSwitch";
+import { Unit } from "/src/components/Unit";
+import { TableFinish } from "/src/components/TableFinish";
+import { ButtonEmailShare } from "/src/components/ButtonEmailShare";
 
 //hooks
-import { useElevatorParams } from "../../hooks/useElevatorParams";
+import { useElevatorParams } from "/hooks/useElevatorParams";
 import { useState } from "react";
-
 
 //context
 export function Result() {

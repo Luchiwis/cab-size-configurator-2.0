@@ -1,4 +1,5 @@
-import { FormPrepend } from "../components/FormPrepend.jsx";
+// components
+import { FormPrepend } from "/src/components/FormPrepend.jsx";
 
 export function Type(){
     return (

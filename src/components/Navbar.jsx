@@ -1,5 +1,8 @@
+//components
 import { Link } from "react-router-dom";
 import { HistoryArrow } from "./HistoryArrow";
+
+//hooks
 
 export function Navbar() {
     return (

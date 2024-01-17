@@ -1,27 +1,27 @@
-const doors = {
+export const doors = {
     'accordion': 'Accordion',
     'bifold': 'Bi-Fold',
     '3speed': '3 Speed sliding',
     '2speed': '2 Speed sliding',
 }
-const models = {
+export const models = {
     'legacy': 'Legacy',
     'panorama': 'Panorama',
     'renaissance': 'Renaissance',
 }
 
-const landing = {
+export const landing = {
     false: 'No',
     true: 'Yes',
 }
 
-const unitSymbols = {
+export const unitSymbols = {
     'mm': 'mm',
     'in': '"'
 }
-const WALL_THICKNESS = 1.5; //inches
+export const WALL_THICKNESS = 1.5; //inches
 
-const restrictedDoorCombos = [
+export const restrictedDoorCombos = [
     {
         type: 'C',
         restrictions: '2speed',
@@ -65,5 +65,3 @@ const restrictedDoorCombos = [
         message: '3 speed sliding doors are not available on the Legacy model'
     }
 ]
-
-export { doors, models, unitSymbols, restrictedDoorCombos, landing , WALL_THICKNESS }

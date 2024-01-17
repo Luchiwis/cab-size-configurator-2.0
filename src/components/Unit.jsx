@@ -1,16 +1,22 @@
+
+
+import { inchesToMillimeters, millimetersToInches } from "/src/logic/unitConversion";
+import  * as constants  from "/src/logic/constants";
+
+//hooks
 import { useEffect, useState } from "react";
 import { useContext } from "react";
+
+//contexts
 import { UnitContext } from "../App";
-import { inchesToMillimeters, millimetersToInches } from "../logic/unitConversion";
-import { unitSymbols } from "../logic/constants";
 
 export function Unit({ children, type }) {
     const [globalUnit, setGlobalUnit] = useContext(UnitContext);
     const [shownValue, setShownValue] = useState(children);
-    const [symbol, setSymbol] = useState(unitSymbols[globalUnit]);
+    const [symbol, setSymbol] = useState(constants.unitSymbols[globalUnit]);
 
     useEffect(() => {
-        setSymbol(unitSymbols[globalUnit]);
+        setSymbol(constants.unitSymbols[globalUnit]);
         if (isNaN(children)) {
             setShownValue(children);
             setSymbol('');

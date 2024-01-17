@@ -1,10 +1,13 @@
-import { useEffect, useState } from "react";
+//hooks
 import { useContext } from "react";
-import { UnitContext } from "/src/App";
-import { inchesToMillimeters, millimetersToInches } from "/src/logic/unitConversion";
-import { unitSymbols } from "/src/logic/constants";
 
-export function unit(value, type='in') {
+//contexts
+import { UnitContext } from "/src/App";
+
+//logic
+import { inchesToMillimeters, millimetersToInches } from "/src/logic/unitConversion";
+
+export function useConvertTo(value, from='in') {
     // based on component Unit but is a function without unit symbol
     const [globalUnit, setGlobalUnit] = useContext(UnitContext);
     if (isNaN(value)) {
@@ -19,7 +22,7 @@ export function unit(value, type='in') {
     }
 }
 
-export function unitConvert(value, to='in') {
+export function useConvertFrom(value, to='in') {
     //convert value to global unit
     const [globalUnit, setGlobalUnit] = useContext(UnitContext);
     if (isNaN(value)) {

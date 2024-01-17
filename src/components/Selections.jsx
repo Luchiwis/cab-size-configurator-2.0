@@ -1,5 +1,7 @@
+// hooks
 import { useSearchParams } from "react-router-dom";
 import { useEffect, useState } from "react";
+
 export function Selections() {
     const [searchParams] = useSearchParams();
     const [newInputs, setNewInputs] = useState([]);

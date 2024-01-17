@@ -1,12 +1,17 @@
-import { FormPrepend } from "../components/FormPrepend"
-import { UnitSwitch } from "../components/UnitSwitch"
-import { Unit } from "../components/Unit"
-import { unit } from "/hooks/Units.js"
+//hooks
 import { useEffect, useState } from "react"
-import { useElevatorParams } from "../../hooks/useElevatorParams"
-import { filterObjects, getRanges } from "../logic/dbManager"
-import { ReactiveTable } from "../components/ReactiveTable"
+import { useElevatorParams } from "/hooks/useElevatorParams"
 import { useAddRestrictions } from "/hooks/useAddRestrictions"
+import { useConvertTo } from "/hooks/Units"
+
+//components
+import { Unit } from "/src/components/Unit"
+import { FormPrepend } from "/src/components/FormPrepend"
+import { UnitSwitch } from "/src/components/UnitSwitch"
+import { TableCab } from "/src/components/TableCab"
+
+//scripts
+import { filterObjects, getRanges } from "/src/logic/dbManager"
 
 export function Cab() {
     const [restrictions, addRestriction, resetRestrictions] = useAddRestrictions();
@@ -77,8 +82,8 @@ export function Cab() {
                                 <input type="number"
                                     id="cab-width"
                                     name="cab-width"
-                                    min={unit(minWidth, 'in')}
-                                    max={unit(maxWidth, 'in')}
+                                    min={useConvertTo(minWidth, from='in')}
+                                    max={useConvertTo(maxWidth, from='in')}
                                     step="0.01"
                                     className="form-control text-center"
                                     onChange={inputHandler}
@@ -95,8 +100,8 @@ export function Cab() {
                                 <input type="number"
                                     id="cab-depth"
                                     name="cab-depth"
-                                    min={unit(minDepth, 'in')}
-                                    max={unit(maxDepth, 'in')}
+                                    min={useConvertTo(minDepth, from='in')}
+                                    max={useConvertTo(maxDepth, from='in')}
                                     step="0.01"
                                     className="form-control text-center"
                                     onChange={inputHandler}
@@ -125,13 +130,13 @@ export function Cab() {
 
 
                         <div className="text-center my-3">
-                            <ReactiveTable
-                                width={minWidth == maxWidth ? unit(inputWidth, 'in') : inputWidth}
-                                depth={minDepth == maxDepth ? unit(inputDepth, 'in') : inputDepth}
-                                minWidth={unit(minWidth, 'in')}
-                                maxWidth={unit(maxWidth, 'in')}
-                                minDepth={unit(minDepth, 'in')}
-                                maxDepth={unit(maxDepth, 'in')}
+                            <TableCab
+                                width={minWidth == maxWidth ? useConvertTo(inputWidth, from='in') : inputWidth}
+                                depth={minDepth == maxDepth ? useConvertTo(inputDepth, from='in') : inputDepth}
+                                minWidth={useConvertTo(minWidth, from='in')}
+                                maxWidth={useConvertTo(maxWidth, from='in')}
+                                minDepth={useConvertTo(minDepth, from='in')}
+                                maxDepth={useConvertTo(maxDepth, from='in')}
                                 elevatorData={elevatorParams} />
                         </div>
                         <input type="submit" value="Next" className="btn btn-primary" />

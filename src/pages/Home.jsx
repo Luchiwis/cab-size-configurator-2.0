@@ -1,5 +1,9 @@
-import { Link } from 'react-router-dom';
+// hooks
 import { useAddRestrictions } from '/hooks/useAddRestrictions.js';
+
+// components
+import { Link } from 'react-router-dom';
+
 export function Home() {
     const [restrictions, addRestriction, resetRestrictions] = useAddRestrictions();
 

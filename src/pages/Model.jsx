@@ -1,4 +1,4 @@
-import '../css/radio.css'
+import '/src/css/radio.css'
 
 export function Model() {
     return (
