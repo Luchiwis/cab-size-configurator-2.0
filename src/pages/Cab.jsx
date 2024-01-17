@@ -41,7 +41,7 @@ export function Cab() {
         setMaxDepth(gotRanges.maxOverallDepth);
 
         if (elevatorParams.door == '2speed'){
-            addRestriction('2 speed doors are not available with 96" door height');
+            addRestriction('2 speed doors are not available with 96" cab height');
         }
         return () => {
             resetRestrictions();
@@ -118,7 +118,7 @@ export function Cab() {
                                     defaultValue={height < 96 && ''}>
                                     <option value='' defaultValue>Select Door Height</option>
                                     <option value={84}><Unit type='in'>84</Unit></option>
-                                    {(height == 84) ? '' : <option value={96}><Unit type='in'>96</Unit></option>}
+                                    {(height == 84 || elevatorParams.door == '2speed') ? '' : <option value={96}><Unit type='in'>96</Unit></option>}
                                 </select>
                             </label>
                         </div>
