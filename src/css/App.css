@@ -65,8 +65,8 @@ input[type=number] {
   -moz-appearance: textfield;
 }
 
-.table-hoistway tbody tr:hover{
-    border: 2px solid black
+.hoistwayRow:hover{
+    border: 2px solid black;
 }
 
 h1.display-4:hover{

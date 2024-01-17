@@ -58,6 +58,9 @@ export function filterHoistwayInRange(hoistwayWidth, hoistwayDepth, model = null
     // copy
     let filtered = guide.slice(0);
 
+    // if no filter is selected, return all
+    if (!hoistwayWidth && !hoistwayDepth && !model && !type && !door) return filtered;
+
     if (!hoistwayWidth || !hoistwayDepth) return [];
     if (hoistwayWidth) {
         filtered = filtered.filter(obj => {
@@ -86,17 +89,6 @@ export function filterHoistwayInRange(hoistwayWidth, hoistwayDepth, model = null
             return obj.door == door;
         });
     }
-
-    // B,C,D cannot exceed max hoistway depth
-    // E cannot exceed max hoistway width
-    
-    // filtered = filtered.filter(elevator => {
-    //     return (
-    //         !(['B', 'C', 'D'].includes(elevator.type)) && hoistwayDepth > elevator.maxHoistwayDepth)
-    //         &&
-    //         !((['E'].includes(elevator.type)) && hoistwayWidth > elevator.maxHoistwayWidth)
-    // }
-    // )
 
     return filtered;
 }

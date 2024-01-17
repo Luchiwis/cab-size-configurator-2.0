@@ -153,6 +153,8 @@ export function TableOptions({ hoistwayWidth, hoistwayDepth, model, type, door }
     const [units, setUnits] = useContext(UnitContext)
     hoistwayWidth = unitConvert(hoistwayWidth, 'in');
     hoistwayDepth = unitConvert(hoistwayDepth, 'in');
+    hoistwayWidth = Number(hoistwayWidth);
+    hoistwayDepth = Number(hoistwayDepth);
     useEffect(() => {
         let filtered = filterHoistwayInRange(hoistwayWidth, hoistwayDepth, model, type, door);
         setGuide(
@@ -163,12 +165,12 @@ export function TableOptions({ hoistwayWidth, hoistwayDepth, model, type, door }
                 let maxWidth, maxDepth;
 
                 //if exceeded max hoistway size, use max overall size of planning guide. if not, use cab deduction
-                if (hoistwayWidth > elevator['maxHoistwayWidth']) {
+                if (hoistwayWidth > elevator['maxHoistwayWidth'] || hoistwayWidth <= 0) {
                     maxWidth = elevator['maxOverallWidth'];
                 } else {
                     maxWidth = cabDeduction['width'];
                 }
-                if (hoistwayDepth > elevator['maxHoistwayDepth']) {
+                if (hoistwayDepth > elevator['maxHoistwayDepth'] || hoistwayDepth <= 0) {
                     maxDepth = elevator['maxOverallDepth'];
                 } else {
                     maxDepth = cabDeduction['depth'];
@@ -185,7 +187,7 @@ export function TableOptions({ hoistwayWidth, hoistwayDepth, model, type, door }
 
 
                 return (
-                    <tr key={index} onClick={() => { navigate(redirecturl) }}>
+                    <tr className='hoistwayRow' key={index} onClick={() => { navigate(redirecturl) }}>
                         <td>{models[model]}</td>
                         <td>{type}</td>
                         <td>{doors[door]}</td>

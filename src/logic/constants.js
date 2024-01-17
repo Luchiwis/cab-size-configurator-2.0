@@ -25,34 +25,34 @@ const restrictedDoorCombos = [
     {
         type: 'C',
         restrictions: '2speed',
-        message: '2 speed sliding doors are not available on the Legacy model'
+        message: '2 speed sliding doors are not available for C type'
     },
     {
         type: 'C',
         restrictions: '3speed',
-        message: '3 speed sliding doors are not available on the Legacy model'
+        message: '3 speed sliding doors are not available for C type'
     },
     {
         type: 'D',
         restrictions: '2speed',
-        message: '2 speed sliding doors are not available on the Legacy model'
+        message: '2 speed sliding doors are not available for D type'
     },
     {
         type: 'D',
         restrictions: '3speed',
-        message: '3 speed sliding doors are not available on the Legacy model'
+        message: '3 speed sliding doors are not available for D type'
     },
     {
         model: 'legacy',
         type: 'C',
         restrictions: 'bifold',
-        message: 'Bi-fold doors are not available on the Legacy model'
+        message: 'Bi-fold doors are not available on the Legacy model on type C'
     },
     {
         model: 'legacy',
         type: 'D',
         restrictions: 'bifold',
-        message: 'Bi-fold doors are not available on the Legacy model'
+        message: 'Bi-fold doors are not available on the Legacy model on type D'
     },
     {
         model: 'legacy',
