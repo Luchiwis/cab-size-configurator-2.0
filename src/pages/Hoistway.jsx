@@ -91,7 +91,7 @@ export function Hoistway() {
 
                 <div className="my-5 col-md-8 col-sm-10 mx-auto">
                     <h4 className="text-center">Standard options:</h4>
-                    <p className="text-muted text-center">Click a row to select these properties to configure the cab size</p>
+                    <p className="text-muted text-center">Click a row to select these properties and configure cab size</p>
 
                     <TableOptions
                         hoistwayWidth={hoistwayWidth}

@@ -175,11 +175,11 @@ export function TableOptions({ hoistwayWidth, hoistwayDepth, model, type, door }
                 }
 
                 // B,C,D cannot exceed in depth, E cannot exceed in width
-                if ((['B', 'C', 'D'].includes(elevator.type)) && hoistwayDepth > elevator.maxHoistwayDepth) {
-                    maxWidth = `type: ${elevator.type} cannot exceed in depth (max: ${elevator.maxHoistwayDepth}in)`;
+                if ((['E'].includes(elevator.type)) && hoistwayWidth > elevator.maxHoistwayWidth) {
+                    maxWidth = `type: ${elevator.type} cannot exceed in width (max: ${elevator.maxHoistwayWidth}in)`;
                     // return null
-                } else if ((['E'].includes(elevator.type)) && hoistwayWidth > elevator.maxHoistwayWidth) {
-                    maxDepth = `type: ${elevator.type} cannot exceed in width (max: ${elevator.maxHoistwayWidth}in)`;
+                } else if ((['B', 'C', 'D'].includes(elevator.type)) && hoistwayDepth > elevator.maxHoistwayDepth) {
+                    maxDepth = `type: ${elevator.type} cannot exceed in depth (max: ${elevator.maxHoistwayDepth}in)`;
                     // return null
                 }
 
@@ -200,8 +200,7 @@ export function TableOptions({ hoistwayWidth, hoistwayDepth, model, type, door }
     }, [hoistwayWidth, hoistwayDepth, model, type, door]);
 
     useEffect(() => {
-        console.log('urlUnit changed')
-        if (guide.length == 0 && hoistwayWidth && hoistwayDepth) {
+        if (guide.length == 0 && Number(hoistwayWidth) && Number(hoistwayDepth)) {
             addRestriction('We could not find any elevator models that fit your hoistway size. For more information, please consult factory.');
         } else {
             resetRestrictions();
@@ -209,7 +208,7 @@ export function TableOptions({ hoistwayWidth, hoistwayDepth, model, type, door }
         return () => {
             resetRestrictions();
         }
-    }, [guide]);
+    }, [hoistwayWidth, hoistwayDepth, model, type, door, guide]);
 
     return (
         <table className="table table-hoistway">
