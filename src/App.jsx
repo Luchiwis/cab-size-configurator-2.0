@@ -36,7 +36,6 @@ function App() {
           <header>
             <Navbar></Navbar>
             <Routes>
-              <Route path="/hoistway" element={<Selections />} />
               <Route path="/type" element={<Selections />} />
               <Route path="/door" element={<Selections />} />
               <Route path="/cab" element={<Selections />} />

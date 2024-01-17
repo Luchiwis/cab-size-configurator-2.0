@@ -7,6 +7,7 @@ import { filterHoistwayInRange } from '../logic/dbManager';
 import { doors, models, landing as landings } from '../logic/constants';
 import { useNavigate } from 'react-router-dom';
 import { unitConvert } from '/hooks/Units';
+import { useAddRestrictions } from '/hooks/useAddRestrictions';
 
 export function ReactiveTable({ width, depth, minWidth = 0, maxWidth = Infinity, minDepth = 0, maxDepth = Infinity, elevatorData }) {
     //todo:re think component
@@ -111,8 +112,6 @@ export function TableFinish({ elevator, setOverhead, setPit }) {
         setOverallDepth(elevator['depth']);
         setOverhead(overhead);
         setPit(pit);
-
-
     }, []);
 
     return (
@@ -148,6 +147,7 @@ export function TableFinish({ elevator, setOverhead, setPit }) {
 }
 
 export function TableOptions({ hoistwayWidth, hoistwayDepth, model, type, door }) {
+    const [restrictions, addRestriction, resetRestrictions] = useAddRestrictions();
     const [guide, setGuide] = useState([]);
     const navigate = useNavigate();
     const [units, setUnits] = useContext(UnitContext)
@@ -198,6 +198,19 @@ export function TableOptions({ hoistwayWidth, hoistwayDepth, model, type, door }
             )
         )
     }, [hoistwayWidth, hoistwayDepth, model, type, door]);
+
+    useEffect(() => {
+        console.log('urlUnit changed')
+        if (guide.length == 0 && hoistwayWidth && hoistwayDepth) {
+            addRestriction('We could not find any elevator models that fit your hoistway size. For more information, please consult factory.');
+        } else {
+            resetRestrictions();
+        }
+        return () => {
+            resetRestrictions();
+        }
+    }, [guide]);
+
     return (
         <table className="table table-hoistway">
             <thead>

@@ -18,9 +18,9 @@ export function RestrictionBox({ children }) {
                 <ul>
                     {restrictions.map((restriction,index) => {
                         return (
-                            <li key={index} className="restriction">
+                            <p key={index} className="restriction">
                                 <span>{restriction}</span>
-                            </li>
+                            </p>
                         )
                     })}
                 </ul>
