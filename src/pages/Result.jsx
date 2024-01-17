@@ -3,7 +3,7 @@ import { ButtonCopyURL } from "../components/ButtonCopyURL";
 import { ButtonSavePDF } from "../components/ButtonSavePDF";
 import { UnitSwitch } from "../components/UnitSwitch";
 import { Unit } from "../components/Unit";
-import { ReactiveTable, TableFinish } from "../components/ReactiveTable";
+import { TableFinish } from "../components/ReactiveTable";
 import { ButtonEmailShare } from "../components/ButtonEmailShare";
 
 //hooks

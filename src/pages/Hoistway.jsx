@@ -34,7 +34,7 @@ export function Hoistway() {
                         <div className="col-md-6">
                             <label htmlFor="width" className="form-label">Width <br />
                                 <span id="width-label" className="text-muted">
-                                    min: <Unit type='in'>49.5</Unit>
+                                    Minimum: <Unit type='in'>49.5</Unit>
                                     {/* |max: <Unit type='in'>76.5</Unit> */}
                                 </span>
                             </label>
@@ -44,7 +44,7 @@ export function Hoistway() {
                         <div className="col-md-6">
                             <label htmlFor="depth" className="form-label">Depth <br />
                                 <span id="depth-label" className="text-muted">
-                                    min: <Unit type='in'>50.25</Unit>
+                                    Minimum: <Unit type='in'>50.25</Unit>
                                     {/* |max: <Unit type='in'>92.5</Unit> */}
                                 </span>
                             </label>

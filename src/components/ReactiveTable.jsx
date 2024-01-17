@@ -203,7 +203,7 @@ export function TableOptions({ hoistwayWidth, hoistwayDepth, model, type, door }
 
     useEffect(() => {
         if (guide.length == 0 && Number(hoistwayWidth) && Number(hoistwayDepth)) {
-            addRestriction('We could not find any elevator models that fit your hoistway size. For more information, please consult factory.');
+            addRestriction('For more information, please consult factory.');
         } else {
             resetRestrictions();
         }

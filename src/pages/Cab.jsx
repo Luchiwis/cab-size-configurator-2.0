@@ -71,8 +71,8 @@ export function Cab() {
                             <div className="col-md-6">
                                 <label htmlFor="cab-width" className="form-label">
                                     Width: <br />
-                                    min: <Unit type='in'>{minWidth}</Unit>|
-                                    max: <Unit type='in'>{maxWidth}</Unit>
+                                    Minimum: <Unit type='in'>{minWidth}</Unit>|
+                                    Maximum: <Unit type='in'>{maxWidth}</Unit>
                                 </label>
                                 <input type="number"
                                     id="cab-width"
@@ -89,8 +89,8 @@ export function Cab() {
                             <div className="col-md-6">
                                 <label htmlFor="cab-depth" className="form-label">
                                     Depth: <br />
-                                    min: <Unit type='in'>{minDepth}</Unit>|
-                                    max: <Unit type='in'>{maxDepth}</Unit>
+                                    Minimum: <Unit type='in'>{minDepth}</Unit>|
+                                    Maximum: <Unit type='in'>{maxDepth}</Unit>
                                 </label>
                                 <input type="number"
                                     id="cab-depth"
