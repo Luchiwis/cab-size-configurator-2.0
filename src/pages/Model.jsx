@@ -17,17 +17,17 @@ export function Model() {
                             </span>
                         </label>
 
-                        <input type="radio" name="model" value="legacy" id="legacy" required />
-                        <label htmlFor="legacy">
-                            <span className="btn btn-outline-primary">
-                                <h1>Legacy Volt</h1>
-                            </span>
-                        </label>
-
                         <input type="radio" name="model" value="renaissance" id="renaissance" required />
                         <label htmlFor="renaissance">
                             <span className="btn btn-outline-primary">
                                 <h1>Renaissance</h1>
+                            </span>
+                        </label>
+                        
+                        <input type="radio" name="model" value="legacy" id="legacy" required />
+                        <label htmlFor="legacy">
+                            <span className="btn btn-outline-primary">
+                                <h1>Legacy Volt</h1>
                             </span>
                         </label>
                     </div>

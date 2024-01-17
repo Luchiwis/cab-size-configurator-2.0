@@ -48,7 +48,7 @@ export function Result() {
                         <div className="shareSeciton my-4 no-print d-flexbox">
                             <ButtonCopyURL>Copy URL</ButtonCopyURL>
                             <ButtonSavePDF>Save as PDF</ButtonSavePDF>
-                            <ButtonEmailShare>Consult via email</ButtonEmailShare>
+                            <ButtonEmailShare>Send as email</ButtonEmailShare>
                         </div>
                     </div>
 

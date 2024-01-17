@@ -25,22 +25,22 @@ const restrictedDoorCombos = [
     {
         type: 'C',
         restrictions: '2speed',
-        message: '2 speed sliding doors are not available for C type'
+        message: '2 speed sliding doors are not available for type C'
     },
     {
         type: 'C',
         restrictions: '3speed',
-        message: '3 speed sliding doors are not available for C type'
+        message: '3 speed sliding doors are not available for type C'
     },
     {
         type: 'D',
         restrictions: '2speed',
-        message: '2 speed sliding doors are not available for D type'
+        message: '2 speed sliding doors are not available for type D'
     },
     {
         type: 'D',
         restrictions: '3speed',
-        message: '3 speed sliding doors are not available for D type'
+        message: '3 speed sliding doors are not available for type D'
     },
     {
         model: 'legacy',

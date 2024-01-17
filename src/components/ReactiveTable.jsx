@@ -220,8 +220,8 @@ export function TableOptions({ hoistwayWidth, hoistwayDepth, model, type, door }
                     <th>Type</th>
                     <th>Door</th>
                     <th>Landing</th>
-                    <th>Max cab width</th>
-                    <th>Max cab depth</th>
+                    <th>Max. cab width</th>
+                    <th>Max. cab depth</th>
                 </tr>
             </thead>
 

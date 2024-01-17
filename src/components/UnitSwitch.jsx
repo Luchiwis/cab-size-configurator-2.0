@@ -22,7 +22,7 @@ export function UnitSwitch() {
                     onClick={handleUnitChange}
                     defaultChecked = {unit == 'mm'}
                 />
-                <label className="btn btn-outline-primary" htmlFor="unit-radio-mm">metric</label>
+                <label className="btn btn-outline-primary" htmlFor="unit-radio-mm">Metric</label>
 
                 <input type="radio"
                     className="btn-check"
@@ -32,7 +32,7 @@ export function UnitSwitch() {
                     onClick={handleUnitChange}
                     defaultChecked = {unit == 'in'}
                 />
-                <label className="btn btn-outline-primary" htmlFor="unit-radio-in">imperial</label>
+                <label className="btn btn-outline-primary" htmlFor="unit-radio-in">Imperial</label>
             </div>
         </div>
     )
