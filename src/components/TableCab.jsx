@@ -20,8 +20,16 @@ export function TableCab({ width, depth, minWidth = 0, maxWidth = Infinity, minD
     const [overallDepth, setOverallDepth] = useState(DEFAULT_SYMBOL);
 
     useEffect(() => {
+
         let innerDimensions = calculate.innerDimensions(elevatorData['type'], width, depth, globalUnit);
-        let hoistwayDimensions = calculate.hoistwayDimensions(elevatorData['type'], elevatorData['model'], width, depth, globalUnit);
+        let hoistwayDimensions;
+        if (elevatorData['hoistway-width'] && elevatorData['hoistway-depth']) {
+            hoistwayDimensions = { width: elevatorData['hoistway-width'], depth: elevatorData['hoistway-depth'] }
+            setHoistwayWidth(hoistwayDimensions['width'])
+            setHoistwayDepth(hoistwayDimensions['depth'])
+        } else {
+            hoistwayDimensions = calculate.hoistwayDimensions(elevatorData['type'], elevatorData['model'], width, depth, globalUnit);
+        }
 
         //width in range
         if (width >= minWidth && width <= maxWidth) {
@@ -30,7 +38,7 @@ export function TableCab({ width, depth, minWidth = 0, maxWidth = Infinity, minD
             setOverallWidth(width)
         } else {
             setInnerWidth(DEFAULT_SYMBOL)
-            setHoistwayWidth(DEFAULT_SYMBOL)
+            elevatorData['hoistway-width'] ? '' : setHoistwayWidth(DEFAULT_SYMBOL)
             setOverallWidth(DEFAULT_SYMBOL)
         };
 
@@ -41,7 +49,7 @@ export function TableCab({ width, depth, minWidth = 0, maxWidth = Infinity, minD
             setOverallDepth(depth)
         } else {
             setInnerDepth(DEFAULT_SYMBOL)
-            setHoistwayDepth(DEFAULT_SYMBOL)
+            elevatorData['hoistway-depth'] ? '' : setHoistwayDepth(DEFAULT_SYMBOL)
             setOverallDepth(DEFAULT_SYMBOL)
         };
     }, [width, depth, minWidth, maxWidth, minDepth, maxDepth, elevatorData, globalUnit]);

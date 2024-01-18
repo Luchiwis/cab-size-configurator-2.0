@@ -1,4 +1,4 @@
-import guide from '../elevators/guide.json'
+import guide from '/src/elevators/guide.json'
 
 export function filterObjects(filters) {
     /*
@@ -54,10 +54,9 @@ export function getRanges(objects) {
     }
 }
 
-export function filterHoistwayInRange(hoistwayWidth, hoistwayDepth, model = null, type = null, door = null) {
+export function filterHoistwayInRange(hoistwayWidth=null, hoistwayDepth=null, model = null, type = null, door = null) {
     // copy
     let filtered = guide.slice(0);
-    console.log(hoistwayWidth, hoistwayDepth, model, type, door)
     // if no filter is selected, return all
     if (!hoistwayWidth && !hoistwayDepth && !model && !type && !door) return filtered;
 

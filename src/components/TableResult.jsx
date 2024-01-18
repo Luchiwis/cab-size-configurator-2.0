@@ -40,10 +40,10 @@ export function TableResult({ elevator, setOverhead, setPit }) {
 
         setInnerWidth(innerDimensions['width']);
         setInnerDepth(innerDimensions['depth']);
-        setHoistwayWidth(hoistwayDimensions['width']);
-        setHoistwayDepth(hoistwayDimensions['depth']);
-        setOverallWidth(elevator['width']);
-        setOverallDepth(elevator['depth']);
+        setHoistwayWidth(elevator['hoistway-width'] || hoistwayDimensions['width']);
+        setHoistwayDepth(elevator['hoistway-depth'] || hoistwayDimensions['depth']);
+        setOverallWidth(width);
+        setOverallDepth(depth);
         setOverhead(overhead);
         setPit(pit);
     }, []);
@@ -71,8 +71,8 @@ export function TableResult({ elevator, setOverhead, setPit }) {
                     </tr>
                     <tr>
                         <td>Platform Size</td>
-                        <td><Unit type={urlUnit}>{elevator['cab-width']}</Unit></td>
-                        <td><Unit type={urlUnit}>{elevator['cab-depth']}</Unit></td>
+                        <td><Unit type={urlUnit}>{overallWidth}</Unit></td>
+                        <td><Unit type={urlUnit}>{overallDepth}</Unit></td>
                     </tr>
                 </tbody>
             </table>

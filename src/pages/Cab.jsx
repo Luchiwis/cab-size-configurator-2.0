@@ -25,6 +25,8 @@ export function Cab() {
     const [height, setHeight] = useState(0);
     const [defaultWidth, setDefaultWidth] = useState(undefined);
     const [defaultDepth, setDefaultDepth] = useState(undefined);
+    const [hoistwayWidth, setHoistwayWidth] = useState(0);
+    const [hoistwayDepth, setHoistwayDepth] = useState(0);
 
     const inputHandler = (e) => {
         if (e.target.id == 'cab-width') {
@@ -38,7 +40,15 @@ export function Cab() {
 
     //first render
     useEffect(() => {
-        const objects = filterObjects(elevatorParams);
+        let filterParams;
+        if (elevatorParams['hoistway-width'] || elevatorParams['hoistway-depth']) {
+            setHoistwayWidth(elevatorParams['hoistway-width']);
+            setHoistwayDepth(elevatorParams['hoistway-depth']);
+            filterParams = {...elevatorParams, 'hoistway-width': undefined, 'hoistway-depth': undefined};
+        } else {
+            filterParams = elevatorParams;
+        }
+        const objects = filterObjects(filterParams);
         const gotRanges = getRanges(objects);
         setMinWidth(gotRanges.minOverallWidth);
         setMaxWidth(gotRanges.maxOverallWidth);

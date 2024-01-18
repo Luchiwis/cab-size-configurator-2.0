@@ -17,6 +17,8 @@ export const PRETTIFY = {
     'C':'C (front + side)',
     'D':'D (front + side)',
     'E':'E (front + rails on back wall)',
+    'hoistway-width': 'Hoistway Width',
+    'hoistway-depth': 'Hoistway Depth',
 }
 
 export const unitSymbols = {

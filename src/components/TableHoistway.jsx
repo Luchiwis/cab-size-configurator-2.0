@@ -1,5 +1,5 @@
 // hooks
-import { useEffect, useState, useContext } from 'react';
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useConvertFrom } from '/hooks/Units';
 import { useAddRestrictions } from '/hooks/useAddRestrictions';
@@ -20,12 +20,13 @@ export function TableHoistway({ hoistwayWidth, hoistwayDepth, model, type, door 
     hoistwayDepth = useConvertFrom(hoistwayDepth, 'in');
     hoistwayWidth = Number(hoistwayWidth);
     hoistwayDepth = Number(hoistwayDepth);
+
     useEffect(() => {
         let filtered = filterHoistwayInRange(hoistwayWidth, hoistwayDepth, model, type, door);
         setGuide(
             filtered.map((elevator, index) => {
                 const { model, type, door, landing } = elevator;
-                const redirecturl = `/cab?model=${model}&type=${type}&door=${door}${landing ? '&landing=on' : ''}`
+                const redirecturl = `/cab?model=${model}&type=${type}&door=${door}&hoistway-width=${hoistwayWidth}&hoistway-depth=${hoistwayDepth}${landing ? '&landing=on' : ''}`
                 const cabDeduction = calculate.overall(elevator.model, elevator.type, hoistwayWidth, hoistwayDepth);
                 let maxWidth, maxDepth;
 
