@@ -60,7 +60,7 @@ export function Hoistway() {
                         <div className="col">
                             <label htmlFor="model">Model:</label>
                             <select className="form-select" name="model" id="model" onChange={inputHandler}>
-                                <option defaultValue="">Any</option>
+                                <option value="">Any</option>
                                 <option value="panorama">{prettify('panorama')}</option>
                                 <option value="renaissance">{prettify('renaissance')}</option>
                                 <option value="legacy">{prettify('legacy')}</option>
@@ -69,7 +69,7 @@ export function Hoistway() {
                         <div className="col">
                             <label htmlFor="type">Type:</label>
                             <select className="form-select" name="type" id="type" onChange={inputHandler}>
-                                <option defaultValue="">Any</option>
+                                <option value="">Any</option>
                                 <option value="A">{prettify('A')}</option>
                                 <option value="B">{prettify('B')}</option>
                                 <option value="C">{prettify('C')}</option>
@@ -81,7 +81,7 @@ export function Hoistway() {
                         <div className="col">
                             <label htmlFor="door">Door:</label>
                             <select className="form-select" name="door" id="door" onChange={inputHandler}>
-                                <option defaultValue="">Any</option>
+                                <option value="">Any</option>
                                 <option value="accordion">{prettify('accordion')}</option>
                                 <option value="bifold">{prettify('bifold')}</option>
                                 <option value="2speed">{prettify('2speed')}</option>

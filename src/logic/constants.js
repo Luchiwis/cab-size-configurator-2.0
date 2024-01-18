@@ -48,15 +48,15 @@ export const restrictedDoorCombos = [
     },
     {
         model: 'legacy',
-        type: 'C',
-        restrictions: 'bifold',
-        message: `${PRETTIFY["bifold"]} doors are not available on the ${PRETTIFY['legacy']} model on type C`
-    },
-    {
-        model: 'legacy',
         type: 'D',
         restrictions: 'bifold',
         message: `${PRETTIFY["bifold"]} doors are not available on the ${PRETTIFY['legacy']} model on type D`
+    },
+    {
+        model: 'legacy',
+        type: 'C',
+        restrictions: 'bifold',
+        message: `${PRETTIFY["bifold"]} doors are not available on the ${PRETTIFY['legacy']} model on type C`
     },
     {
         model: 'legacy',

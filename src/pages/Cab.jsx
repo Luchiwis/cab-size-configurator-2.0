@@ -12,8 +12,6 @@ import { TableCab } from "/src/components/TableCab"
 
 //scripts
 import { filterObjects, getRanges } from "/src/logic/dbManager"
-import { prettify } from '/src/logic/prettify';
-
 
 export function Cab() {
     const [restrictions, addRestriction, resetRestrictions] = useAddRestrictions();
@@ -114,7 +112,7 @@ export function Cab() {
                                     required />
                             </div>
                         </div>
-                        <div className="row">
+                        <div className="row mt-2">
                             <label className="form-label col-6 m-auto">Height:
                                 <select className="form-select form-select-sm text-center mx-auto" aria-label=".form-select-sm example" name="cab-height" required onChange={inputHandler}>
                                     <option value='' defaultValue>Select Height</option>

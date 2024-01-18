@@ -43,10 +43,10 @@ export function TableHoistway({ hoistwayWidth, hoistwayDepth, model, type, door 
 
                 // B,C,D cannot exceed in depth, E cannot exceed in width
                 if ((['E'].includes(elevator.type)) && hoistwayWidth > elevator.maxHoistwayWidth) {
-                    maxWidth = `type: ${elevator.type} cannot exceed in width (max: ${elevator.maxHoistwayWidth}in)`;
+                    maxWidth = `type: ${elevator.type} cannot exceed in width (max: ${elevator.maxHoistwayWidth}")`;
                     // return null
                 } else if ((['B', 'C', 'D'].includes(elevator.type)) && hoistwayDepth > elevator.maxHoistwayDepth) {
-                    maxDepth = `type: ${elevator.type} cannot exceed in depth (max: ${elevator.maxHoistwayDepth}in)`;
+                    maxDepth = `type: ${elevator.type} cannot exceed in depth (max: ${elevator.maxHoistwayDepth}")`;
                     // return null
                 }
 
@@ -66,6 +66,7 @@ export function TableHoistway({ hoistwayWidth, hoistwayDepth, model, type, door 
         )
     }, [hoistwayWidth, hoistwayDepth, model, type, door]);
 
+    //restrictions
     useEffect(() => {
         if (guide.length == 0 && Number(hoistwayWidth) && Number(hoistwayDepth)) {
             addRestriction('For more information, please consult factory.');

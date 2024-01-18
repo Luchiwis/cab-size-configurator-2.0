@@ -13,15 +13,17 @@ import { prettify } from '/src/logic/prettify.js';
 function DoorButton({ name, value, children, elevatorData, setDoor }) {
     const [restrictions, addRestriction, resetRestrictions] = useAddRestrictions();
     const [disabled, setDisabled] = useState(false);
+
+
     const doorRestriction = ({ door, type, model }) => {
         //return true if the door is restricted
         for (const combo of restrictedDoorCombos) {
             if (door == combo.restrictions) {
-                if (combo.type && combo.model) {
-                    return (type == combo.type && model == combo.model) ? combo : false;
-                } else if (combo.type && type == combo.type) {
+                if ((combo.type && combo.model) && (type == combo.type && model == combo.model)) { // both match
                     return combo;
-                } else if (combo.model && model == combo.model) {
+                } else if ((!combo.model && combo.type) && (type == combo.type)) {  // only type matches
+                    return combo;
+                } else if ((combo.model && !combo.type) && (model == combo.model)) { // only model matches
                     return combo;
                 }
             }
