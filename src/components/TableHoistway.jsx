@@ -26,7 +26,8 @@ export function TableHoistway({ hoistwayWidth, hoistwayDepth, model, type, door 
         setGuide(
             filtered.map((elevator, index) => {
                 const { model, type, door, landing } = elevator;
-                const redirecturl = `/cab?model=${model}&type=${type}&door=${door}&hoistway-width=${hoistwayWidth}&hoistway-depth=${hoistwayDepth}${landing ? '&landing=on' : ''}`
+                let redirecturl = `/cab?model=${model}&type=${type}&door=${door}${landing ? '&landing=on' : ''}`
+                if (hoistwayWidth && hoistwayDepth) {redirecturl += `&hoistway-width=${hoistwayWidth}&hoistway-depth=${hoistwayDepth}`}
                 const cabDeduction = calculate.overall(elevator.model, elevator.type, hoistwayWidth, hoistwayDepth);
                 let maxWidth, maxDepth;
 
