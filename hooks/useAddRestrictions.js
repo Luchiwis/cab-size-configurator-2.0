@@ -6,7 +6,11 @@ export function useAddRestrictions() {
 
     function addRestrictions(newRestrictions) {
         setRestrictions((prevRestrictions) => {
-            return [...prevRestrictions, newRestrictions];
+            // avoid duplicates
+            if (prevRestrictions.includes(newRestrictions)) {
+                return prevRestrictions;
+            }
+            return ([...prevRestrictions, newRestrictions]);
         });
     }
 

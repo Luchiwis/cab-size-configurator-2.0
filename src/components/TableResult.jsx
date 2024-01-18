@@ -11,7 +11,7 @@ import { Unit } from "/src/components/Unit";
 import * as calculate from '/src/logic/sizeCalculation';
 
 
-export function TableFinish({ elevator, setOverhead, setPit }) {
+export function TableResult({ elevator, setOverhead, setPit }) {
     const DEFAULT_SYMBOL = "-"
     const [innerWidth, setInnerWidth] = useState(DEFAULT_SYMBOL);
     const [innerDepth, setInnerDepth] = useState(DEFAULT_SYMBOL);

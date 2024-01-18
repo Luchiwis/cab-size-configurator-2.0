@@ -19,7 +19,7 @@ header{
 }
 
 .underlineshadow{
-    text-shadow: #7b7979 0 10px 20px;
+    text-shadow: #7b7979 0 5px 10px;
 }
 
 /* read-only */
@@ -82,4 +82,14 @@ h1.display-4:hover{
 /* result */
 .shareSeciton > button {
     margin:5px
+}
+
+td, th{
+    text-align: center;
+}
+
+td{
+    border-right: #d8d8d8 1px solid;
+    border-left: #d8d8d8 1px solid;
+
 }

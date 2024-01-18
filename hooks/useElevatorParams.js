@@ -1,5 +1,8 @@
+// hooks
 import { useSearchParams } from "react-router-dom";
-import { doors, models, landing } from "/src/logic/constants.js";
+
+// logic 
+import { prettify } from '/src/logic/prettify';
 
 export function useElevatorParams(readable = false) {
     // Get the search params from the URL and return them as an object
@@ -13,13 +16,9 @@ export function useElevatorParams(readable = false) {
             params[key] = false;
         }
 
-        //replace "accordion" with "accordion"
-        if (key === "door" && readable) {
-            params[key] = doors[params[key]];
-        } else if (key === "model" && readable) {
-            params[key] = models[params[key]];
-        } else if (key === "landing" && readable) {
-            params[key] = landing[params[key]];
+        //replace with readable values if requested
+        if (readable) {
+            params[key] = prettify(params[key]);
         }
     }
     return params;

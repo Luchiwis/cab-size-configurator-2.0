@@ -12,10 +12,10 @@ export function useConvertTo(value, from='in') {
     const [globalUnit, setGlobalUnit] = useContext(UnitContext);
     if (isNaN(value)) {
         return value;
-    } else if (type == 'in' && globalUnit == 'mm') {
+    } else if (from == 'in' && globalUnit == 'mm') {
         return Math.round(inchesToMillimeters(value))
     }
-    else if (type == 'mm' && globalUnit == 'in') {
+    else if (from == 'mm' && globalUnit == 'in') {
         return millimetersToInches(value).toFixed(2)
     } else {
         return value

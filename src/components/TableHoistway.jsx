@@ -10,14 +10,14 @@ import { Unit } from "/src/components/Unit";
 // scripts
 import * as calculate from '/src/logic/sizeCalculation';
 import { filterHoistwayInRange } from '/src/logic/dbManager';
-import { doors, models, landing as landings } from '/src/logic/constants';
+import { prettify } from '/src/logic/prettify';
 
 export function TableHoistway({ hoistwayWidth, hoistwayDepth, model, type, door }) {
     const [restrictions, addRestriction, resetRestrictions] = useAddRestrictions();
     const [guide, setGuide] = useState([]);
     const navigate = useNavigate();
-    hoistwayWidth = useConvertFrom(hoistwayWidth, to='in');
-    hoistwayDepth = useConvertFrom(hoistwayDepth, to='in');
+    hoistwayWidth = useConvertFrom(hoistwayWidth, 'in');
+    hoistwayDepth = useConvertFrom(hoistwayDepth, 'in');
     hoistwayWidth = Number(hoistwayWidth);
     hoistwayDepth = Number(hoistwayDepth);
     useEffect(() => {
@@ -53,10 +53,10 @@ export function TableHoistway({ hoistwayWidth, hoistwayDepth, model, type, door 
 
                 return (
                     <tr className='hoistwayRow' key={index} onClick={() => { navigate(redirecturl) }}>
-                        <td>{models[model]}</td>
-                        <td>{type}</td>
-                        <td>{doors[door]}</td>
-                        <td>{landings[landing]}</td>
+                        <td>{prettify(model)}</td>
+                        <td>{prettify(type)}</td>
+                        <td>{prettify(door)}</td>
+                        <td>{prettify(landing)}</td>
                         <td><Unit type='in'>{maxWidth}</Unit></td>
                         <td><Unit type='in'>{maxDepth}</Unit></td>
                     </tr>

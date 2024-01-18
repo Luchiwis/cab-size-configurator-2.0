@@ -1,18 +1,22 @@
-export const doors = {
+export const PRETTIFY = {
     'accordion': 'Accordion',
     'bifold': 'Bi-Fold',
-    '3speed': '3 Speed sliding',
-    '2speed': '2 Speed sliding',
-}
-export const models = {
-    'legacy': 'Legacy',
+    '3speed': '3 Speed Sliding',
+    '2speed': '2 Speed Sliding',
+    'legacy': 'Electric Drum',
     'panorama': 'Panorama',
-    'renaissance': 'Renaissance',
-}
-
-export const landing = {
+    'renaissance': 'Roped Hydraulic',
     false: 'No',
     true: 'Yes',
+    'model': 'Model',
+    'type': 'Type',
+    'landing': 'Landing Door',
+    'door': 'Door Type',
+    'A': 'A (front only)',
+    'B':'B (front + rear)',
+    'C':'C (front + side)',
+    'D':'D (front + side)',
+    'E':'E (front + rails on back wall)',
 }
 
 export const unitSymbols = {
@@ -25,43 +29,43 @@ export const restrictedDoorCombos = [
     {
         type: 'C',
         restrictions: '2speed',
-        message: '2 speed sliding doors are not available for type C'
+        message: `${PRETTIFY["2speed"]} and ${PRETTIFY["3speed"]} doors are not available for elevator type C`
     },
     {
         type: 'C',
         restrictions: '3speed',
-        message: '3 speed sliding doors are not available for type C'
+        message: `${PRETTIFY["2speed"]} and ${PRETTIFY["3speed"]} doors are not available for elevator type C`
     },
     {
         type: 'D',
         restrictions: '2speed',
-        message: '2 speed sliding doors are not available for type D'
+        message: `${PRETTIFY["2speed"]} and ${PRETTIFY["3speed"]} doors are not available for elevator type D`
     },
     {
         type: 'D',
         restrictions: '3speed',
-        message: '3 speed sliding doors are not available for type D'
+        message: `${PRETTIFY["2speed"]} and ${PRETTIFY["3speed"]} doors are not available for elevator type D`
     },
     {
         model: 'legacy',
         type: 'C',
         restrictions: 'bifold',
-        message: 'Bi-fold doors are not available on the Legacy model on type C'
+        message: `${PRETTIFY["bifold"]} doors are not available on the ${PRETTIFY['legacy']} model on type C`
     },
     {
         model: 'legacy',
         type: 'D',
         restrictions: 'bifold',
-        message: 'Bi-fold doors are not available on the Legacy model on type D'
+        message: `${PRETTIFY["bifold"]} doors are not available on the ${PRETTIFY['legacy']} model on type D`
     },
     {
         model: 'legacy',
         restrictions: '2speed',
-        message: '2 speed sliding doors are not available on the Legacy model'
+        message: `${PRETTIFY["2speed"]} and ${PRETTIFY["3speed"]} doors are not available on the ${PRETTIFY['legacy']} model`
     },
     {
         model: 'legacy',
         restrictions: '3speed',
-        message: '3 speed sliding doors are not available on the Legacy model'
+        message: `${PRETTIFY["2speed"]} and ${PRETTIFY["3speed"]} doors are not available on the ${PRETTIFY['legacy']} model`
     }
 ]

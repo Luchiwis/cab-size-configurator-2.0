@@ -8,6 +8,7 @@ import { FormPrepend } from '/src/components/FormPrepend.jsx';
 
 // scripts
 import { restrictedDoorCombos } from '/src/logic/constants.js';
+import { prettify } from '/src/logic/prettify.js';
 
 function DoorButton({ name, value, children, elevatorData, setDoor }) {
     const [restrictions, addRestriction, resetRestrictions] = useAddRestrictions();
@@ -89,10 +90,10 @@ export function Door() {
                     <h1 className="display-4">Select the type of door</h1>
                     <FormPrepend action="cab">
                         <div className="sect" id="sect-door">
-                            <DoorButton name="door" value="accordion" elevatorData={elevatorData} setDoor={setDoor}>Accordion</DoorButton>
-                            <DoorButton name="door" value="bifold" elevatorData={elevatorData} setDoor={setDoor}>Bifold</DoorButton>
-                            <DoorButton name="door" value="2speed" elevatorData={elevatorData} setDoor={setDoor}>2 speed sliding</DoorButton>
-                            <DoorButton name="door" value="3speed" elevatorData={elevatorData} setDoor={setDoor}>3 speed sliding</DoorButton>
+                            <DoorButton name="door" value="accordion" elevatorData={elevatorData} setDoor={setDoor}>{prettify('accordion')}</DoorButton>
+                            <DoorButton name="door" value="bifold" elevatorData={elevatorData} setDoor={setDoor}>{prettify('bifold')}</DoorButton>
+                            <DoorButton name="door" value="2speed" elevatorData={elevatorData} setDoor={setDoor}>{prettify('2speed')}</DoorButton>
+                            <DoorButton name="door" value="3speed" elevatorData={elevatorData} setDoor={setDoor}>{prettify('3speed')}</DoorButton>
 
                             <hr className="w-50 m-auto my-3" />
 

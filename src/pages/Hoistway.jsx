@@ -6,6 +6,8 @@ import { TableHoistway } from "/src/components/TableHoistway";
 import { UnitSwitch } from "/src/components/UnitSwitch";
 import { Unit } from "/src/components/Unit";
 
+// scripts
+import { prettify } from "/src/logic/prettify";
 
 export function Hoistway() {
     const [hoistwayWidth, setHoistwayWidth] = useState(0);
@@ -39,7 +41,6 @@ export function Hoistway() {
                             <label htmlFor="width" className="form-label">Width <br />
                                 <span id="width-label" className="text-muted">
                                     Minimum: <Unit type='in'>49.5</Unit>
-                                    {/* |max: <Unit type='in'>76.5</Unit> */}
                                 </span>
                             </label>
                             <input type="number" id="width" name="width" step="0.25"
@@ -49,7 +50,6 @@ export function Hoistway() {
                             <label htmlFor="depth" className="form-label">Depth <br />
                                 <span id="depth-label" className="text-muted">
                                     Minimum: <Unit type='in'>50.25</Unit>
-                                    {/* |max: <Unit type='in'>92.5</Unit> */}
                                 </span>
                             </label>
                             <input type="number" id="depth" name="depth" step="0.25"
@@ -60,32 +60,32 @@ export function Hoistway() {
                         <div className="col">
                             <label htmlFor="model">Model:</label>
                             <select className="form-select" name="model" id="model" onChange={inputHandler}>
-                                <option defaultValue=""></option>
-                                <option value="panorama">Panorama</option>
-                                <option value="renaissance">Renaissance</option>
-                                <option value="legacy">Legacy Volt</option>
+                                <option defaultValue="">Any</option>
+                                <option value="panorama">{prettify('panorama')}</option>
+                                <option value="renaissance">{prettify('renaissance')}</option>
+                                <option value="legacy">{prettify('legacy')}</option>
                             </select>
                         </div>
                         <div className="col">
                             <label htmlFor="type">Type:</label>
                             <select className="form-select" name="type" id="type" onChange={inputHandler}>
-                                <option defaultValue=""></option>
-                                <option value="A">A (front only)</option>
-                                <option value="B">B (front + rear)</option>
-                                <option value="C">C (front + side)</option>
-                                <option value="D">D (front + side)</option>
-                                <option value="E">E (front + rails on back wall)</option>
+                                <option defaultValue="">Any</option>
+                                <option value="A">{prettify('A')}</option>
+                                <option value="B">{prettify('B')}</option>
+                                <option value="C">{prettify('C')}</option>
+                                <option value="D">{prettify('D')}</option>
+                                <option value="E">{prettify('E')}</option>
                             </select>
 
                         </div>
                         <div className="col">
                             <label htmlFor="door">Door:</label>
                             <select className="form-select" name="door" id="door" onChange={inputHandler}>
-                                <option defaultValue=""></option>
-                                <option value="accordion">Accordion</option>
-                                <option value="bifold">Bi-Fold</option>
-                                <option value="2speed">2 Speed Sliding</option>
-                                <option value="3speed">3 Speed Sliding</option>
+                                <option defaultValue="">Any</option>
+                                <option value="accordion">{prettify('accordion')}</option>
+                                <option value="bifold">{prettify('bifold')}</option>
+                                <option value="2speed">{prettify('2speed')}</option>
+                                <option value="3speed">{prettify('3speed')}</option>
                             </select>
                         </div>
                     </div>

@@ -12,6 +12,8 @@ import { TableCab } from "/src/components/TableCab"
 
 //scripts
 import { filterObjects, getRanges } from "/src/logic/dbManager"
+import { prettify } from '/src/logic/prettify';
+
 
 export function Cab() {
     const [restrictions, addRestriction, resetRestrictions] = useAddRestrictions();
@@ -73,17 +75,18 @@ export function Cab() {
                     <FormPrepend action="result">
                         <UnitSwitch />
                         <div className="row">
-                            <div className="col-md-6">
+                            <div className="col-lg-6">
                                 <label htmlFor="cab-width" className="form-label">
                                     Width: <br />
-                                    Minimum: <Unit type='in'>{minWidth}</Unit>|
+                                    Minimum: <Unit type='in'>{minWidth}</Unit>
+                                    &nbsp;
                                     Maximum: <Unit type='in'>{maxWidth}</Unit>
                                 </label>
                                 <input type="number"
                                     id="cab-width"
                                     name="cab-width"
-                                    min={useConvertTo(minWidth, from='in')}
-                                    max={useConvertTo(maxWidth, from='in')}
+                                    min={useConvertTo(minWidth, 'in')}
+                                    max={useConvertTo(maxWidth, 'in')}
                                     step="0.01"
                                     className="form-control text-center"
                                     onChange={inputHandler}
@@ -91,17 +94,18 @@ export function Cab() {
                                     defaultValue={defaultWidth || ''}
                                     required />
                             </div>
-                            <div className="col-md-6">
+                            <div className="col-lg-6">
                                 <label htmlFor="cab-depth" className="form-label">
                                     Depth: <br />
-                                    Minimum: <Unit type='in'>{minDepth}</Unit>|
+                                    Minimum: <Unit type='in'>{minDepth}</Unit>
+                                    &nbsp;
                                     Maximum: <Unit type='in'>{maxDepth}</Unit>
                                 </label>
                                 <input type="number"
                                     id="cab-depth"
                                     name="cab-depth"
-                                    min={useConvertTo(minDepth, from='in')}
-                                    max={useConvertTo(maxDepth, from='in')}
+                                    min={useConvertTo(minDepth, 'in')}
+                                    max={useConvertTo(maxDepth, 'in')}
                                     step="0.01"
                                     className="form-control text-center"
                                     onChange={inputHandler}
@@ -131,12 +135,12 @@ export function Cab() {
 
                         <div className="text-center my-3">
                             <TableCab
-                                width={minWidth == maxWidth ? useConvertTo(inputWidth, from='in') : inputWidth}
-                                depth={minDepth == maxDepth ? useConvertTo(inputDepth, from='in') : inputDepth}
-                                minWidth={useConvertTo(minWidth, from='in')}
-                                maxWidth={useConvertTo(maxWidth, from='in')}
-                                minDepth={useConvertTo(minDepth, from='in')}
-                                maxDepth={useConvertTo(maxDepth, from='in')}
+                                width={minWidth == maxWidth ? useConvertTo(inputWidth, 'in') : inputWidth}
+                                depth={minDepth == maxDepth ? useConvertTo(inputDepth, 'in') : inputDepth}
+                                minWidth={useConvertTo(minWidth, 'in')}
+                                maxWidth={useConvertTo(maxWidth, 'in')}
+                                minDepth={useConvertTo(minDepth, 'in')}
+                                maxDepth={useConvertTo(maxDepth, 'in')}
                                 elevatorData={elevatorParams} />
                         </div>
                         <input type="submit" value="Next" className="btn btn-primary" />

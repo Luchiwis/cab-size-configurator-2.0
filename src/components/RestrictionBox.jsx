@@ -2,12 +2,13 @@
 import { EmailConsult } from "./Email"
 
 // hooks
-import { createContext, useState } from "react"
+import { createContext, useState, useEffect } from "react"
 
 export const RestrictionContext = createContext()
 
 export function RestrictionBox({ children }) {
     const [restrictions, setRestrictions] = useState([])
+    
     return (
         <>
             <RestrictionContext.Provider value={[restrictions, setRestrictions]}>
