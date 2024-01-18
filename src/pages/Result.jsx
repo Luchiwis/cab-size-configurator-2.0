@@ -50,7 +50,7 @@ export function Result() {
                         <div className="shareSeciton my-4 no-print d-flexbox">
                             <ButtonCopyURL>Copy URL</ButtonCopyURL>
                             <ButtonSavePDF>Save as PDF</ButtonSavePDF>
-                            <ButtonEmailShare>Send as email</ButtonEmailShare>
+                            <ButtonEmailShare elevatorParams={elevatorParams}>Send as email</ButtonEmailShare>
                             <ButtonElevatorInfo model={elevatorParams.model}>See elevator model information</ButtonElevatorInfo>
                         </div>
                     </div>

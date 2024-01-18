@@ -1,12 +1,7 @@
-// hooks
-import { useAddRestrictions } from '/hooks/useAddRestrictions.js';
-
 // components
 import { Link } from 'react-router-dom';
 
 export function Home() {
-    const [restrictions, addRestriction, resetRestrictions] = useAddRestrictions();
-
     return (
         <main>
             <section className="text-center">

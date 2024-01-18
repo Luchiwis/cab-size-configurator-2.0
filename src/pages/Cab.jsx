@@ -14,7 +14,7 @@ import { TableCab } from "/src/components/TableCab"
 import { filterObjects, getRanges } from "/src/logic/dbManager"
 
 export function Cab() {
-    const [restrictions, addRestriction, resetRestrictions] = useAddRestrictions();
+    const [, addRestriction, resetRestrictions] = useAddRestrictions();
     const elevatorParams = useElevatorParams();
     const [inputWidth, setinputWidth] = useState(0);
     const [inputDepth, setinputDepth] = useState(0);
@@ -25,8 +25,6 @@ export function Cab() {
     const [height, setHeight] = useState(0);
     const [defaultWidth, setDefaultWidth] = useState(undefined);
     const [defaultDepth, setDefaultDepth] = useState(undefined);
-    const [hoistwayWidth, setHoistwayWidth] = useState(0);
-    const [hoistwayDepth, setHoistwayDepth] = useState(0);
 
     const inputHandler = (e) => {
         if (e.target.id == 'cab-width') {
@@ -42,8 +40,6 @@ export function Cab() {
     useEffect(() => {
         let filterParams;
         if (elevatorParams['hoistway-width'] || elevatorParams['hoistway-depth']) {
-            setHoistwayWidth(elevatorParams['hoistway-width']);
-            setHoistwayDepth(elevatorParams['hoistway-depth']);
             filterParams = {...elevatorParams, 'hoistway-width': undefined, 'hoistway-depth': undefined};
         } else {
             filterParams = elevatorParams;
@@ -99,7 +95,7 @@ export function Cab() {
                                     className="form-control text-center"
                                     onChange={inputHandler}
                                     readOnly={minWidth == maxWidth ? true : false}
-                                    defaultValue={defaultWidth || ''}
+                                    defaultValue={useConvertTo(defaultWidth, 'in') || ''}
                                     required />
                             </div>
                             <div className="col-lg-6">
@@ -118,7 +114,7 @@ export function Cab() {
                                     className="form-control text-center"
                                     onChange={inputHandler}
                                     readOnly={minDepth == maxDepth ? true : false}
-                                    defaultValue={defaultDepth || ''}
+                                    defaultValue={useConvertTo(defaultDepth, 'in') || ''}
                                     required />
                             </div>
                         </div>
@@ -143,8 +139,8 @@ export function Cab() {
 
                         <div className="text-center my-3">
                             <TableCab
-                                width={minWidth == maxWidth ? useConvertTo(inputWidth, 'in') : inputWidth}
-                                depth={minDepth == maxDepth ? useConvertTo(inputDepth, 'in') : inputDepth}
+                                width={useConvertTo(inputWidth, 'in')}
+                                depth={useConvertTo(inputDepth, 'in')}
                                 minWidth={useConvertTo(minWidth, 'in')}
                                 maxWidth={useConvertTo(maxWidth, 'in')}
                                 minDepth={useConvertTo(minDepth, 'in')}

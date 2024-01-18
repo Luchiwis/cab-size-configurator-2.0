@@ -11,7 +11,7 @@ import { restrictedDoorCombos } from '/src/logic/constants.js';
 import { prettify } from '/src/logic/prettify.js';
 
 function DoorButton({ name, value, children, elevatorData, setDoor }) {
-    const [restrictions, addRestriction, resetRestrictions] = useAddRestrictions();
+    const [ , addRestriction, resetRestrictions] = useAddRestrictions();
     const [disabled, setDisabled] = useState(false);
 
 
