@@ -2,7 +2,7 @@
   "name": "cab-size-configurator",
   "homepage": "https://merry-baklava-57b9d1.netlify.app/",
   "private": true,
-  "version": "2.1.0",
+  "version": "2.2.0",
   "type": "module",
   "scripts": {
     "dev": "vite",

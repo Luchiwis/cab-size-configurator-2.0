@@ -21,7 +21,7 @@ export function HistoryArrow({ action = 'back' }) {
     }, [action])
 
     return (
-        <button className="btn btn-outline-secondary"
+        <button className="btn btn-primary"
             onClick={() => {
                 if (action == 'back') {
                     (window.history.back())

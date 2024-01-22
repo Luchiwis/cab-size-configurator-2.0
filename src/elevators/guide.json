@@ -11,7 +11,8 @@
         "maxHoistwayWidth": 61.0,
         "maxHoistwayDepth": 65.5,
         "maxOverallWidth": 48.5,
-        "maxOverallDepth": 61.5
+        "maxOverallDepth": 61.5,
+        "img":"facundolord.jpg"
     },
     {
         "model": "renaissance",

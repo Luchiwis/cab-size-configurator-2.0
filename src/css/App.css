@@ -67,6 +67,7 @@ input[type=number] {
 
 .hoistwayRow:hover{
     border: 2px solid black;
+    cursor: pointer;
 }
 
 h1.display-4:hover{

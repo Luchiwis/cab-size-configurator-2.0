@@ -6,6 +6,7 @@ import { useAddRestrictions } from '/hooks/useAddRestrictions';
 
 // components
 import { Unit } from "/src/components/Unit";
+import { RowModal } from './RowModal';
 
 // scripts
 import * as calculate from '/src/logic/sizeCalculation';
@@ -13,7 +14,7 @@ import { filterHoistwayInRange } from '/src/logic/dbManager';
 import { prettify } from '/src/logic/prettify';
 
 export function TableHoistway({ hoistwayWidth, hoistwayDepth, model, type, door }) {
-    const [restrictions, addRestriction, resetRestrictions] = useAddRestrictions();
+    const [, addRestriction, resetRestrictions] = useAddRestrictions();
     const [guide, setGuide] = useState([]);
     const navigate = useNavigate();
     hoistwayWidth = useConvertFrom(hoistwayWidth, 'in');
@@ -27,7 +28,7 @@ export function TableHoistway({ hoistwayWidth, hoistwayDepth, model, type, door 
             filtered.map((elevator, index) => {
                 const { model, type, door, landing } = elevator;
                 let redirecturl = `/cab?model=${model}&type=${type}&door=${door}${landing ? '&landing=on' : ''}`
-                if (hoistwayWidth && hoistwayDepth) {redirecturl += `&hoistway-width=${hoistwayWidth}&hoistway-depth=${hoistwayDepth}`}
+                if (hoistwayWidth && hoistwayDepth) { redirecturl += `&hoistway-width=${hoistwayWidth}&hoistway-depth=${hoistwayDepth}` }
                 const cabDeduction = calculate.overall(elevator.model, elevator.type, hoistwayWidth, hoistwayDepth);
                 let maxWidth, maxDepth;
 
@@ -54,14 +55,26 @@ export function TableHoistway({ hoistwayWidth, hoistwayDepth, model, type, door 
 
 
                 return (
-                    <tr className='hoistwayRow' key={index} onClick={() => { navigate(redirecturl) }}>
-                        <td>{prettify(model)}</td>
-                        <td>{prettify(type)}</td>
-                        <td>{prettify(door)}</td>
-                        <td>{prettify(landing)}</td>
-                        <td><Unit type='in'>{maxWidth}</Unit></td>
-                        <td><Unit type='in'>{maxDepth}</Unit></td>
-                    </tr>
+                    <>
+                        <tr className='hoistwayRow' key={index} data-bs-toggle="modal" data-bs-target={"#modal" + index}>
+                            <td>{prettify(model)}</td>
+                            <td>{prettify(type)}</td>
+                            <td>{prettify(door)}</td>
+                            <td>{prettify(landing)}</td>
+                            <td><Unit type='in'>{maxWidth}</Unit></td>
+                            <td><Unit type='in'>{maxDepth}</Unit></td>
+                        </tr>
+                        <RowModal key={index} id={"modal" + index} title={'Elevator properties'}>
+                            <ul>
+                                <li>Model: {prettify(model)}</li>
+                                <li>Type: {prettify(type)}</li>
+                                <li>Door: {prettify(door)}</li>
+                                <li>Landing: {prettify(landing)}</li>
+                                <li>Maximum Cab Width: <Unit type='in'>{maxWidth}</Unit></li>
+                                <li>Maximum Cab Depth: <Unit type='in'>{maxDepth}</Unit></li>
+                            </ul>
+                        </RowModal>
+                    </>
                 )
             }
             )
@@ -88,8 +101,8 @@ export function TableHoistway({ hoistwayWidth, hoistwayDepth, model, type, door 
                     <th>Type</th>
                     <th>Door</th>
                     <th>Landing</th>
-                    <th>Max. cab width</th>
-                    <th>Max. cab depth</th>
+                    <th>Maximum Cab Width</th>
+                    <th>Maximum Cab Depth</th>
                 </tr>
             </thead>
 
