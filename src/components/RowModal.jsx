@@ -1,5 +1,5 @@
 
-export function RowModal({ children, id, title }) {
+export function RowModal({ children, id, title, configUrl }) {
     return (
         <div className="modal fade" id={id} tabIndex="-1" aria-labelledby={id+'label'} aria-hidden="true">
             <div className="modal-dialog">
@@ -13,7 +13,7 @@ export function RowModal({ children, id, title }) {
                     </div>
                     <div className="modal-footer">
                         <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="button" className="btn btn-primary">Config elevator cab size</button>
+                        <a type="button" className="btn btn-primary" href={configUrl}>Config elevator cab size</a>
                     </div>
                 </div>
             </div>

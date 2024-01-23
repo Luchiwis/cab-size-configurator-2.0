@@ -1,8 +1,11 @@
 // hooks
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useConvertFrom } from '/hooks/Units';
 import { useAddRestrictions } from '/hooks/useAddRestrictions';
+
+// contexts
+import { UnitContext } from '/src/App';
 
 // components
 import { Unit } from "/src/components/Unit";
@@ -16,7 +19,7 @@ import { prettify } from '/src/logic/prettify';
 export function TableHoistway({ hoistwayWidth, hoistwayDepth, model, type, door }) {
     const [, addRestriction, resetRestrictions] = useAddRestrictions();
     const [guide, setGuide] = useState([]);
-    const navigate = useNavigate();
+    const [unit, setUnit] = useContext(UnitContext);
     hoistwayWidth = useConvertFrom(hoistwayWidth, 'in');
     hoistwayDepth = useConvertFrom(hoistwayDepth, 'in');
     hoistwayWidth = Number(hoistwayWidth);
@@ -28,7 +31,7 @@ export function TableHoistway({ hoistwayWidth, hoistwayDepth, model, type, door 
             filtered.map((elevator, index) => {
                 const { model, type, door, landing } = elevator;
                 let redirecturl = `/cab?model=${model}&type=${type}&door=${door}${landing ? '&landing=on' : ''}`
-                if (hoistwayWidth && hoistwayDepth) { redirecturl += `&hoistway-width=${hoistwayWidth}&hoistway-depth=${hoistwayDepth}` }
+                if (hoistwayWidth && hoistwayDepth) { redirecturl += `&hoistway-width=${hoistwayWidth}&hoistway-depth=${hoistwayDepth}&unit=${unit}` }
                 const cabDeduction = calculate.overall(elevator.model, elevator.type, hoistwayWidth, hoistwayDepth);
                 let maxWidth, maxDepth;
 
@@ -46,17 +49,17 @@ export function TableHoistway({ hoistwayWidth, hoistwayDepth, model, type, door 
 
                 // B,C,D cannot exceed in depth, E cannot exceed in width
                 if ((['E'].includes(elevator.type)) && hoistwayWidth > elevator.maxHoistwayWidth) {
-                    maxWidth = `type: ${elevator.type} cannot exceed in width (max: ${elevator.maxHoistwayWidth}")`;
-                    // return null
+                    // maxWidth = `type: ${elevator.type} cannot exceed in width (max: ${elevator.maxHoistwayWidth}")`;
+                    return null
                 } else if ((['B', 'C', 'D'].includes(elevator.type)) && hoistwayDepth > elevator.maxHoistwayDepth) {
-                    maxDepth = `type: ${elevator.type} cannot exceed in depth (max: ${elevator.maxHoistwayDepth}")`;
-                    // return null
+                    // maxDepth = `type: ${elevator.type} cannot exceed in depth (max: ${elevator.maxHoistwayDepth}")`;
+                    return null
                 }
 
 
                 return (
                     <>
-                        <tr className='hoistwayRow' key={index} data-bs-toggle="modal" data-bs-target={"#modal" + index}>
+                        <tr className='hoistwayRow' key={"tr"+index} data-bs-toggle="modal" data-bs-target={"#modal" + index}>
                             <td>{prettify(model)}</td>
                             <td>{prettify(type)}</td>
                             <td>{prettify(door)}</td>
@@ -64,7 +67,7 @@ export function TableHoistway({ hoistwayWidth, hoistwayDepth, model, type, door 
                             <td><Unit type='in'>{maxWidth}</Unit></td>
                             <td><Unit type='in'>{maxDepth}</Unit></td>
                         </tr>
-                        <RowModal key={index} id={"modal" + index} title={'Elevator properties'}>
+                        <RowModal key={"modal"+index} id={"modal" + index} title={'Elevator properties'} configUrl={redirecturl}>
                             <ul>
                                 <li>Model: {prettify(model)}</li>
                                 <li>Type: {prettify(type)}</li>
@@ -79,7 +82,7 @@ export function TableHoistway({ hoistwayWidth, hoistwayDepth, model, type, door 
             }
             )
         )
-    }, [hoistwayWidth, hoistwayDepth, model, type, door]);
+    }, [hoistwayWidth, hoistwayDepth, model, type, door, unit]);
 
     //restrictions
     useEffect(() => {

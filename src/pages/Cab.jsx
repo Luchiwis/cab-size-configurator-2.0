@@ -38,13 +38,11 @@ export function Cab() {
 
     //first render
     useEffect(() => {
-        let filterParams;
-        if (elevatorParams['hoistway-width'] || elevatorParams['hoistway-depth']) {
-            filterParams = {...elevatorParams, 'hoistway-width': undefined, 'hoistway-depth': undefined};
-        } else {
-            filterParams = elevatorParams;
-        }
+        const filterParams = {...elevatorParams, 'hoistway-width': undefined, 'hoistway-depth': undefined, 'unit': undefined};
+
         const objects = filterObjects(filterParams);
+
+        console.log(objects)
         const gotRanges = getRanges(objects);
         setMinWidth(gotRanges.minOverallWidth);
         setMaxWidth(gotRanges.maxOverallWidth);
