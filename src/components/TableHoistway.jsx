@@ -68,7 +68,7 @@ export function TableHoistway({ hoistwayWidth, hoistwayDepth, model, type, door 
                             <td><Unit type='in'>{maxDepth}</Unit></td>
                         </tr>
                         <RowModal key={"modal"+index} id={"modal" + index} title={'Elevator properties'} configUrl={redirecturl}>
-                        <img src={'/public/img/blueprints/'+elevator['img']} className='w-100 my-3' alt="blueprint of elevator" />
+                        <img src={'/img/blueprints/'+elevator['img']} className='w-100 my-3' alt="blueprint of elevator" />
                             <ul>
                                 <li>Model: {prettify(model)}</li>
                                 <li>Type: {prettify(type)}</li>
