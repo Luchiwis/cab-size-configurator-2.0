@@ -12,7 +12,7 @@
         "maxHoistwayDepth": 65.5,
         "maxOverallWidth": 48.5,
         "maxOverallDepth": 61.5,
-        "img": "Ren-ARight-ACC.jpg"
+        "img":"Ren-ARight-ACC.jpg"
     },
     {
         "model": "renaissance",
@@ -26,8 +26,8 @@
         "maxHoistwayWidth": 61.0,
         "maxHoistwayDepth": 65.5,
         "maxOverallWidth": 48.5,
-        "maxOverallDepth": 61.5,
-        "img": "Ren-ARight-BIF.jpg"
+        "maxOverallDepth": 61.5
+        "img":"Ren-ARight-BIF.jpg"
     },
     {
         "model": "renaissance",
@@ -41,8 +41,8 @@
         "maxHoistwayWidth": 64.5,
         "maxHoistwayDepth": 70.75,
         "maxOverallWidth": 48.75,
-        "maxOverallDepth": 67.0,
-        "img": "Ren-ARight-2speed-C.jpg"
+        "maxOverallDepth": 67.0
+        "img":"Ren-ARight-2speed-C.jpg"
     },
     {
         "model": "renaissance",
@@ -56,8 +56,8 @@
         "maxHoistwayWidth": 67.75,
         "maxHoistwayDepth": 76.75,
         "maxOverallWidth": 48.75,
-        "maxOverallDepth": 67.0,
-        "img": "Ren-ARight-2speed-CH.jpg"
+        "maxOverallDepth": 67.0
+        "img":"Ren-ARight-2speed-CH.jpg"
     },
     {
         "model": "renaissance",
@@ -71,8 +71,8 @@
         "maxHoistwayWidth": 55.5,
         "maxHoistwayDepth": 72.75,
         "maxOverallWidth": 42.5,
-        "maxOverallDepth": 69.0,
-        "img": "Ren-ARight-3speed-C.jpg"
+        "maxOverallDepth": 69.0
+        "img":"Ren-ARight-3speed-C.jpg"
     },
     {
         "model": "renaissance",
@@ -86,8 +86,8 @@
         "maxHoistwayWidth": 62.5,
         "maxHoistwayDepth": 80.25,
         "maxOverallWidth": 42.5,
-        "maxOverallDepth": 69.0,
-        "img": "Ren-ARight-3speed-CH.jpg"
+        "maxOverallDepth": 69.0
+        "img":"Ren-ARight-3speed-CH.jpg"
     },
     {
         "model": "renaissance",
@@ -101,8 +101,8 @@
         "maxHoistwayWidth": 61.0,
         "maxHoistwayDepth": 62.5,
         "maxOverallWidth": 48.5,
-        "maxOverallDepth": 60.0,
-        "img": "Ren-B-ACC.jpg"
+        "maxOverallDepth": 60.0
+        "img":"Ren-B-ACC.jpg"
     },
     {
         "model": "renaissance",
@@ -116,8 +116,8 @@
         "maxHoistwayWidth": 61.0,
         "maxHoistwayDepth": 62.5,
         "maxOverallWidth": 48.5,
-        "maxOverallDepth": 60.0,
-        "img": "Ren-BRight-BIF.jpg"
+        "maxOverallDepth": 60.0
+        "img":"Ren-BRight-BIF.jpg"
     },
     {
         "model": "renaissance",
@@ -131,8 +131,8 @@
         "maxHoistwayWidth": 64.5,
         "maxHoistwayDepth": 73.5,
         "maxOverallWidth": 48.75,
-        "maxOverallDepth": 71.0,
-        "img": "Ren-B-2speed-C.jpg"
+        "maxOverallDepth": 71.0
+        "img":"Ren-B-2speed-C.jpg"
     },
     {
         "model": "renaissance",
@@ -146,8 +146,8 @@
         "maxHoistwayWidth": 67.75,
         "maxHoistwayDepth": 85.5,
         "maxOverallWidth": 48.75,
-        "maxOverallDepth": 71.0,
-        "img": "Ren-B-2speed-CH.jpg"
+        "maxOverallDepth": 71.0
+        "img":"Ren-B-2speed-CH.jpg"
     },
     {
         "model": "renaissance",
@@ -161,8 +161,8 @@
         "maxHoistwayWidth": 55.25,
         "maxHoistwayDepth": 77.5,
         "maxOverallWidth": 42.5,
-        "maxOverallDepth": 75.0,
-        "img": "Ren-B-3speed-C.jpg"
+        "maxOverallDepth": 75.0
+        "img":"Ren-B-3speed-C.jpg"
     },
     {
         "model": "renaissance",
@@ -176,8 +176,8 @@
         "maxHoistwayWidth": 58.5,
         "maxHoistwayDepth": 92.5,
         "maxOverallWidth": 42.5,
-        "maxOverallDepth": 75.0,
-        "img": "Ren-B-3speed-CH.jpg"
+        "maxOverallDepth": 75.0
+        "img":"Ren-B-3speed-CH.jpg"
     },
     {
         "model": "renaissance",
@@ -191,8 +191,8 @@
         "maxHoistwayWidth": 61.5,
         "maxHoistwayDepth": 65.5,
         "maxOverallWidth": 49.5,
-        "maxOverallDepth": 61.5,
-        "img": "Ren-C-ACC.jpg"
+        "maxOverallDepth": 61.5
+        "img":"Ren-C-ACC.jpg"
     },
     {
         "model": "renaissance",
@@ -206,8 +206,8 @@
         "maxHoistwayWidth": 61.5,
         "maxHoistwayDepth": 65.5,
         "maxOverallWidth": 49.5,
-        "maxOverallDepth": 61.5,
-        "img": "Ren-C-BIF.jpg"
+        "maxOverallDepth": 61.5
+        "img":"Ren-C-BIF.jpg"
     },
     {
         "model": "renaissance",
@@ -221,8 +221,8 @@
         "maxHoistwayWidth": 61.5,
         "maxHoistwayDepth": 65.5,
         "maxOverallWidth": 49.5,
-        "maxOverallDepth": 61.5,
-        "img": "Ren-D-ACC.jpg"
+        "maxOverallDepth": 61.5
+        "img":"Ren-D-ACC.jpg"
     },
     {
         "model": "renaissance",
@@ -236,8 +236,8 @@
         "maxHoistwayWidth": 61.5,
         "maxHoistwayDepth": 65.5,
         "maxOverallWidth": 49.5,
-        "maxOverallDepth": 61.5,
-        "img": "Ren-D-BIF.jpg"
+        "maxOverallDepth": 61.5
+        "img":"Ren-D-BIF.jpg"
     },
     {
         "model": "renaissance",
@@ -251,8 +251,8 @@
         "maxHoistwayWidth": 60.5,
         "maxHoistwayDepth": 67.0,
         "maxOverallWidth": 48.5,
-        "maxOverallDepth": 61.5,
-        "img": "Ren-ERight-ACC.jpg"
+        "maxOverallDepth": 61.5
+        "img":"Ren-ERight-ACC.jpg"
     },
     {
         "model": "renaissance",
@@ -266,8 +266,8 @@
         "maxHoistwayWidth": 60.5,
         "maxHoistwayDepth": 67.0,
         "maxOverallWidth": 48.5,
-        "maxOverallDepth": 61.5,
-        "img": "Ren-E-BIF-CE.jpg"
+        "maxOverallDepth": 61.5
+        "img":"Ren-E-BIF-CE.jpg"
     },
     {
         "model": "renaissance",
@@ -281,8 +281,8 @@
         "maxHoistwayWidth": 67.0,
         "maxHoistwayDepth": 64.5,
         "maxOverallWidth": 55.0,
-        "maxOverallDepth": 51.0,
-        "img": "Ren-E-2speed-C.jpg"
+        "maxOverallDepth": 51.0
+       "img":"Ren-E-2speed-C.jpg"
     },
     {
         "model": "renaissance",
@@ -296,8 +296,8 @@
         "maxHoistwayWidth": 73.0,
         "maxHoistwayDepth": 67.75,
         "maxOverallWidth": 55.0,
-        "maxOverallDepth": 51.0,
-        "img": "Ren-E-2speed-CH.jpg"
+        "maxOverallDepth": 51.0
+       "img":"Ren-E-2speed-CH.jpg"
     },
     {
         "model": "renaissance",
@@ -311,8 +311,8 @@
         "maxHoistwayWidth": 69.0,
         "maxHoistwayDepth": 58.5,
         "maxOverallWidth": 57.0,
-        "maxOverallDepth": 51.0,
-        "img": "Ren-e-3speed-C.jpg"
+        "maxOverallDepth": 51.0
+       "img":"Ren-e-3speed-C.jpg"
     },
     {
         "model": "renaissance",
@@ -326,8 +326,8 @@
         "maxHoistwayWidth": 76.5,
         "maxHoistwayDepth": 58.5,
         "maxOverallWidth": 57.0,
-        "maxOverallDepth": 51.0,
-        "img": "Ren-E-3speed-CH.jpg"
+        "maxOverallDepth": 51.0
+       "img":"Ren-E-3speed-CH.jpg"
     },
     {
         "model": "legacy",
@@ -341,8 +341,8 @@
         "maxHoistwayWidth": 58.25,
         "maxHoistwayDepth": 65.5,
         "maxOverallWidth": 45.5,
-        "maxOverallDepth": 61.5,
-        "img": "Leg-ARight-ACC.jpg"
+        "maxOverallDepth": 61.5
+       "img":"Leg-ARight-ACC.jpg"
     },
     {
         "model": "legacy",
@@ -356,8 +356,8 @@
         "maxHoistwayWidth": 54.75,
         "maxHoistwayDepth": 65.5,
         "maxOverallWidth": 41.5,
-        "maxOverallDepth": 61.5,
-        "img": "Leg-ARight-BIF.jpg"
+        "maxOverallDepth": 61.5
+       "img":"Leg-ARight-BIF.jpg"
     },
     {
         "model": "legacy",
@@ -371,8 +371,8 @@
         "maxHoistwayWidth": 58.25,
         "maxHoistwayDepth": 65.5,
         "maxOverallWidth": 45.5,
-        "maxOverallDepth": 61.5,
-        "img": "Leg-B-ACC.jpg"
+        "maxOverallDepth": 61.5
+       "img":"Leg-B-ACC.jpg"
     },
     {
         "model": "legacy",
@@ -386,8 +386,8 @@
         "maxHoistwayWidth": 54.75,
         "maxHoistwayDepth": 62.5,
         "maxOverallWidth": 41.5,
-        "maxOverallDepth": 60.0,
-        "img": "Leg-B-BIF.jpg"
+        "maxOverallDepth": 60.0
+       "img":"Leg-B-BIF.jpg"
     },
     {
         "model": "legacy",
@@ -401,8 +401,8 @@
         "maxHoistwayWidth": 58.25,
         "maxHoistwayDepth": 65.5,
         "maxOverallWidth": 45.5,
-        "maxOverallDepth": 61.5,
-        "img": "Leg-C-ACC.jpg"
+        "maxOverallDepth": 61.5
+       "img":"Leg-C-ACC.jpg"
     },
     {
         "model": "legacy",
@@ -416,8 +416,8 @@
         "maxHoistwayWidth": 58.25,
         "maxHoistwayDepth": 65.5,
         "maxOverallWidth": 45.5,
-        "maxOverallDepth": 61.5,
-        "img": "Leg-D-ACC.jpg"
+        "maxOverallDepth": 61.5
+       "img":"Leg-D-ACC.jpg"
     },
     {
         "model": "legacy",
@@ -431,8 +431,8 @@
         "maxHoistwayWidth": 50.25,
         "maxHoistwayDepth": 67.0,
         "maxOverallWidth": 41.5,
-        "maxOverallDepth": 61.5,
-        "img": "Leg-ERight-ACC.jpg"
+        "maxOverallDepth": 61.5
+       "img":"Leg-ERight-ACC.jpg"
     },
     {
         "model": "legacy",
@@ -446,7 +446,7 @@
         "maxHoistwayWidth": 61.0,
         "maxHoistwayDepth": 55.0,
         "maxOverallWidth": 55.5,
-        "maxOverallDepth": 43.0,
-        "img": "Leg-E-BIF-CE.jpg"
+        "maxOverallDepth": 43.0
+       "img":"Leg-E-BIF-CE.jpg"
     }
 ]

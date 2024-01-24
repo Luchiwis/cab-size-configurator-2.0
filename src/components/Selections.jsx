@@ -12,6 +12,10 @@ export function Selections() {
     useEffect(() => {
         const urlNewInputs = []
         console.log(searchParams.forEach((value, key) => {
+            // don't show unit
+            if (key == 'unit') {
+                return
+            }
             urlNewInputs.push(<li key={key} className="mx-3">{prettify(key)}: {prettify(value)}</li>);
         }))
         setNewInputs(urlNewInputs)
