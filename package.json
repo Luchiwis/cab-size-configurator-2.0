@@ -1,8 +1,8 @@
 {
   "name": "cab-size-configurator",
-  "homepage": "https://merry-baklava-57b9d1.netlify.app/",
+  "homepage": "https://calculator.fesiparts.com/",
   "private": true,
-  "version": "2.2.0",
+  "version": "2.3.0",
   "type": "module",
   "scripts": {
     "dev": "vite",

@@ -9,7 +9,7 @@ export function Footer() {
 
                 <a href="https://federalelevator.com/"
                     className="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
-                    <img src="img/FED ELv logo_clean_cmyk.png" height="50px" alt="" />
+                    <img src="img/fesilogo.jpg" height="50px" alt="" />
                 </a>
 
                 <ul className="nav col-md-4 justify-content-end no-print">
