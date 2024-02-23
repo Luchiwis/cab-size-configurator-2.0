@@ -1,0 +1,452 @@
+[
+    {
+        "model": "renaissance",
+        "type": "A",
+        "door": "accordion",
+        "landing": false,
+        "minHoistwayWidth": 50.0,
+        "minHoistwayDepth": 53.5,
+        "minOverallWidth": 37.5,
+        "minOverallDepth": 49.5,
+        "maxHoistwayWidth": 61.0,
+        "maxHoistwayDepth": 65.5,
+        "maxOverallWidth": 48.5,
+        "maxOverallDepth": 61.5,
+        "img":"Ren-ARight-ACC.jpg"
+    },
+    {
+        "model": "renaissance",
+        "type": "A",
+        "door": "bifold",
+        "landing": false,
+        "minHoistwayWidth": 51.0,
+        "minHoistwayDepth": 53.5,
+        "minOverallWidth": 38.5,
+        "minOverallDepth": 49.5,
+        "maxHoistwayWidth": 61.0,
+        "maxHoistwayDepth": 65.5,
+        "maxOverallWidth": 48.5,
+        "maxOverallDepth": 61.5
+        "img":"Ren-ARight-BIF.jpg"
+    },
+    {
+        "model": "renaissance",
+        "type": "A",
+        "door": "2speed",
+        "landing": false,
+        "minHoistwayWidth": 64.5,
+        "minHoistwayDepth": 58.75,
+        "minOverallWidth": 48.75,
+        "minOverallDepth": 55.0,
+        "maxHoistwayWidth": 64.5,
+        "maxHoistwayDepth": 70.75,
+        "maxOverallWidth": 48.75,
+        "maxOverallDepth": 67.0
+        "img":"Ren-ARight-2speed-C.jpg"
+    },
+    {
+        "model": "renaissance",
+        "type": "A",
+        "door": "2speed",
+        "landing": true,
+        "minHoistwayWidth": 67.75,
+        "minHoistwayDepth": 64.75,
+        "minOverallWidth": 48.75,
+        "minOverallDepth": 55.0,
+        "maxHoistwayWidth": 67.75,
+        "maxHoistwayDepth": 76.75,
+        "maxOverallWidth": 48.75,
+        "maxOverallDepth": 67.0
+        "img":"Ren-ARight-2speed-CH.jpg"
+    },
+    {
+        "model": "renaissance",
+        "type": "A",
+        "door": "3speed",
+        "landing": false,
+        "minHoistwayWidth": 55.5,
+        "minHoistwayDepth": 60.75,
+        "minOverallWidth": 42.5,
+        "minOverallDepth": 57.0,
+        "maxHoistwayWidth": 55.5,
+        "maxHoistwayDepth": 72.75,
+        "maxOverallWidth": 42.5,
+        "maxOverallDepth": 69.0
+        "img":"Ren-ARight-3speed-C.jpg"
+    },
+    {
+        "model": "renaissance",
+        "type": "A",
+        "door": "3speed",
+        "landing": true,
+        "minHoistwayWidth": 58.5,
+        "minHoistwayDepth": 68.25,
+        "minOverallWidth": 42.5,
+        "minOverallDepth": 57.0,
+        "maxHoistwayWidth": 62.5,
+        "maxHoistwayDepth": 80.25,
+        "maxOverallWidth": 42.5,
+        "maxOverallDepth": 69.0
+        "img":"Ren-ARight-3speed-CH.jpg"
+    },
+    {
+        "model": "renaissance",
+        "type": "B",
+        "door": "accordion",
+        "landing": false,
+        "minHoistwayWidth": 50.0,
+        "minHoistwayDepth": 50.5,
+        "minOverallWidth": 37.5,
+        "minOverallDepth": 48.0,
+        "maxHoistwayWidth": 61.0,
+        "maxHoistwayDepth": 62.5,
+        "maxOverallWidth": 48.5,
+        "maxOverallDepth": 60.0
+        "img":"Ren-B-ACC.jpg"
+    },
+    {
+        "model": "renaissance",
+        "type": "B",
+        "door": "bifold",
+        "landing": false,
+        "minHoistwayWidth": 51.0,
+        "minHoistwayDepth": 50.5,
+        "minOverallWidth": 38.5,
+        "minOverallDepth": 48.0,
+        "maxHoistwayWidth": 61.0,
+        "maxHoistwayDepth": 62.5,
+        "maxOverallWidth": 48.5,
+        "maxOverallDepth": 60.0
+        "img":"Ren-BRight-BIF.jpg"
+    },
+    {
+        "model": "renaissance",
+        "type": "B",
+        "door": "2speed",
+        "landing": false,
+        "minHoistwayWidth": 64.5,
+        "minHoistwayDepth": 61.5,
+        "minOverallWidth": 48.75,
+        "minOverallDepth": 59.0,
+        "maxHoistwayWidth": 64.5,
+        "maxHoistwayDepth": 73.5,
+        "maxOverallWidth": 48.75,
+        "maxOverallDepth": 71.0
+        "img":"Ren-B-2speed-C.jpg"
+    },
+    {
+        "model": "renaissance",
+        "type": "B",
+        "door": "2speed",
+        "landing": true,
+        "minHoistwayWidth": 67.75,
+        "minHoistwayDepth": 73.5,
+        "minOverallWidth": 48.75,
+        "minOverallDepth": 59.0,
+        "maxHoistwayWidth": 67.75,
+        "maxHoistwayDepth": 85.5,
+        "maxOverallWidth": 48.75,
+        "maxOverallDepth": 71.0
+        "img":"Ren-B-2speed-CH.jpg"
+    },
+    {
+        "model": "renaissance",
+        "type": "B",
+        "door": "3speed",
+        "landing": false,
+        "minHoistwayWidth": 55.25,
+        "minHoistwayDepth": 65.5,
+        "minOverallWidth": 42.5,
+        "minOverallDepth": 63.0,
+        "maxHoistwayWidth": 55.25,
+        "maxHoistwayDepth": 77.5,
+        "maxOverallWidth": 42.5,
+        "maxOverallDepth": 75.0
+        "img":"Ren-B-3speed-C.jpg"
+    },
+    {
+        "model": "renaissance",
+        "type": "B",
+        "door": "3speed",
+        "landing": true,
+        "minHoistwayWidth": 58.5,
+        "minHoistwayDepth": 80.5,
+        "minOverallWidth": 42.5,
+        "minOverallDepth": 63.0,
+        "maxHoistwayWidth": 58.5,
+        "maxHoistwayDepth": 92.5,
+        "maxOverallWidth": 42.5,
+        "maxOverallDepth": 75.0
+        "img":"Ren-B-3speed-CH.jpg"
+    },
+    {
+        "model": "renaissance",
+        "type": "C",
+        "door": "accordion",
+        "landing": false,
+        "minHoistwayWidth": 54.25,
+        "minHoistwayDepth": 53.5,
+        "minOverallWidth": 42.25,
+        "minOverallDepth": 49.5,
+        "maxHoistwayWidth": 61.5,
+        "maxHoistwayDepth": 65.5,
+        "maxOverallWidth": 49.5,
+        "maxOverallDepth": 61.5
+        "img":"Ren-C-ACC.jpg"
+    },
+    {
+        "model": "renaissance",
+        "type": "C",
+        "door": "bifold",
+        "landing": false,
+        "minHoistwayWidth": 54.0,
+        "minHoistwayDepth": 53.5,
+        "minOverallWidth": 42.0,
+        "minOverallDepth": 49.5,
+        "maxHoistwayWidth": 61.5,
+        "maxHoistwayDepth": 65.5,
+        "maxOverallWidth": 49.5,
+        "maxOverallDepth": 61.5
+        "img":"Ren-C-BIF.jpg"
+    },
+    {
+        "model": "renaissance",
+        "type": "D",
+        "door": "accordion",
+        "landing": false,
+        "minHoistwayWidth": 54.25,
+        "minHoistwayDepth": 53.5,
+        "minOverallWidth": 42.25,
+        "minOverallDepth": 49.5,
+        "maxHoistwayWidth": 61.5,
+        "maxHoistwayDepth": 65.5,
+        "maxOverallWidth": 49.5,
+        "maxOverallDepth": 61.5
+        "img":"Ren-D-ACC.jpg"
+    },
+    {
+        "model": "renaissance",
+        "type": "D",
+        "door": "bifold",
+        "landing": false,
+        "minHoistwayWidth": 54.0,
+        "minHoistwayDepth": 53.5,
+        "minOverallWidth": 42.0,
+        "minOverallDepth": 49.5,
+        "maxHoistwayWidth": 61.5,
+        "maxHoistwayDepth": 65.5,
+        "maxOverallWidth": 49.5,
+        "maxOverallDepth": 61.5
+        "img":"Ren-D-BIF.jpg"
+    },
+    {
+        "model": "renaissance",
+        "type": "E",
+        "door": "accordion",
+        "landing": false,
+        "minHoistwayWidth": 49.5,
+        "minHoistwayDepth": 55.0,
+        "minOverallWidth": 37.5,
+        "minOverallDepth": 49.5,
+        "maxHoistwayWidth": 60.5,
+        "maxHoistwayDepth": 67.0,
+        "maxOverallWidth": 48.5,
+        "maxOverallDepth": 61.5
+        "img":"Ren-ERight-ACC.jpg"
+    },
+    {
+        "model": "renaissance",
+        "type": "E",
+        "door": "bifold",
+        "landing": false,
+        "minHoistwayWidth": 49.5,
+        "minHoistwayDepth": 55.0,
+        "minOverallWidth": 37.5,
+        "minOverallDepth": 49.5,
+        "maxHoistwayWidth": 60.5,
+        "maxHoistwayDepth": 67.0,
+        "maxOverallWidth": 48.5,
+        "maxOverallDepth": 61.5
+        "img":"Ren-E-BIF-CE.jpg"
+    },
+    {
+        "model": "renaissance",
+        "type": "E",
+        "door": "2speed",
+        "landing": false,
+        "minHoistwayWidth": 55.0,
+        "minHoistwayDepth": 64.5,
+        "minOverallWidth": 43.0,
+        "minOverallDepth": 51.0,
+        "maxHoistwayWidth": 67.0,
+        "maxHoistwayDepth": 64.5,
+        "maxOverallWidth": 55.0,
+        "maxOverallDepth": 51.0
+       "img":"Ren-E-2speed-C.jpg"
+    },
+    {
+        "model": "renaissance",
+        "type": "E",
+        "door": "2speed",
+        "landing": true,
+        "minHoistwayWidth": 61.0,
+        "minHoistwayDepth": 67.75,
+        "minOverallWidth": 43.0,
+        "minOverallDepth": 51.0,
+        "maxHoistwayWidth": 73.0,
+        "maxHoistwayDepth": 67.75,
+        "maxOverallWidth": 55.0,
+        "maxOverallDepth": 51.0
+       "img":"Ren-E-2speed-CH.jpg"
+    },
+    {
+        "model": "renaissance",
+        "type": "E",
+        "door": "3speed",
+        "landing": false,
+        "minHoistwayWidth": 57.0,
+        "minHoistwayDepth": 58.5,
+        "minOverallWidth": 45.0,
+        "minOverallDepth": 51.0,
+        "maxHoistwayWidth": 69.0,
+        "maxHoistwayDepth": 58.5,
+        "maxOverallWidth": 57.0,
+        "maxOverallDepth": 51.0
+       "img":"Ren-e-3speed-C.jpg"
+    },
+    {
+        "model": "renaissance",
+        "type": "E",
+        "door": "3speed",
+        "landing": true,
+        "minHoistwayWidth": 64.5,
+        "minHoistwayDepth": 58.5,
+        "minOverallWidth": 45.0,
+        "minOverallDepth": 51.0,
+        "maxHoistwayWidth": 76.5,
+        "maxHoistwayDepth": 58.5,
+        "maxOverallWidth": 57.0,
+        "maxOverallDepth": 51.0
+       "img":"Ren-E-3speed-CH.jpg"
+    },
+    {
+        "model": "legacy",
+        "type": "A",
+        "door": "accordion",
+        "landing": false,
+        "minHoistwayWidth": 55.0,
+        "minHoistwayDepth": 53.5,
+        "minOverallWidth": 42.25,
+        "minOverallDepth": 49.5,
+        "maxHoistwayWidth": 58.25,
+        "maxHoistwayDepth": 65.5,
+        "maxOverallWidth": 45.5,
+        "maxOverallDepth": 61.5
+       "img":"Leg-ARight-ACC.jpg"
+    },
+    {
+        "model": "legacy",
+        "type": "A",
+        "door": "bifold",
+        "landing": false,
+        "minHoistwayWidth": 51.75,
+        "minHoistwayDepth": 53.5,
+        "minOverallWidth": 38.5,
+        "minOverallDepth": 49.5,
+        "maxHoistwayWidth": 54.75,
+        "maxHoistwayDepth": 65.5,
+        "maxOverallWidth": 41.5,
+        "maxOverallDepth": 61.5
+       "img":"Leg-ARight-BIF.jpg"
+    },
+    {
+        "model": "legacy",
+        "type": "B",
+        "door": "accordion",
+        "landing": false,
+        "minHoistwayWidth": 55.0,
+        "minHoistwayDepth": 53.5,
+        "minOverallWidth": 42.25,
+        "minOverallDepth": 49.5,
+        "maxHoistwayWidth": 58.25,
+        "maxHoistwayDepth": 65.5,
+        "maxOverallWidth": 45.5,
+        "maxOverallDepth": 61.5
+       "img":"Leg-B-ACC.jpg"
+    },
+    {
+        "model": "legacy",
+        "type": "B",
+        "door": "bifold",
+        "landing": false,
+        "minHoistwayWidth": 51.75,
+        "minHoistwayDepth": 50.5,
+        "minOverallWidth": 38.5,
+        "minOverallDepth": 48.0,
+        "maxHoistwayWidth": 54.75,
+        "maxHoistwayDepth": 62.5,
+        "maxOverallWidth": 41.5,
+        "maxOverallDepth": 60.0
+       "img":"Leg-B-BIF.jpg"
+    },
+    {
+        "model": "legacy",
+        "type": "C",
+        "door": "accordion",
+        "landing": false,
+        "minHoistwayWidth": 55.0,
+        "minHoistwayDepth": 53.5,
+        "minOverallWidth": 42.25,
+        "minOverallDepth": 49.5,
+        "maxHoistwayWidth": 58.25,
+        "maxHoistwayDepth": 65.5,
+        "maxOverallWidth": 45.5,
+        "maxOverallDepth": 61.5
+       "img":"Leg-C-ACC.jpg"
+    },
+    {
+        "model": "legacy",
+        "type": "D",
+        "door": "accordion",
+        "landing": false,
+        "minHoistwayWidth": 55.0,
+        "minHoistwayDepth": 53.5,
+        "minOverallWidth": 42.25,
+        "minOverallDepth": 49.5,
+        "maxHoistwayWidth": 58.25,
+        "maxHoistwayDepth": 65.5,
+        "maxOverallWidth": 45.5,
+        "maxOverallDepth": 61.5
+       "img":"Leg-D-ACC.jpg"
+    },
+    {
+        "model": "legacy",
+        "type": "E",
+        "door": "accordion",
+        "landing": false,
+        "minHoistwayWidth": 50.25,
+        "minHoistwayDepth": 55.0,
+        "minOverallWidth": 37.5,
+        "minOverallDepth": 49.5,
+        "maxHoistwayWidth": 50.25,
+        "maxHoistwayDepth": 67.0,
+        "maxOverallWidth": 41.5,
+        "maxOverallDepth": 61.5
+       "img":"Leg-ERight-ACC.jpg"
+    },
+    {
+        "model": "legacy",
+        "type": "E",
+        "door": "bifold",
+        "landing": false,
+        "minHoistwayWidth": 55.0,
+        "minHoistwayDepth": 55.0,
+        "minOverallWidth": 49.5,
+        "minOverallDepth": 43.0,
+        "maxHoistwayWidth": 61.0,
+        "maxHoistwayDepth": 55.0,
+        "maxOverallWidth": 55.5,
+        "maxOverallDepth": 43.0
+       "img":"Leg-E-BIF-CE.jpg"
+    }
+]
